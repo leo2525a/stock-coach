@@ -99,3 +99,37 @@ Real-device WKWebView. The simulator GUI would not open this round
 (`open -a Simulator` → app not found; framebuffer stuck on a stale frame), so
 the 62pt result comes from injecting the real inset at the real viewport, not
 from a device screenshot. It is the one link in the chain still open.
+
+---
+
+# Addendum — whole-app pass (item 5)
+
+Walking all 7 screens at 4 breakpoints (`sweep-all-screens.mjs`) found the touch
+minimum breached on **every** phone screen, not only in the sidebar:
+
+| screen | undersized control | was |
+|---|---|---|
+| chart | family tabs | 34px |
+| chart / analysts / dividends | timeframe + period chips | 22–25px |
+| watchlist | add/remove actions, filter chips | 24–34px |
+| analysts / dividends | section toggles | 29px |
+| dashboard | 「喺圖表開啟」 links | 22px |
+| help / signals | call-to-action links | 31–34px |
+| dashboard / chart | TradingView attribution logo | 35px wide |
+
+The first attempt enumerated classes in `responsive.css` and the chips stayed
+22px: `.pf-seg-sm button { min-height: 22px }` is specificity 0,1,1, so a plain
+`button` rule loses wherever it sits in the cascade. The floor now lives in
+`src/styles/touch.css`, imported last, asserting 44px under
+`@media (pointer: coarse)` — narrow enough to keep desktop compact, strong
+enough to beat per-component density.
+
+Final state, 28 screen-breakpoint pairs:
+
+- undersized touch targets: **0**
+- horizontal overflow: **0**
+- content under the safe area: **0**
+- JS errors: **0**
+
+`dist/` verified free of hard-coded host:port; `/tmp` baseline-preview server
+stopped.
