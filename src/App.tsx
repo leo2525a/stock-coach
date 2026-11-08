@@ -77,8 +77,10 @@ function Shell() {
   const loadNews = useStore((s) => s.loadNews);
   const loadFundamentals = useStore((s) => s.loadFundamentals);
   const [apiUp, setApiUp] = useState<boolean | null>(null);
-  // The desktop sidebar's "put away" state. Default: shown.
-  const [hideChrome, setHideChrome] = useState(false);
+  // Owner (50/100): 「想主頁個 menu button 係用最隱密既方式 … 一禁先打開 顯示埋 logo」
+  // — the panel starts put away on the main page; a discreet corner button opens
+  // it (revealing the logo). Previously it started showing at desktop.
+  const [hideChrome, setHideChrome] = useState(true);
 
   const bootstrap = async () => {
     const health = await api.getHealth();
@@ -114,6 +116,18 @@ function Shell() {
     root.classList.toggle('chrome-hidden', hideChrome);
     return () => root.classList.remove('chrome-hidden');
   }, [hideChrome]);
+
+  // Owner (50/100): the sidebar's own control must actually do something at
+  // every width. On a desktop rail it puts the panel away in one move; inside
+  // the mobile drawer the same control closes the drawer (previously it flipped
+  // the desktop-only `chrome-hidden` flag, so on a phone it looked dead).
+  const putSidebarAway = () => {
+    if (typeof window !== 'undefined' && window.matchMedia('(max-width: 1180px)').matches) {
+      setSidebarOpen(false);
+    } else {
+      setHideChrome(true);
+    }
+  };
 
   // Escape closes the mobile drawer. The scrim already closes it on a tap
   // outside; this is the keyboard affordance (found missing by the Phase-5 QA).
@@ -175,31 +189,21 @@ function Shell() {
           display:none at desktop widths (see styles.css) so it cannot overlap
           content there. */}
       <DrawerScrim />
-      {/* The only way back to the sidebar on a phone, and a floating handle on
-          desktop once the rail is put away. The bar it used to sit in is gone. */}
+      {/* The only control on the main page: a discreet corner button that opens
+          the sidebar (which carries the logo). It is the single entry at every
+          width — the old floating 「»」 handle is gone, and there is no bar. */}
       <button
         type="button"
         className="icon-btn drawer-toggle"
-        aria-label={hideChrome ? t('nav.show') : t('nav.section')}
+        aria-label={hideChrome || !sidebarOpen ? t('nav.show') : t('nav.hide')}
         aria-expanded={!hideChrome || sidebarOpen}
+        title={t('nav.showTitle')}
         onClick={() => (window.matchMedia('(max-width: 1180px)').matches ? setSidebarOpen(!sidebarOpen) : setHideChrome((v) => !v))}
       >
         ☰
       </button>
-      {hideChrome ? (
-        <button
-          type="button"
-          className="handle"
-          data-testid="sidebar-handle"
-          aria-label={t('nav.show')}
-          title={t('nav.showTitle')}
-          onClick={() => setHideChrome(false)}
-        >
-          »
-        </button>
-      ) : null}
       <div className="app-body">
-        <Sidebar hidden={hideChrome} onToggleHidden={() => setHideChrome(true)} />
+        <Sidebar hidden={hideChrome} onToggleHidden={putSidebarAway} />
         <main className="main-col">
           {screen === 'dashboard' ? <DashboardScreen /> : null}
           {screen === 'chart' ? <ChartScreen /> : null}

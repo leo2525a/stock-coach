@@ -233,6 +233,7 @@ async function main() {
       navTextZh.slice(0, 40),
     );
     const zhTitle = await page.title();
+    await openSidebar(page);
     await page.locator('[data-testid="lang-switch"] button[data-lang="en"]').click();
     await page.waitForTimeout(400);
     const navTextEn = (await page.locator('nav.side-nav .side-text').allInnerTexts()).join('|');
@@ -243,6 +244,7 @@ async function main() {
       navTextZh !== navTextEn,
       `${navTextZh.slice(0, 24)} vs ${navTextEn.slice(0, 24)}`,
     );
+    await openSidebar(page);
     await page.locator('[data-testid="lang-switch"] button[data-lang="zh-HK"]').click();
     await page.waitForTimeout(400);
     check(
@@ -285,6 +287,7 @@ async function main() {
       newsMeta.slice(0, 80) || '(no news items rendered)',
     );
     // And the English locale must still read naturally: "Updated 7 min ago".
+    await openSidebar(page);
     await page.locator('[data-testid="lang-switch"] button[data-lang="en"]').click();
     await page.waitForTimeout(400);
     const badgeEn = (await page.locator('[data-testid="source-badge"]').first().innerText()).trim();
@@ -293,6 +296,7 @@ async function main() {
       !/[\u3400-\u9fff]/.test(badgeEn) || /Live|Cached|Stale/.test(badgeEn),
       badgeEn,
     );
+    await openSidebar(page);
     await page.locator('[data-testid="lang-switch"] button[data-lang="zh-HK"]').click();
     await page.waitForTimeout(400);
     check(
@@ -744,18 +748,41 @@ async function main() {
  * be opened first. `force` is used there because the slide-in transition keeps
  * the element "unstable" for Playwright's actionability check.
  */
+/** Ensure the sidebar is open (away by default on desktop; a drawer on a phone). */
+async function openSidebar(page) {
+  const needOpen = await page.evaluate(() => {
+    if (document.body.classList.contains('chrome-hidden')) return true;
+    if (window.matchMedia('(max-width: 1180px)').matches) {
+      return !document.querySelector('.sidebar')?.classList.contains('open');
+    }
+    return false;
+  });
+  if (needOpen) {
+    await page.locator('.drawer-toggle').first().click();
+    await page.waitForTimeout(420);
+  }
+}
+
 async function clickNav(page, screenId) {
   const item = page.locator(`nav.side-nav button[data-screen="${screenId}"]`).first();
-  // Below 1181px the sidebar is an off-canvas drawer. Its translated position
-  // still counts as "visible" to Playwright, so test the `open` class rather
-  // than `isVisible()`, then open the hamburger if the panel is put away.
-  const drawerToggleVisible = await page.locator('.drawer-toggle').first().isVisible().catch(() => false);
-  let sidebarOpen = await page.evaluate(() => !!document.querySelector('.sidebar')?.classList.contains('open'));
-  if (drawerToggleVisible && !sidebarOpen) {
+  // The sidebar can be put away two ways: below 1181px it is an off-canvas
+  // drawer (translated out but still reported "visible"), and at desktop it
+  // starts away via `body.chrome-hidden`. Test both states, not `isVisible()`.
+  const needOpen = await page.evaluate(() => {
+    if (document.body.classList.contains('chrome-hidden')) return true;
+    if (window.matchMedia('(max-width: 1180px)').matches) {
+      return !document.querySelector('.sidebar')?.classList.contains('open');
+    }
+    return false;
+  });
+  if (needOpen) {
     await page.locator('.drawer-toggle').first().click();
     await page.waitForTimeout(450);
-    sidebarOpen = true;
   }
+  const sidebarOpen = await page.evaluate(() => {
+    const s = document.querySelector('.sidebar');
+    return !!s && (s.classList.contains('open') || !document.body.classList.contains('chrome-hidden'));
+  });
   await item.click({ force: true });
   await page.waitForTimeout(200);
   // Close the drawer again so later steps see a clean viewport — but only if it

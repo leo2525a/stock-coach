@@ -1,0 +1,216 @@
+{
+  "generatedAt": "2026-11-08T08:17:32.575Z",
+  "pass": 40,
+  "fail": 1,
+  "results": [
+    {
+      "name": "there is exactly ONE menu entry",
+      "ok": true,
+      "detail": "count=1"
+    },
+    {
+      "name": "the old floating 「»」 handle is gone",
+      "ok": true,
+      "detail": "0 found"
+    },
+    {
+      "name": "the menu entry is visible at desktop width",
+      "ok": true,
+      "detail": "display=flex"
+    },
+    {
+      "name": "the menu entry sits in the top-left corner",
+      "ok": true,
+      "detail": "x=10 y=8"
+    },
+    {
+      "name": "the menu entry is small (a corner glyph, not a bar)",
+      "ok": true,
+      "detail": "40×40"
+    },
+    {
+      "name": "the menu entry is discreet (ghost: no fill, no visible border)",
+      "ok": true,
+      "detail": "bg=rgba(0, 0, 0, 0) border=rgba(0, 0, 0, 0)"
+    },
+    {
+      "name": "the menu entry is muted (opacity < 0.8)",
+      "ok": true,
+      "detail": "opacity=0.55"
+    },
+    {
+      "name": "the menu entry is labelled",
+      "ok": false,
+      "detail": ""
+    },
+    {
+      "name": "the sidebar starts put away on desktop",
+      "ok": true,
+      "detail": "chrome-hidden=true"
+    },
+    {
+      "name": "a put-away panel is pushed off-canvas (never a dead strip)",
+      "ok": true,
+      "detail": "left=-324"
+    },
+    {
+      "name": "the panel slides (a transition animates its position)",
+      "ok": true,
+      "detail": "margin-left, visibility 0.22s, 0s"
+    },
+    {
+      "name": "the logo is NOT shown while the panel is away",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "the entry opens the panel",
+      "ok": true,
+      "detail": "left=56"
+    },
+    {
+      "name": "opening the panel SHOWS the logo",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "desktop: the toolbar does not clip controls behind a fade",
+      "ok": true,
+      "detail": "sw=1096 cw=1096"
+    },
+    {
+      "name": "desktop: every toolbar category is present",
+      "ok": true,
+      "detail": "5 groups"
+    },
+    {
+      "name": "desktop: no toolbar button is off-screen",
+      "ok": true,
+      "detail": "332-688 696-1056 332-752 760-963 971-1034"
+    },
+    {
+      "name": "desktop: each category is a single run row",
+      "ok": true,
+      "detail": "1,1,1,1,1"
+    },
+    {
+      "name": "zero console errors on desktop",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "phone: the menu entry is present and visible",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "phone: still exactly one entry, no floating handle",
+      "ok": true,
+      "detail": "count=1 handles=0"
+    },
+    {
+      "name": "phone: the drawer starts closed",
+      "ok": true,
+      "detail": "open=false"
+    },
+    {
+      "name": "phone: the logo is hidden until the drawer opens",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "phone: the entry opens the drawer",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "phone: opening the drawer reveals the logo",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "phone: the entry gets out of the way while the drawer is open",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "phone: 「«」 closes the drawer it lives in",
+      "ok": true,
+      "detail": "open true→false"
+    },
+    {
+      "name": "phone: 「«」 does not merely flip a desktop flag",
+      "ok": true,
+      "detail": "chrome-hidden=true"
+    },
+    {
+      "name": "phone: the entry comes back once the drawer is closed",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "phone: the toolbar is ONE row (was four rows / 175px)",
+      "ok": true,
+      "detail": "rows=1 groupRows=1 height=39"
+    },
+    {
+      "name": "phone: it does not wrap",
+      "ok": true,
+      "detail": "wrap=nowrap"
+    },
+    {
+      "name": "phone: it scrolls horizontally (the owner asked for scroll)",
+      "ok": true,
+      "detail": "sw=1434 cw=361"
+    },
+    {
+      "name": "phone: overflow is a real scroll container",
+      "ok": true,
+      "detail": "overflow-x=auto"
+    },
+    {
+      "name": "phone: scroll snaps to a category boundary",
+      "ok": true,
+      "detail": "snap=x"
+    },
+    {
+      "name": "phone: the toolbar stays compact (< 60px tall)",
+      "ok": true,
+      "detail": "39px"
+    },
+    {
+      "name": "phone: each category is one contiguous run (no internal wrap)",
+      "ok": true,
+      "detail": "9c/1r 9c/1r 6c/1r 4c/1r 1c/1r"
+    },
+    {
+      "name": "phone: the categories run in a stable left-to-right order",
+      "ok": true,
+      "detail": "16<380<748<1176<1387"
+    },
+    {
+      "name": "phone: every category starts in a snapping position",
+      "ok": true,
+      "detail": "snap=x"
+    },
+    {
+      "name": "phone: scrolling the strip really moves it",
+      "ok": true,
+      "detail": "scrollLeft=1073"
+    },
+    {
+      "name": "phone: the far control is reachable by scrolling",
+      "ok": true,
+      "detail": "last group=toolbar-group"
+    },
+    {
+      "name": "zero console errors on phone",
+      "ok": true,
+      "detail": ""
+    }
+  ],
+  "screenshots": [
+    "desktop-open.png",
+    "phone-chart.png"
+  ]
+}

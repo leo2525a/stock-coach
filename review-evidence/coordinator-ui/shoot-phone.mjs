@@ -1,0 +1,14 @@
+import { chromium } from 'playwright-core';
+const CHROME = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
+const b = await chromium.launch({ executablePath: CHROME, headless: true });
+const ctx = await b.newContext({ viewport: { width: 393, height: 852 }, deviceScaleFactor: 3, hasTouch: true, isMobile: true });
+const p = await ctx.newPage();
+await p.goto('http://127.0.0.1:8787/', { waitUntil: 'domcontentloaded' });
+await p.waitForSelector('[data-testid="dashboard-screen"]', { timeout: 25000 });
+await new Promise((r) => setTimeout(r, 1500));
+await p.screenshot({ path: '/tmp/phone-dash.png' });
+await p.locator('.drawer-toggle').first().click({ force: true });
+await new Promise((r) => setTimeout(r, 800));
+await p.screenshot({ path: '/tmp/phone-drawer.png' });
+await b.close();
+console.log('shot ok');

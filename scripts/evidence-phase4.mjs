@@ -188,17 +188,30 @@ function findChrome() {
 
 /* ---------------------------------------------------------------- helpers -- */
 
-async function clickNav(page, screenId) {
-  const item = page.locator(`nav.side-nav button[data-screen="${screenId}"]`).first();
-  if (!(await item.isVisible())) {
+/** Ensure the sidebar is open (away by default on desktop; a drawer on a phone). */
+async function openSidebar(page) {
+  const needOpen = await page.evaluate(() => {
+    if (document.body.classList.contains('chrome-hidden')) return true;
+    if (window.matchMedia('(max-width: 1180px)').matches) {
+      return !document.querySelector('.sidebar')?.classList.contains('open');
+    }
+    return false;
+  });
+  if (needOpen) {
     await page.locator('.drawer-toggle').first().click();
     await page.waitForTimeout(500);
   }
+}
+
+async function clickNav(page, screenId) {
+  const item = page.locator(`nav.side-nav button[data-screen="${screenId}"]`).first();
+  await openSidebar(page);
   await item.click({ force: true });
   await page.waitForTimeout(300);
 }
 
 async function setLang(page, lang) {
+  await openSidebar(page);
   await page.locator(`[data-testid="lang-switch"] button[data-lang="${lang}"]`).click();
   await page.waitForTimeout(400);
 }
@@ -419,6 +432,9 @@ async function main() {
     /* ------------------- §B.1 the nav entry exists and opens -------------- */
     section('§B.1 — the Dividend screen is reachable from the sidebar');
     const navItem = page.locator('nav.side-nav button[data-screen="dividends"]').first();
+    // The sidebar starts away, and `innerText` is empty for a `visibility:hidden`
+    // subtree — so open the panel before reading the label.
+    await openSidebar(page);
     check('the sidebar carries a dividends nav item', (await navItem.count()) > 0);
     check(
       'the nav item is labelled (not a bare glyph)',

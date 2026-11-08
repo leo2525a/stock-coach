@@ -339,46 +339,35 @@ a:hover {
   justify-content: center;
 }
 
-/* The floating handle that brings the panel back after 「«」 put it away. It is
-   mounted only while the panel is hidden, so it cannot block anything when the
-   panel is showing. */
-.handle {
-  display: none;
-  position: absolute;
-  top: 10px;
-  left: 8px;
-  z-index: 35;
-  width: 30px;
-  min-height: 40px;
-  padding: 0;
-  align-items: center;
-  justify-content: center;
-  background: var(--bg-elev);
-  color: var(--text-dim);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
-  box-shadow: var(--shadow, 0 2px 8px rgba(0, 0, 0, 0.18));
-  cursor: pointer;
-}
-.handle:hover {
-  color: var(--accent);
-  border-color: var(--accent-ring);
-}
+/* The floating 「»」 handle is gone (owner 50/100): the discreet corner menu
+   button is now the one entry at every width, so there is nothing else to keep
+   on screen. */
 
-/* Hamburger — the way into the drawer below 1181px. Floats over the content so
-   there is no full-width bar reserving space for it. */
+/* The single menu button. Owner (50/100): it is the *only* control on the main
+   page and must be discreet — a small ghost icon in the corner, visible at
+   every width. It opens the sidebar (which carries the logo), and toggles it
+   shut again once open. There is no bar and no second handle. */
 .drawer-toggle {
-  display: none;
+  display: inline-flex;
   position: absolute;
   top: 8px;
   left: 10px;
-  z-index: 35;
+  z-index: 60;
   min-width: 40px;
   min-height: 40px;
   align-items: center;
   justify-content: center;
+  opacity: 0.55;
+  background: transparent;
+  border-color: transparent;
+  color: var(--text-dim);
+  box-shadow: none;
 }
 
+/* The chart headline row: symbol + long name + price, on one baseline.
+   (The selector was lost when the old `.topbar` was deleted in round 2, leaving
+   these declarations orphaned — they never applied.) */
+.symbol-head {
   display: flex;
   align-items: baseline;
   gap: 10px;
@@ -490,7 +479,14 @@ a:hover {
    smoothly (owner 38/100: 「加 slide animation」) instead of the panel merely
    narrowing. Once the slide finishes the panel drops out of the a11y tree via
    `visibility` — deferred by the transition so the motion is still seen. */
+/* Owner (50/100): the panel starts *put away* even on a desktop rail, and the
+   menu button beside it is the same discreet corner icon — so when open, the
+   rail sits just to the right of that button rather than under it. */
 @media (min-width: 1181px) {
+  .app-body {
+    /* leave room for the always-visible menu button */
+    padding-left: 0;
+  }
   .sidebar {
     width: 264px;
     flex: 0 0 264px;
@@ -501,20 +497,15 @@ a:hover {
     min-height: 0;
     overflow: hidden;
     transition: margin-left 0.22s ease, visibility 0s linear 0s;
+    margin-left: 56px;
   }
   body.chrome-hidden .sidebar {
-    margin-left: -266px;
+    margin-left: -324px;
     visibility: hidden;
     transition: margin-left 0.22s ease, visibility 0s linear 0.22s;
   }
   .main-col {
     transition: padding-left 0.22s ease;
-  }
-  body.chrome-hidden .main-col {
-    padding-left: 58px;
-  }
-  .handle {
-    display: flex;
   }
 }
 
@@ -655,17 +646,40 @@ a:hover {
   gap: 8px;
   min-height: 0;
 }
-/* Owner (38/100): 「呢堆制好唔掂 好亂」. The old toolbar was a wall of ungrouped
-   buttons split only by hairlines. Each group is now a single segmented pill —
-   one bordered capsule per concern (range / interval / overlays / panes) with
-   its label inside it, so the eye reads four tidy controls instead of a dozen
-   loose buttons. The active state slides/fades rather than switching abruptly. */
+/* Owner (50/100): 「上面埋 button 堆埋一堆 … 可以用 scroll 既方法」. The groups
+   are now one horizontally-scrollable row instead of wrapping onto four rows on
+   a phone. Related controls still read as one capsule each (range / interval /
+   overlays / panes), and the row snaps group-to-group so a swipe lands on a
+   boundary. A hairline fade on the trailing edge hints there is more to scroll. */
 .chart-toolbar {
   display: flex;
   align-items: center;
-  gap: 6px;
-  row-gap: 8px;
-  flex-wrap: wrap;
+  gap: 8px;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x proximity;
+  padding-bottom: 4px;
+  scrollbar-width: none;
+  -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 26px), transparent);
+  mask-image: linear-gradient(to right, #000 calc(100% - 26px), transparent);
+}
+.chart-toolbar::-webkit-scrollbar {
+  display: none;
+}
+/* Desktop has the width to show everything, so the row wraps instead of hiding
+   controls behind a fade. (The owner's complaint was a phone showing four rows;
+   a two-row desktop toolbar is not the same problem.) */
+@media (min-width: 1181px) {
+  .chart-toolbar {
+    flex-wrap: wrap;
+    overflow-x: visible;
+    scroll-snap-type: none;
+    -webkit-mask-image: none;
+    mask-image: none;
+    padding-bottom: 0;
+  }
 }
 .toolbar-group {
   display: inline-flex;
@@ -675,6 +689,8 @@ a:hover {
   background: var(--bg-elev);
   border: 1px solid var(--border-soft);
   border-radius: 999px;
+  flex: 0 0 auto;
+  scroll-snap-align: start;
 }
 .toolbar-group .lbl {
   color: var(--text-faint);
@@ -1238,6 +1254,12 @@ details.evidence-toggle > summary:hover {
   .drawer-toggle {
     display: inline-flex;
   }
+  /* While the drawer is open, the discreet corner button would sit on top of the
+     drawer's brand row. Hide it there — the drawer has its own 「«」 close, plus
+     the scrim and Escape. */
+  .app:has(.sidebar.open) .drawer-toggle {
+    display: none;
+  }
   .scrim {
     display: block;
     position: absolute;
@@ -1314,8 +1336,7 @@ details.evidence-toggle > summary:hover {
   .sidebar-controls .icon-btn,
   .sidebar-controls .lang-switch button,
   .collapse-btn,
-  .drawer-toggle,
-  .handle {
+  .drawer-toggle {
     min-height: 44px;
     min-width: 44px;
   }

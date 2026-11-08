@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-08T07:14:16.581Z",
+  "generatedAt": "2026-11-08T08:18:09.435Z",
   "symbol": "AAPL",
   "widths": [
     390,
@@ -66,7 +66,7 @@
         {
           "tag": "div",
           "cls": "pf-chart",
-          "over": 956,
+          "over": 900,
           "by": "self"
         }
       ],
@@ -109,13 +109,13 @@
         {
           "tag": "div",
           "cls": "pf-chart",
-          "over": 504,
+          "over": 448,
           "by": "self"
         },
         {
           "tag": "div",
           "cls": "pf-chart",
-          "over": 504,
+          "over": 448,
           "by": "self"
         }
       ],
@@ -146,13 +146,13 @@
         {
           "tag": "div",
           "cls": "pf-table-wrap",
-          "over": 3,
+          "over": 14,
           "by": "self"
         },
         {
           "tag": "div",
           "cls": "pf-table-wrap",
-          "over": 87,
+          "over": 98,
           "by": "self"
         },
         {
@@ -172,14 +172,14 @@
         {
           "id": "pf-ntm-span",
           "options": 10,
-          "groupRight": 678,
+          "groupRight": 734,
           "viewport": 1600,
           "outside": 0
         },
         {
           "id": "pf-band-span",
           "options": 10,
-          "groupRight": 710,
+          "groupRight": 766,
           "viewport": 1600,
           "outside": 0
         }

@@ -151,18 +151,33 @@ function findChrome() {
 
 /* ---------------------------------------------------------------- helpers */
 
-/** Open a sidebar nav item, coping with the mobile drawer. */
-async function clickNav(page, screenId) {
-  const item = page.locator(`nav.side-nav button[data-screen="${screenId}"]`).first();
-  if (!(await item.isVisible())) {
+/** Ensure the sidebar is open (away by default on desktop; a drawer on a phone). */
+async function openSidebar(page) {
+  const needOpen = await page.evaluate(() => {
+    if (document.body.classList.contains('chrome-hidden')) return true;
+    if (window.matchMedia('(max-width: 1180px)').matches) {
+      return !document.querySelector('.sidebar')?.classList.contains('open');
+    }
+    return false;
+  });
+  if (needOpen) {
     await page.locator('.drawer-toggle').first().click();
     await page.waitForTimeout(500);
   }
+}
+
+/** Open a sidebar nav item, coping with the mobile drawer. */
+async function clickNav(page, screenId) {
+  const item = page.locator(`nav.side-nav button[data-screen="${screenId}"]`).first();
+  // `isVisible()` cannot tell that a translated-out panel is away, so use the
+  // explicit away/open state.
+  await openSidebar(page);
   await item.click({ force: true });
   await page.waitForTimeout(250);
 }
 
 async function setLang(page, lang) {
+  await openSidebar(page);
   await page.locator(`[data-testid="lang-switch"] button[data-lang="${lang}"]`).click();
   await page.waitForTimeout(400);
 }

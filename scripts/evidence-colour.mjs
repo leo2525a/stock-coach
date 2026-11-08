@@ -351,17 +351,30 @@ async function intercept(page, p) {
 
 /* ---------------------------------------------------------------- helpers */
 
-async function clickNav(page, screenId) {
-  const item = page.locator(`nav.side-nav button[data-screen="${screenId}"]`).first();
-  if (!(await item.isVisible())) {
+/** Ensure the sidebar is open (away by default on desktop; a drawer on a phone). */
+async function openSidebar(page) {
+  const needOpen = await page.evaluate(() => {
+    if (document.body.classList.contains('chrome-hidden')) return true;
+    if (window.matchMedia('(max-width: 1180px)').matches) {
+      return !document.querySelector('.sidebar')?.classList.contains('open');
+    }
+    return false;
+  });
+  if (needOpen) {
     await page.locator('.drawer-toggle').first().click();
     await page.waitForTimeout(400);
   }
+}
+
+async function clickNav(page, screenId) {
+  const item = page.locator(`nav.side-nav button[data-screen="${screenId}"]`).first();
+  await openSidebar(page);
   await item.click({ force: true });
   await page.waitForTimeout(300);
 }
 
 async function setLang(page, lang) {
+  await openSidebar(page);
   await page.locator(`[data-testid="lang-switch"] button[data-lang="${lang}"]`).click();
   await page.waitForTimeout(400);
 }
@@ -528,6 +541,8 @@ async function main() {
     section('dashboard — the watchlist figures are coloured by sign');
     await page.goto(`${baseUrl}/`, { waitUntil: 'domcontentloaded', timeout: 30_000 });
     await page.waitForSelector('[data-testid="dashboard-screen"]', { timeout: 25_000 });
+    // The panel starts away on desktop; its figures are not "visible" until it opens.
+    await openSidebar(page);
     await page.waitForSelector('[data-testid="sidebar-list"] .wl-chg', { timeout: 20_000 });
     await page.waitForTimeout(600);
 

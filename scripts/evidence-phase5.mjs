@@ -265,16 +265,30 @@ async function measureOverflow(page) {
   });
 }
 
+/** Ensure the sidebar is open (it starts away on desktop, and is a drawer on
+ *  a phone). Harness controls that live inside it need this first. */
+async function openSidebar(page) {
+  const needOpen = await page.evaluate(() => {
+    if (document.body.classList.contains('chrome-hidden')) return true;
+    if (window.matchMedia('(max-width: 1180px)').matches) {
+      return !document.querySelector('.sidebar')?.classList.contains('open');
+    }
+    return false;
+  });
+  if (needOpen) {
+    await page.locator('.drawer-toggle').first().click().catch(() => {});
+    await page.waitForTimeout(450);
+  }
+}
+
 async function clickNav(page, screenId) {
   const item = page.locator(`nav.side-nav button[data-screen="${screenId}"]`).first();
-  if (!(await item.isVisible())) {
-    await page.locator('.drawer-toggle').first().click().catch(() => {});
-    await page.waitForTimeout(400);
-  }
+  // `isVisible()` cannot tell that a translated-out panel is away, so use the
+  // explicit away/open state.
+  await openSidebar(page);
   await item.click({ force: true });
   await page.waitForTimeout(350);
 }
-
 /** Reload with a given OS colour-scheme and stored theme mode. */
 async function bootWith(page, baseUrl, { colorScheme, storedMode }) {
   await page.emulateMedia({ colorScheme });
@@ -402,7 +416,8 @@ async function main() {
     await page.screenshot({ path: path.join(EVIDENCE_DIR, '01-dark.png'), fullPage: false });
     report.screenshots.push('01-dark.png');
 
-    // Flip to light via the button.
+    // Flip to light via the button (it lives inside the sidebar).
+    await openSidebar(page);
     await page.locator('[data-testid="theme-toggle"]').click();
     await page.waitForTimeout(300);
     st = await paintState(page);
@@ -442,6 +457,7 @@ async function main() {
     }
 
     // Flip back to dark and re-measure. Both directions must move.
+    await openSidebar(page);
     await page.locator('[data-testid="theme-toggle"]').click();
     await page.waitForTimeout(600);
     st = await paintState(page);
@@ -494,7 +510,7 @@ async function main() {
         // Measure the controls that are actually *rendered*. Below 1181px the
         // hamburger is visible; at desktop the sidebar's global controls are.
         // A hidden button has a 0×0 box and would make the check vacuous.
-        const btns = [...document.querySelectorAll('.sidebar-controls button, .drawer-toggle, .handle')].filter((b) => {
+        const btns = [...document.querySelectorAll('.sidebar-controls button, .drawer-toggle')].filter((b) => {
           const d = getComputedStyle(b).display;
           return d !== 'none' && b.getBoundingClientRect().width > 0;
         });
@@ -519,7 +535,7 @@ async function main() {
       );
       if (vp.width <= 1180) {
         check(
-          `the drawer (hamburger) is visible at ${vp.name}`, 
+          `the menu button is visible at ${vp.name} (discreet entry)`, 
           metrics.drawerVisible,
           String(metrics.drawerVisible),
         );
@@ -529,7 +545,14 @@ async function main() {
           `${metrics.topbarBtnMin}px`,
         );
       } else {
-        check(`the drawer (hamburger) is hidden at ${vp.name}`, !metrics.drawerVisible, String(metrics.drawerVisible));
+        // Owner (50/100): the discreet menu button is the only entry on the main
+        // page — it is present at desktop widths too now (the panel starts away).
+        check(`the discreet menu button is visible at ${vp.name}`, metrics.drawerVisible, String(metrics.drawerVisible));
+        check(
+          `visible global controls stay tappable at ${vp.name} (≥40px)`,
+          metrics.topbarBtnMin !== null && metrics.topbarBtnMin >= 40,
+          `${metrics.topbarBtnMin}px`,
+        );
       }
     }
 
@@ -544,7 +567,7 @@ async function main() {
       await tpage.waitForSelector('[data-testid="dashboard-screen"]', { timeout: 25000 });
       await tpage.waitForTimeout(300);
       const min = await tpage.evaluate(() => {
-        const btns = [...document.querySelectorAll('.sidebar-controls button, .drawer-toggle, .handle')].filter((b) => {
+        const btns = [...document.querySelectorAll('.sidebar-controls button, .drawer-toggle')].filter((b) => {
           const d = getComputedStyle(b).display;
           return d !== 'none' && b.getBoundingClientRect().width > 0;
         });
