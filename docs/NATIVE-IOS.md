@@ -70,6 +70,54 @@ npm run ios:run          # boots "iPhone 17", opens DeviceHub, installs, launche
 > `Simulator.app` under `Contents/Developer/Applications/` any more).
 > `xcrun simctl io booted screenshot <file>` captures frames headlessly.
 
+### Live walkthrough in Xcode (open → select → run)
+
+A hands-on version if you want to drive Xcode yourself rather than the npm loop:
+
+1. **Open the project** (not a workspace — Capacitor 8 uses Swift Package
+   Manager, so there is no `.xcworkspace` and no CocoaPods step):
+
+   ```bash
+   npm run native:open      # = npx cap open ios
+   ```
+
+   This opens `ios/App/App.xcodeproj` in Xcode.
+
+2. **Start the backend first** (the app shows real quotes only if the API is
+   up — otherwise every screen honestly reports no data):
+
+   ```bash
+   VITE_API_BASE="http://127.0.0.1:8787/api" npm run native:sync
+   ```
+
+   `native:sync` runs `npm run build` and copies the fresh `dist/` into
+   `ios/App/App/public/`, so the shell paints the current UI. The
+   `VITE_API_BASE` is what makes the bundled app call `http://127.0.0.1:8787/api`
+   instead of a relative path (which resolves to nothing inside
+   `capacitor://localhost`).
+
+3. **Pick the target**: in the Xcode toolbar, next to the scheme name **App**,
+   choose the **iPhone 17** simulator from the device menu (Window ▸
+   Devices and Simulators, or Xcode ▸ Open Developer Tool ▸ DeviceHub in
+   Xcode 27, to see/start simulators).
+
+4. **Run**: press **⌘R**. Xcode builds for the simulator (ad-hoc "Sign to Run
+   Locally" — no Apple ID needed for a simulator run), installs, and launches
+   `com.stockcoach.app`. The first build resolves the
+   `capacitor-swift-pm` package over the network, so give it a moment.
+
+5. **Watch the app**: the panel starts away and a discreet ☰ sits in the top
+   left; tap it to slide out the sidebar — which carries the **logo**, the
+   navigation (一頁睇晒 / K線圖 / 訊號 / 自選 / 分析師 / 股息 / 說明), the theme and
+   language controls, and the watchlist. On the chart screen the toolbar is one
+   horizontally-scrollable row of category capsules.
+
+6. **Stop** with the ■ button (or ⌘.). To re-run after a web change just repeat
+   step 2 then ⌘R — the native shell itself rarely needs rebuilding.
+
+> If a run shows the splash then an empty dashboard, the backend is down or the
+> build was made without `VITE_API_BASE`; re-run step 2 and ⌘R.
+
 ## TestFlight still blocked (owner-only Apple-account actions)
 
 | # | Requirement | Why it is needed | Current state |
