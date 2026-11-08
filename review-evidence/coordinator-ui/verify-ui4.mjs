@@ -115,7 +115,18 @@ for (const [w, h, label] of [[393, 852, 'phone'], [1280, 800, 'desktop']]) {
   const { readFileSync } = await import('node:fs');
   const root = '/Users/love21/.openclaw/workspace/debug-coder/projects/stock-app';
   const cap = readFileSync(`${root}/capacitor.config.ts`, 'utf8');
-  const css = readFileSync(`${root}/src/styles.css`, 'utf8');
+  // `src/styles.css` is an @import entry point — read the resolved graph so a
+  // stylesheet split cannot blind this check.
+  const css = (() => {
+    const seen = new Set();
+    const walk = (absFile, base) => {
+      if (seen.has(absFile)) return '';
+      seen.add(absFile);
+      return readFileSync(absFile, 'utf8').replace(/@import\s+(?:url\()?['"]([^'"]+)['"]\)?\s*;/g, (m, spec) =>
+        spec.startsWith('.') ? walk(`${base}/${spec.replace(/^\.\//, '')}`, base) : m);
+    };
+    return walk(`${root}/src/styles.css`, `${root}/src`);
+  })();
   const idx = readFileSync(`${root}/index.html`, 'utf8');
   check('capacitor.config.ts uses ios.contentInset "never" (CSS owns the inset)', /contentInset:\s*'never'/.test(cap) && !/contentInset:\s*'always'/.test(cap));
   const n = (css.match(/env\(safe-area-inset-top\)/g) || []).length;
