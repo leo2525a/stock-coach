@@ -44,6 +44,11 @@ assertions themselves were **not** weakened.
 **Mutation check:** deleting `--chart-grid` from `tokens.css` still fails
 "the dark :root carries every chart token". The tests still bite.
 
+The same blinded read hit the coordinator verifier: `verify-ui4.mjs` first came
+back **19 passed / 2 failed** because it also read the entry file raw
+(`safe-area-inset-top` reported `0 use(s)`). Fixed to walk `@import` from
+`src/styles/`. The app was never wrong — the instrument was.
+
 ## Gates (all green)
 
 | Gate | Result |
@@ -59,6 +64,7 @@ assertions themselves were **not** weakened.
 | `evidence:chart` | 82 |
 | `evidence:colour` | 35 |
 | `verify-ui4` | 21/21 |
+| `verify-ui4.mutation` | 4/4 caught |
 
 Every evidence count is identical to the round-4 baseline — nothing moved.
 
