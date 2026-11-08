@@ -27,7 +27,11 @@
     display: none;
     flex-direction: column;
     min-height: 0;
-    padding-top: env(safe-area-inset-top);
+    /* The panel is a fixed overlay on a phone, so it is NOT inside `.app`'s
+       padded box and still needs the inset itself. It must read the same token
+       the shell does: with the shell already paying `--safe-top`, a second raw
+       `env()` here would double the gap (that was the round-4 bug). */
+    padding-top: var(--safe-top);
   }
   /* The safe area already pushes the panel down; the brand row does not need its
      full desktop top padding on top of that (that is what left the owner
@@ -105,8 +109,25 @@
   .chart-wrap {
     min-height: 400px;
   }
+  /* Owner (round 7): 「第一頁dashboard唔洗顯示哂咁多野」. Stacked vertically the
+     three preview cards alone were 1234px — 1.5 screens for a taster. On a
+     phone they swipe sideways at one card width instead, so the block is one
+     card tall. `scroll-snap` makes each card land cleanly; the row is still
+     reachable by keyboard and the cards keep their full text. */
   .signal-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: none;
+    grid-auto-flow: column;
+    grid-auto-columns: min(84%, 320px);
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    padding-bottom: 4px;
+  }
+  .signal-grid::-webkit-scrollbar {
+    display: none;
+  }
+  .signal-grid > * {
+    scroll-snap-align: start;
   }
   .symbol-head .sym-name {
     max-width: 180px;
@@ -127,6 +148,13 @@
   .drawer-toggle {
     min-height: 44px;
     min-width: 44px;
+  }
+  /* Owner (round 7): 「全個 app ui 行一次我要整潔易用」. The screen rows were
+     36px tall (7px padding + 12.5px text), under the 44px touch minimum, so
+     picking a screen was a precision tap. Widening the control pills above did
+     not cover the nav rows, which is where people actually tap. */
+  .side-item {
+    min-height: 44px;
   }
 }
 

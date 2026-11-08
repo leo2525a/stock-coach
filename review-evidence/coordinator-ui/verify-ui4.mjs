@@ -129,8 +129,22 @@ for (const [w, h, label] of [[393, 852, 'phone'], [1280, 800, 'desktop']]) {
   })();
   const idx = readFileSync(`${root}/index.html`, 'utf8');
   check('capacitor.config.ts uses ios.contentInset "never" (CSS owns the inset)', /contentInset:\s*'never'/.test(cap) && !/contentInset:\s*'always'/.test(cap));
-  const n = (css.match(/env\(safe-area-inset-top\)/g) || []).length;
-  check('CSS applies safe-area-inset-top exactly once', n === 1, `${n} use(s)`);
+  // Count the *declarations* that actually consume the top inset, not one exact
+  // spelling of the expression. Round 7 moved the inset into a `--safe-top`
+  // token (so a headless browser can inject a notch and the layout can be
+  // tested), which the old `/env\(safe-area-inset-top\)/` pattern could not
+  // see: it silently matched the one remaining raw use and called it "exactly
+  // once" while two more consumers existed. What must hold is that the inset is
+  // a *single source*: declared once as a token, and every consumer reads the
+  // token.
+  const tokenDecl = css.match(/--safe-top:\s*env\(safe-area-inset-top/g) || [];
+  const rawUses = (css.match(/env\(safe-area-inset-top/g) || []).length;
+  const tokenUses = (css.match(/var\(--safe-top/g) || []).length;
+  check(
+    'CSS declares the top inset once as --safe-top and every consumer uses the token',
+    tokenDecl.length === 1 && rawUses === 1 && tokenUses >= 1,
+    `token decl=${tokenDecl.length} raw env()=${rawUses} var consumers=${tokenUses}`,
+  );
   check('index.html keeps viewport-fit=cover', /viewport-fit=cover/.test(idx));
   check('the drawer brand row has no oversized top padding at phone width', /\.sidebar \.brand-head\s*\{\s*padding-top:\s*4px/.test(css));
 }

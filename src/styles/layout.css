@@ -8,6 +8,13 @@
   flex-direction: column;
   height: 100%;
   min-height: 0;
+  /* Owner (round 7): the status bar was drawing straight over the app's first
+     line because nothing in the shell respected the iOS top inset — only the
+     drawer side did. Insetting the shell once means every screen starts below
+     the notch and no per-screen padding is needed. */
+  padding-top: var(--safe-top);
+  padding-bottom: var(--safe-bottom, env(safe-area-inset-bottom, 0px));
+  box-sizing: border-box;
 }
 
 .app-body {
@@ -97,14 +104,20 @@
    on the main page and stays discreet (ghost, no chrome), but it is a wide-enough
    touch target and the text is crisp rather than dimmed. Showing/hiding the
    panel is a plain `display` toggle, so nothing slides. There is no bar and no
-   second handle. */
+   second handle.
+
+   Owner (round 7): 「個sidebar一收入去就無制禁返出黎」 and 「個logo被遮住左」 are
+   ONE bug — the button was pinned at `top: 8px`, i.e. entirely inside the iOS
+   top safe area (62pt on iPhone 17). The same band both drew the status bar
+   over the logo and swallowed the taps aimed at it. It now sits *below* the
+   inset, and `left` gets the same respect for the left inset in landscape. */
 .drawer-toggle {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   position: absolute;
-  top: 8px;
-  left: 10px;
+  top: calc(var(--safe-top) + 8px);
+  left: calc(var(--safe-left, env(safe-area-inset-left, 0px)) + 10px);
   z-index: 60;
   min-width: 40px;
   min-height: 40px;
@@ -219,4 +232,51 @@
   color: var(--text-dim);
   font-size: 12.5px;
   margin: 0 0 8px;
+}
+
+/* The dashboard's optional reference material, folded away.
+   Owner (round 7): 「第一頁dashboard唔洗顯示哂咁多野」. A `<details>` keeps the
+   content in the DOM (searchable, printable, still accessible) while giving the
+   first screen back to the chart. The summary names what is inside rather than
+   saying "more", so opening it is an informed choice. */
+.dash-more > summary {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  cursor: pointer;
+  list-style: none;
+  min-height: 44px;
+  justify-content: center;
+}
+.dash-more > summary::-webkit-details-marker {
+  display: none;
+}
+.dash-more > summary::before {
+  content: '›';
+  position: absolute;
+  right: var(--gap);
+  font-size: 18px;
+  color: var(--text-dim);
+  transition: transform 0.18s ease;
+}
+.dash-more[open] > summary::before {
+  transform: rotate(90deg);
+}
+.dash-more {
+  position: relative;
+}
+.dash-more-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+}
+.dash-more-hint {
+  font-size: 12.5px;
+  color: var(--text-faint);
+}
+.dash-more-body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+  padding-top: var(--gap);
 }

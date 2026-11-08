@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Moon, Sun, RefreshCw, TriangleAlert } from './icons';
 import { useStore } from '../store';
 import { useT } from '../i18n';
 import { LANGS, LANG_LABELS } from '../../shared/i18n';
@@ -31,7 +32,9 @@ export function ThemeToggle() {
       title={t('theme.toggleTitle')}
       onClick={toggleTheme}
     >
-      <span aria-hidden="true">{theme === 'dark' ? '☾' : '☀'}</span>
+      <span aria-hidden="true">
+        {theme === 'dark' ? <Moon size={17} strokeWidth={1.9} /> : <Sun size={17} strokeWidth={1.9} />}
+      </span>
     </button>
   );
 }
@@ -85,7 +88,15 @@ export function RefreshButton() {
       disabled={busy}
       title={t('topbar.refreshTitle')}
     >
-      {busy ? t('common.refreshing') : `⟳ ${t('common.refresh')}`}
+      {busy ? (
+        <>
+          <RefreshCw size={15} strokeWidth={2} /> {t('common.refreshing')}
+        </>
+      ) : (
+        <>
+          <RefreshCw size={15} strokeWidth={2} /> {t('common.refresh')}
+        </>
+      )}
     </button>
   );
 }
@@ -127,7 +138,7 @@ export function SourceBadge({
     <span className={`badge ${cls}`} title={hint} data-testid="source-badge">
       {label}
       {age ? ` · ${age}` : ''}
-      {stale ? ' ⚠' : ''}
+      {stale ? <TriangleAlert size={12} strokeWidth={2.2} aria-hidden="true" /> : null}
     </span>
   );
 }

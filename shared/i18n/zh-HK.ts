@@ -182,6 +182,10 @@ export const zhHK: Dict = {
     '頭條來自供應商本身嘅新聞搜尋。每條都連去原文 — 選股教練唔會撰寫或改寫任何新聞標題。',
 
   'dash.signals.title': '指標而家講咩',
+  'dash.more.title': '公司詳情',
+  'dash.more.hint': '{symbol} 嘅財務、公司背景、分類同完整新聞。',
+  'dash.more.show': '展開公司詳情',
+  'dash.more.hide': '收起公司詳情',
   'dash.signals.verdict': '{verdict} — 綜合得分 {score}/100（{count} 條規則）。',
   'dash.signals.loading': '正在載入指標讀數…',
   'dash.signals.hint': '呢啲都係規則計算出嚟嘅讀數，用白話解釋。',
@@ -193,6 +197,7 @@ export const zhHK: Dict = {
 
   // ---- chart screen ----------------------------------------------------
   'chart.range': '時段',
+  'chart.controls': '圖表控制',
   'chart.rangeGroup': '時間範圍',
   'chart.interval': '週期',
   'chart.intervalGroup': 'K線週期',

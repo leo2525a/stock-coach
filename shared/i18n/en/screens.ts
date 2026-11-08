@@ -74,6 +74,10 @@ export const screens: Dict = {
   'dash.news.sourceNote':
     'Headlines come from the provider’s own news search. Every item links to the original story — nothing here is written or paraphrased by Stock Coach.',
   'dash.signals.title': 'What the indicators say',
+  'dash.more.title': 'Company details',
+  'dash.more.hint': 'Financials, profile, classification and the full news list for {symbol}.',
+  'dash.more.show': 'Show company details',
+  'dash.more.hide': 'Hide company details',
   'dash.signals.verdict': '{verdict} — score {score}/100 across {count} rules.',
   'dash.signals.loading': 'Loading indicator readings…',
   'dash.signals.hint': 'These are rule-based readings, explained in plain language.',
@@ -86,6 +90,7 @@ export const screens: Dict = {
     'Every number here comes from real market data; nothing is simulated. A missing value shows as “—” rather than a made-up figure.',
   // ---- chart screen ----------------------------------------------------
   'chart.range': 'Range',
+  'chart.controls': 'Chart controls',
   'chart.rangeGroup': 'Time range',
   'chart.interval': 'Interval',
   'chart.intervalGroup': 'Bar interval',

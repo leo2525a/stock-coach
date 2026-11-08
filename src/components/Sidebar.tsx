@@ -1,5 +1,15 @@
+import {
+  LayoutDashboard,
+  CandlestickChart,
+  Radar,
+  Star,
+  CircleHelp,
+  Users,
+  Receipt,
+} from './icons';
 import { useStore } from '../store';
 import type { Screen } from '../store';
+import type { ReactElement } from 'react';
 import { useT } from '../i18n';
 import { ThemeToggle, LangSwitch, RefreshButton } from './Controls';
 import { formatPercent, formatPrice } from '../../shared/format';
@@ -22,16 +32,34 @@ import { dirClassOrFlat } from '../dirClass';
  * Nav is *grouped*, not a flat list (SPEC-PHASE2 §C): the three groups answer
  * "where do I look at the market / what does it mean / what is mine".
  */
-const NAV_GROUPS: Array<{ id: string; labelKey: string; items: Array<{ id: Screen; icon: string }> }> = [
-  { id: 'markets', labelKey: 'nav.group.markets', items: [{ id: 'dashboard', icon: '◧' }, { id: 'chart', icon: '▲' }] },
-  { id: 'analysis', labelKey: 'nav.group.analysis', items: [{ id: 'signals', icon: '◎' }] },
-  { id: 'mine', labelKey: 'nav.group.mine', items: [{ id: 'watchlist', icon: '★' }, { id: 'help', icon: '?' }] },
+const NAV_GROUPS: Array<{
+  id: string;
+  labelKey: string;
+  items: Array<{ id: Screen; Icon: (p: { size?: number; strokeWidth?: number }) => ReactElement }>;
+}> = [
+  {
+    id: 'markets',
+    labelKey: 'nav.group.markets',
+    items: [
+      { id: 'dashboard', Icon: LayoutDashboard },
+      { id: 'chart', Icon: CandlestickChart },
+    ],
+  },
+  { id: 'analysis', labelKey: 'nav.group.analysis', items: [{ id: 'signals', Icon: Radar }] },
+  {
+    id: 'mine',
+    labelKey: 'nav.group.mine',
+    items: [
+      { id: 'watchlist', Icon: Star },
+      { id: 'help', Icon: CircleHelp },
+    ],
+  },
   {
     id: 'analysts',
     labelKey: 'nav.group.analysts',
     items: [
-      { id: 'analysts', icon: '⊞' },
-      { id: 'dividends', icon: '≣' },
+      { id: 'analysts', Icon: Users },
+      { id: 'dividends', Icon: Receipt },
     ],
   },
 ];
@@ -139,7 +167,7 @@ export function Sidebar({ hidden, onToggleHidden }: { hidden: boolean; onToggleH
                     {/* `aria-hidden` because the glyph is decorative — the label
                         beside it is the accessible name. */}
                     <span className="side-icon" aria-hidden="true">
-                      {item.icon}
+                      <item.Icon size={17} strokeWidth={1.9} />
                     </span>
                     <span className="side-text">{t(`nav.${item.id}`)}</span>
                     {/* The active rail is a real element so it can animate; a

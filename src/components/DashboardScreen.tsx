@@ -141,23 +141,8 @@ export function DashboardScreen() {
         </div>
       </section>
 
-      {/* ---------- price facts + fundamentals ---------- */}
+      {/* ---------- price facts ---------- */}
       <KeyStatsPanel />
-
-      {/* ---------- 52-week range ---------- */}
-      <RangePanel />
-
-      {/* ---------- what this instrument is ---------- */}
-      <div className="two-col">
-        <ProfilePanel />
-        <CategoryPanel />
-      </div>
-
-      {/* ---------- quality / analyst view ---------- */}
-      <HealthPanel />
-
-      {/* ---------- news & updates ---------- */}
-      <NewsPanel />
 
       {/* ---------- signals preview ---------- */}
       <section className="panel">
@@ -189,17 +174,38 @@ export function DashboardScreen() {
         )}
       </section>
 
-      {/* ---------- first-time help ---------- */}
-      {market ? (
-        <section className="help">
-          <h3>{t('dash.help.title')}</h3>
-          <ul>
-            <li>{t('dash.help.tip1')}</li>
-            <li>{t('dash.help.tip2')}</li>
-            <li>{t('dash.help.tip3')}</li>
-          </ul>
-        </section>
-      ) : null}
+      {/* ---------- everything else, folded away ----------
+          Owner (round 7): 「第一頁dashboard唔洗顯示哂咁多野」. Measured before this
+          change: the page was 5253px tall at 390x844, i.e. 6.2 screens of scroll
+          before the user reached the end. The reference material below is real
+          and useful, but it is not what someone opens the app to see. It now
+          lives behind one explicit disclosure that says what is inside, so the
+          first screen is: movers, chart, key numbers, signal verdict. */}
+      <details className="panel dash-more" data-testid="dash-more">
+        <summary>
+          <span className="dash-more-title">{t('dash.more.title')}</span>
+          <span className="dash-more-hint">{t('dash.more.hint', { symbol })}</span>
+        </summary>
+        <div className="dash-more-body">
+          <RangePanel />
+          <div className="two-col">
+            <ProfilePanel />
+            <CategoryPanel />
+          </div>
+          <HealthPanel />
+          <NewsPanel />
+          {market ? (
+            <section className="help">
+              <h3>{t('dash.help.title')}</h3>
+              <ul>
+                <li>{t('dash.help.tip1')}</li>
+                <li>{t('dash.help.tip2')}</li>
+                <li>{t('dash.help.tip3')}</li>
+              </ul>
+            </section>
+          ) : null}
+        </div>
+      </details>
 
       {/* Bars caption lives next to the chart it describes. */}
       {candles.length ? (
