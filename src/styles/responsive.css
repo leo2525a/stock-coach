@@ -137,26 +137,9 @@
   }
 }
 
-/* Touch comfort (Phase-5 QA N4 + owner 38/100): a coarse pointer gets ≥44px
-   targets wherever the controls now live — the sidebar's global controls and
-   the floating handle/hamburger. A finger stays a finger on a tablet, so this
-   is scoped to `pointer: coarse`, not a width. */
-@media (pointer: coarse) {
-  .sidebar-controls .icon-btn,
-  .sidebar-controls .lang-switch button,
-  .collapse-btn,
-  .drawer-toggle {
-    min-height: 44px;
-    min-width: 44px;
-  }
-  /* Owner (round 7): 「全個 app ui 行一次我要整潔易用」. The screen rows were
-     36px tall (7px padding + 12.5px text), under the 44px touch minimum, so
-     picking a screen was a precision tap. Widening the control pills above did
-     not cover the nav rows, which is where people actually tap. */
-  .side-item {
-    min-height: 44px;
-  }
-}
+/* Touch targets moved to touch.css, imported last: the per-component sizes
+   (e.g. `.pf-seg-sm button { min-height: 22px }`) outrank a plain `button`
+   rule, so the accessibility floor has to win the cascade deliberately. */
 
 @media (prefers-reduced-motion: reduce) {
   * {

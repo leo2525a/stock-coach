@@ -1,0 +1,62 @@
+/* Touch floor — owner round 7: 「全個 app ui 行一次我要整潔易用」
+ *
+ * On a coarse pointer every interactive control is at least 44×44, the
+ * smallest reliably tappable target. Measured before this file existed: the
+ * sidebar rows were 36px, the chart family tabs 34px, the timeframe chips 25px,
+ * the watchlist actions 34px, the analyst/dividend section toggles 29px and the
+ * period chips 22px. Those are precision taps, not buttons.
+ *
+ * Why this is its own file, imported last:
+ *   - the sizes are declared per component (`.pf-seg-sm button { min-height:
+ *     22px }` is specificity 0,1,1), so a plain `button` rule of specificity
+ *     0,0,1 loses no matter where it sits in the cascade. `!important` inside a
+ *     `pointer: coarse` query is the narrow, honest way to assert an
+ *     accessibility floor over per-component density.
+ *   - it is scoped to `pointer: coarse`, so the desktop keeps its compact
+ *     density and nothing here changes for a mouse.
+ *
+ * Width is asserted only for icon-only controls: a 44px minimum width on every
+ * text button would overflow the dense toolbars. Height is asserted for all,
+ * because height is what a thumb misses.
+ */
+@media (pointer: coarse) {
+  button,
+  input,
+  select,
+  textarea,
+  [role='button'],
+  a[href],
+  summary {
+    min-height: 44px !important;
+  }
+
+  /* Icon-only controls: no text to give them a comfortable width, so the box
+     itself must reach 44×44. */
+  .icon-btn,
+  .pf-act-btn,
+  /* lightweight-charts draws its own TradingView attribution logo as an
+     icon-only link. Its cell is 266px wide, so widening the link to 44px
+     cannot move anything. */
+  .tv-lightweight-charts a[href],
+  .pf-seg button,
+  button,
+  .collapse-btn,
+  .drawer-toggle,
+  .sidebar-controls .lang-switch button,
+  button[aria-label]:not(:has(span:not(:empty))) {
+    min-width: 44px !important;
+  }
+
+  /* Text and links stay text-wide; only their height is raised, otherwise a
+     two-word link would claim half a row. */
+  a[href] {
+    display: inline-flex;
+    align-items: center;
+    min-width: 0 !important;
+  }
+
+  /* A disclosure summary is a full-width row: keep it free to fill the line. */
+  summary {
+    min-width: 0 !important;
+  }
+}
