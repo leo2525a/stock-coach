@@ -106,10 +106,12 @@ A hands-on version if you want to drive Xcode yourself rather than the npm loop:
    `com.stockcoach.app`. The first build resolves the
    `capacitor-swift-pm` package over the network, so give it a moment.
 
-5. **Watch the app**: the panel starts away and a discreet ☰ sits in the top
-   left; tap it to slide out the sidebar — which carries the **logo**, the
+5. **Watch the app**: the panel starts away and the **brand mark (StockCoach)**
+   sits in the top left as the menu button; tap it to open the sidebar — which
+   carries the **logo**, the
    navigation (一頁睇晒 / K線圖 / 訊號 / 自選 / 分析師 / 股息 / 說明), the theme and
-   language controls, and the watchlist. On the chart screen the toolbar is one
+   language controls, and the watchlist. The panel scrolls its own content, and
+   opening it does **not** slide the app. On the chart screen the toolbar is one
    horizontally-scrollable row of category capsules.
 
 6. **Stop** with the ■ button (or ⌘.). To re-run after a web change just repeat

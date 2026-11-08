@@ -267,8 +267,8 @@ a:hover {
   min-height: 0;
   overflow: hidden;
   /* The mobile drawer, the desktop handle, and the scrim are all positioned
-     against this, so the panel slides over the *content* area rather than
-     covering the whole viewport. */
+     against this, so the panel overlays the *content* area rather than
+     covering the whole viewport. Showing it does not move the app. */
   position: relative;
 }
 
@@ -343,25 +343,29 @@ a:hover {
    button is now the one entry at every width, so there is nothing else to keep
    on screen. */
 
-/* The single menu button. Owner (50/100): it is the *only* control on the main
-   page and must be discreet — a small ghost icon in the corner, visible at
-   every width. It opens the sidebar (which carries the logo), and toggles it
-   shut again once open. There is no bar and no second handle. */
+/* The menu button: the brand mark itself. Owner (52/100): 「用個logo做menu button」
+   — the logo IS the button that opens/closes the panel. It is the only control
+   on the main page and stays discreet (ghost, no chrome), but it is a wide-enough
+   touch target and the text is crisp rather than dimmed. Showing/hiding the
+   panel is a plain `display` toggle, so nothing slides. There is no bar and no
+   second handle. */
 .drawer-toggle {
   display: inline-flex;
+  align-items: center;
+  justify-content: center;
   position: absolute;
   top: 8px;
   left: 10px;
   z-index: 60;
   min-width: 40px;
   min-height: 40px;
-  align-items: center;
-  justify-content: center;
-  opacity: 0.55;
+  padding: 6px 12px;
+  opacity: 1;
   background: transparent;
   border-color: transparent;
-  color: var(--text-dim);
+  color: var(--text);
   box-shadow: none;
+  cursor: pointer;
 }
 
 /* The chart headline row: symbol + long name + price, on one baseline.
@@ -473,12 +477,15 @@ a:hover {
 .sidebar {
   background: var(--bg-elev);
   border-right: 1px solid var(--border);
+  /* The panel scrolls its own content (nav + watchlist) instead of clipping it.
+     No animation lives here: showing/hiding is a plain `display` toggle, so the
+     app body never slides. */
+  overflow-y: auto;
+  overflow-x: hidden;
 }
-/* Desktop: the sidebar is an in-flow rail that can be *put away* (「«」, `c`, or
-   the handle). `margin-left` animates it off-canvas so the content reflows
-   smoothly (owner 38/100: 「加 slide animation」) instead of the panel merely
-   narrowing. Once the slide finishes the panel drops out of the a11y tree via
-   `visibility` — deferred by the transition so the motion is still seen. */
+/* Desktop: the sidebar is an in-flow rail that can be *put away* (「«」or `c`).
+   Showing/hiding is a plain `display` toggle — the panel does NOT slide and the
+   app is NOT translated; the reclaimed width simply reappears. */
 /* Owner (50/100): the panel starts *put away* even on a desktop rail, and the
    menu button beside it is the same discreet corner icon — so when open, the
    rail sits just to the right of that button rather than under it. */
@@ -495,17 +502,9 @@ a:hover {
     display: flex;
     flex-direction: column;
     min-height: 0;
-    overflow: hidden;
-    transition: margin-left 0.22s ease, visibility 0s linear 0s;
-    margin-left: 56px;
   }
   body.chrome-hidden .sidebar {
-    margin-left: -324px;
-    visibility: hidden;
-    transition: margin-left 0.22s ease, visibility 0s linear 0.22s;
-  }
-  .main-col {
-    transition: padding-left 0.22s ease;
+    display: none;
   }
 }
 
@@ -518,9 +517,6 @@ a:hover {
   list-style: none;
   margin: 0;
   padding: 6px;
-  overflow-y: auto;
-  flex: 1;
-  min-height: 0;
 }
 .wl-row {
   display: flex;
@@ -1226,9 +1222,9 @@ details.evidence-toggle > summary:hover {
   }
 }
 
-/* Below 1181px the sidebar is an overlay drawer. It is out of the flow so the
-   main column keeps the full width, and it slides in/out rather than jumping
-   (owner 38/100: 「加 slide animation」). */
+/* Below 1181px the sidebar is an overlay drawer: an overlay over the content
+   that is shown/hidden with `display` (a plain toggle — it does NOT slide). The
+   app itself is never translated. */
 @media (max-width: 1180px) {
   .sidebar {
     position: fixed;
@@ -1240,23 +1236,27 @@ details.evidence-toggle > summary:hover {
     max-width: 84vw;
     flex: 0 0 auto;
     max-height: none;
-    display: flex;
+    display: none;
     flex-direction: column;
     min-height: 0;
-    overflow: hidden;
     padding-top: env(safe-area-inset-top);
-    transform: translateX(-104%);
-    transition: transform 0.2s ease-out;
+  }
+  /* The safe area already pushes the panel down; the brand row does not need its
+     full desktop top padding on top of that (that is what left the owner
+     '空白位' at the top of the drawer). Trim it so the brand sits just below the
+     status bar. */
+  .sidebar .brand-head {
+    padding-top: 4px;
   }
   .sidebar.open {
-    transform: translateX(0);
+    display: flex;
   }
   .drawer-toggle {
     display: inline-flex;
   }
-  /* While the drawer is open, the discreet corner button would sit on top of the
-     drawer's brand row. Hide it there — the drawer has its own 「«」 close, plus
-     the scrim and Escape. */
+  /* While the drawer is open, the corner brand would sit on top of the drawer's
+     own brand row (same mark). Hide it there — the drawer's brand and its 「«」
+     close, the scrim, and Escape all remain. */
   .app:has(.sidebar.open) .drawer-toggle {
     display: none;
   }
@@ -1270,7 +1270,7 @@ details.evidence-toggle > summary:hover {
     background: var(--scrim);
     -webkit-backdrop-filter: blur(1px);
     backdrop-filter: blur(1px);
-    /* Fade in/out in step with the drawer slide (owner 40/100: it used to pop
+    /* Fade in/out in step with the drawer open/close (owner 40/100: it used to pop
        in and leave a mask). Hidden = non-interactive so it never eats taps. */
     opacity: 0;
     pointer-events: none;
@@ -1394,8 +1394,6 @@ details.evidence-toggle > summary:hover {
 .sidebar-watch {
   display: flex;
   flex-direction: column;
-  min-height: 0;
-  flex: 1;
 }
 .sidebar-label-spacer {
   border-bottom: 0;

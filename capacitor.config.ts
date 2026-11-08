@@ -13,7 +13,7 @@ const config: CapacitorConfig = {
   appName: 'Stock Coach',
   webDir: 'dist',
   ios: {
-    contentInset: 'always',
+    contentInset: 'never',
     backgroundColor: '#0d1117',
   },
 };

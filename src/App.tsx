@@ -23,9 +23,9 @@ import * as api from './api';
  *     shortcut, or the floating handle) takes the whole panel away in one move;
  *     a floating handle stays reachable to bring it straight back. No second
  *     press needed to "get back to the tab you were reading".
- *  3. "呢堆制好唔掂 … 加 slide animation" — the collapse now slides the panel
- *     off-canvas (`margin-left`), so the content reflows smoothly instead of the
- *     panel merely narrowing.
+ *  3. (round 2 — slide animation) the panel does NOT slide any more: showing or
+ *     hiding the sidebar is a plain `display` toggle, and the panel scrolls its
+ *     own content (owner 52/100: 「我話係個side bar用scroll你同我整左成個app slide」).
  *
  * `hideChrome` = "the sidebar is put away". It is separate from the mobile
  * `sidebarOpen` flag so the phone drawer and the desktop rail never fight.
@@ -78,8 +78,8 @@ function Shell() {
   const loadFundamentals = useStore((s) => s.loadFundamentals);
   const [apiUp, setApiUp] = useState<boolean | null>(null);
   // Owner (50/100): 「想主頁個 menu button 係用最隱密既方式 … 一禁先打開 顯示埋 logo」
-  // — the panel starts put away on the main page; a discreet corner button opens
-  // it (revealing the logo). Previously it started showing at desktop.
+  // — the panel starts put away on the main page; the brand mark itself is the
+  // button that opens it. The app never slides.
   const [hideChrome, setHideChrome] = useState(true);
 
   const bootstrap = async () => {
@@ -107,10 +107,11 @@ function Shell() {
     applyTheme(theme);
   }, [theme]);
 
-  // Paint the "chrome hidden" state one frame ahead of the slide so the FAB and
-  // the main column's reclaimed width animate in step with the sidebar. The
-  // class also drops the sidebar out of the accessibility tree while it is put
-  // away (`visibility: hidden`, applied after the slide).
+  // Paint the "chrome hidden" state immediately so the FAB and the main
+  // column's reclaimed width match the sidebar in the same frame — the panel is
+  // hidden with a plain `display` toggle (no slide), so nothing has to wait for
+  // a transition. The class also drops the sidebar out of the accessibility
+  // tree while it is put away (`display: none`).
   useEffect(() => {
     const root = document.body;
     root.classList.toggle('chrome-hidden', hideChrome);
@@ -189,9 +190,11 @@ function Shell() {
           display:none at desktop widths (see styles.css) so it cannot overlap
           content there. */}
       <DrawerScrim />
-      {/* The only control on the main page: a discreet corner button that opens
-          the sidebar (which carries the logo). It is the single entry at every
-          width — the old floating 「»」 handle is gone, and there is no bar. */}
+      {/* The only control on the main page: the brand mark itself is the menu
+          button (owner 52/100: 「用個logo做menu button」). One discreet control
+          at every width — it opens the sidebar (which carries the logo) and
+          closes it again. The slider is gone; showing/hiding is a plain
+          `display` toggle, so the app does not slide. */}
       <button
         type="button"
         className="icon-btn drawer-toggle"
@@ -200,7 +203,9 @@ function Shell() {
         title={t('nav.showTitle')}
         onClick={() => (window.matchMedia('(max-width: 1180px)').matches ? setSidebarOpen(!sidebarOpen) : setHideChrome((v) => !v))}
       >
-        ☰
+        <span className="brand">
+          Stock<span>Coach</span>
+        </span>
       </button>
       <div className="app-body">
         <Sidebar hidden={hideChrome} onToggleHidden={putSidebarAway} />

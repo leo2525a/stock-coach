@@ -40,9 +40,11 @@ const GROUP_MODES: GroupMode[] = ['all', 'sector', 'type', 'exchange'];
 
 /**
  * The single left panel. Owner (38/100): the logo bar's contents now live here
- * — the brand, and the global controls (theme, language, refresh). `hidden`
- * slides the whole panel off-canvas when the user puts it away (「«」or the `c`
- * shortcut); the floating handle in App brings it back in one move.
+ * — the brand, and the global controls (theme, language, refresh). Showing or
+ * hiding the panel is a plain `display` toggle (no slide): `hidden` puts it away
+ * (「«」or the `c` shortcut), and the brand in App brings it back in one move.
+ * The panel scrolls its own content (`overflow-y: auto`); the watchlist below the
+ * nav is reached by scrolling the panel.
  */
 export function Sidebar({ hidden, onToggleHidden }: { hidden: boolean; onToggleHidden: () => void }) {
   const t = useT();
@@ -91,7 +93,8 @@ export function Sidebar({ hidden, onToggleHidden }: { hidden: boolean; onToggleH
       aria-label={t('sidebar.title')}
       aria-hidden={hidden}
     >
-      {/* Identity — moved down from the old logo bar. */}
+      {/* Identity — moved down from the old logo bar. The brand mark is also the
+          app's menu button (rendered in App.tsx, see `.drawer-toggle`). */}
       <div className="sidebar-head brand-head">
         <div className="spread">
           <div className="brand">

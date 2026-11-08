@@ -593,7 +593,8 @@ async function main() {
     await page.waitForTimeout(450);
     const drawerOpen = await page.evaluate(() => {
       const sb = document.querySelector('.sidebar');
-      return !!sb && getComputedStyle(sb).transform !== 'none' && sb.classList.contains('open');
+      // The panel is shown with a plain `display` toggle now (no off-canvas slide).
+      return !!sb && getComputedStyle(sb).display !== 'none' && sb.classList.contains('open');
     });
     check('tapping the hamburger opens the sidebar drawer', drawerOpen);
     await clickNav(page, 'chart');
