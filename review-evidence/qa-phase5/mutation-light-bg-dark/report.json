@@ -1,0 +1,166 @@
+{
+  "generatedAt": "2026-11-07T15:04:44.292Z",
+  "widths": [
+    320,
+    390,
+    768,
+    1600
+  ],
+  "theme": {
+    "bootDark": {
+      "theme": "dark",
+      "colorScheme": "dark",
+      "bg": "#0d1117",
+      "chartBg": "#161b22",
+      "themeColor": "#0d1117",
+      "toggleCurrent": "dark"
+    },
+    "afterToggle": {
+      "theme": "light",
+      "colorScheme": "light",
+      "bg": "#0d1117",
+      "chartBg": "#ffffff",
+      "themeColor": "#ffffff",
+      "toggleCurrent": "light"
+    },
+    "lightCanvas": {
+      "rgb": [
+        255,
+        255,
+        255
+      ],
+      "samples": 6996
+    },
+    "darkCanvas": {
+      "rgb": [
+        22,
+        27,
+        34
+      ],
+      "samples": 7102
+    }
+  },
+  "nav": {
+    "topNavCount": 0,
+    "sidebarButtons": 7,
+    "reached": {
+      "dashboard": true,
+      "chart": true,
+      "signals": true,
+      "watchlist": true,
+      "analysts": true,
+      "dividends": true,
+      "help": true
+    }
+  },
+  "responsive": [
+    {
+      "name": "small-phone",
+      "width": 320,
+      "height": 640,
+      "scrollWidth": 320,
+      "innerWidth": 320,
+      "docOverflow": 0,
+      "padLeft": 12,
+      "padRight": 12,
+      "visibleControls": 5,
+      "topbarBtnMin": 40,
+      "drawerVisible": true
+    },
+    {
+      "name": "phone",
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "innerWidth": 390,
+      "docOverflow": 0,
+      "padLeft": 16,
+      "padRight": 16,
+      "visibleControls": 5,
+      "topbarBtnMin": 40,
+      "drawerVisible": true
+    },
+    {
+      "name": "tablet",
+      "width": 768,
+      "height": 1024,
+      "scrollWidth": 768,
+      "innerWidth": 768,
+      "docOverflow": 0,
+      "padLeft": 12,
+      "padRight": 12,
+      "visibleControls": 4,
+      "topbarBtnMin": 19.5,
+      "drawerVisible": false
+    },
+    {
+      "name": "desktop",
+      "width": 1600,
+      "height": 1000,
+      "scrollWidth": 1600,
+      "innerWidth": 1600,
+      "docOverflow": 0,
+      "padLeft": 12,
+      "padRight": 12,
+      "visibleControls": 4,
+      "topbarBtnMin": 19.5,
+      "drawerVisible": false
+    }
+  ],
+  "pwa": {
+    "manifest": {
+      "name": "Stock Coach",
+      "short_name": "Stock Coach",
+      "description": "Beginner-first stock analysis: multi-timeframe candlestick charts and plain-language, rule-based indicator signals.",
+      "start_url": "/",
+      "display": "standalone",
+      "background_color": "#0d1117",
+      "theme_color": "#0d1117",
+      "lang": "en",
+      "scope": "/",
+      "orientation": "any",
+      "categories": [
+        "finance",
+        "education",
+        "productivity"
+      ],
+      "icons": [
+        {
+          "src": "pwa-192.png",
+          "sizes": "192x192",
+          "type": "image/png",
+          "purpose": "any"
+        },
+        {
+          "src": "pwa-512.png",
+          "sizes": "512x512",
+          "type": "image/png",
+          "purpose": "any"
+        },
+        {
+          "src": "pwa-maskable-512.png",
+          "sizes": "512x512",
+          "type": "image/png",
+          "purpose": "maskable"
+        }
+      ]
+    },
+    "serviceWorker": {
+      "supported": true,
+      "scope": "http://127.0.0.1:58224/",
+      "active": true
+    }
+  },
+  "screenshots": [
+    "01-dark.png",
+    "02-light.png",
+    "03-chart-dark.png",
+    "04-phone.png"
+  ],
+  "consoleErrors": [],
+  "pageErrors": [],
+  "failedRequests": [],
+  "skipped": [],
+  "passed": 53,
+  "failed": []
+}

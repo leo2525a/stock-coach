@@ -1,0 +1,9 @@
+AAPL     nextEx=2026-11-12  (src=direct) nextPay=—           (src=absent, note=note.dividendPayableBeforeEx) | newestRow ex=2026-11-12 pay=— amt=0.27
+KO       nextEx=2026-12-01  (src=direct) nextPay=2026-12-15  (src=direct, note=-) | newestRow ex=2026-12-01 pay=2026-12-15 amt=0.53
+O        nextEx=2026-10-30  (src=direct) nextPay=2026-11-13  (src=direct, note=-) | newestRow ex=2026-10-30 pay=2026-11-13 amt=0.272
+COST     nextEx=2026-10-30  (src=direct) nextPay=2026-11-13  (src=direct, note=-) | newestRow ex=2026-10-30 pay=2026-11-13 amt=1.47
+AGNC     nextEx=2026-10-30  (src=direct) nextPay=2026-11-10  (src=direct, note=-) | newestRow ex=2026-10-30 pay=2026-11-10 amt=0.12
+0005.HK  nextEx=2026-11-05  (src=direct) nextPay=—           (src=absent, note=-) | newestRow ex=2026-11-05 pay=— amt=0.78396004
+ULVR.L   nextEx=2026-11-12  (src=direct) nextPay=—           (src=absent, note=-) | newestRow ex=2026-11-12 pay=— amt=39.07
+MSFT     nextEx=2026-11-19  (src=direct) nextPay=2026-12-10  (src=direct, note=-) | newestRow ex=2026-11-19 pay=2026-12-10 amt=0.91
+TSLA     nextEx=—           (src=absent) nextPay=—           (src=absent, note=-) | newestRow ex=— pay=— amt=undefined

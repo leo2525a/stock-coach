@@ -1,0 +1,33 @@
+
+### TSLA HTTP 200 
+   indicatedYield raw={"value":null,"source":"absent","note":"note.dividendNoDividend"}
+     → rendered "—"
+   trailingYield  raw={"value":null,"source":"absent","note":"note.dividendNoDividend"}
+     → rendered "—"
+   forwardYield   raw={"value":null,"source":"absent","note":"note.dividendIndicatedUnavailable"}
+   annualRate     raw={"value":null,"source":"absent"}
+   annualRate cell→ "—"
+   any literal zero-yield cell ("0%"/"0.00%"/"0 %")? none
+   schedule rows=0 growth1y={"value":null,"source":"absent","note":"note.dividendGrowthUnavailable"}
+
+### BRK-B HTTP 200 
+   indicatedYield raw={"value":null,"source":"absent","note":"note.dividendNoDividend"}
+     → rendered "—"
+   trailingYield  raw={"value":null,"source":"absent","note":"note.dividendNoDividend"}
+     → rendered "—"
+   forwardYield   raw={"value":null,"source":"absent","note":"note.dividendIndicatedUnavailable"}
+   annualRate     raw={"value":null,"source":"absent"}
+   annualRate cell→ "—"
+   any literal zero-yield cell ("0%"/"0.00%"/"0 %")? none
+   schedule rows=0 growth1y={"value":null,"source":"absent","note":"note.dividendGrowthUnavailable"}
+
+### KO HTTP 200 
+   indicatedYield raw={"value":0.0222,"source":"direct"}
+     → rendered "2.22%"
+   trailingYield  raw={"value":0.021936696,"source":"direct"}
+     → rendered "2.19%"
+   forwardYield   raw={"value":0.0222,"source":"derived","note":"note.dividendForwardIsIndicated"}
+   annualRate     raw={"value":2.12,"source":"direct"}
+   annualRate cell→ "2.12 USD"
+   any literal zero-yield cell ("0%"/"0.00%"/"0 %")? none
+   schedule rows=240 growth1y={"value":0.05154639175257736,"source":"derived"}

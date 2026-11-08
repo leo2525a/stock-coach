@@ -1,0 +1,368 @@
+{
+  "generatedAt": "2026-11-08T07:02:09.197Z",
+  "symbol": "AAPL",
+  "widths": [
+    390,
+    834,
+    1600
+  ],
+  "screenshots": [
+    "01-analysts-zh-HK.png",
+    "02-analysts-en.png",
+    "04-responsive-phone-390.png",
+    "04-responsive-tablet-834.png",
+    "04-responsive-desktop-1600.png"
+  ],
+  "overflow": [
+    {
+      "width": 390,
+      "docOverflow": 0,
+      "innerWidth": 390,
+      "scrollWidth": 390,
+      "offenders": [],
+      "contained": [
+        {
+          "tag": "div",
+          "cls": "pf-table-wrap",
+          "over": 290,
+          "by": "self"
+        },
+        {
+          "tag": "div",
+          "cls": "pf-table-wrap",
+          "over": 248,
+          "by": "self"
+        },
+        {
+          "tag": "div",
+          "cls": "pf-table-wrap",
+          "over": 258,
+          "by": "self"
+        },
+        {
+          "tag": "div",
+          "cls": "pf-table-wrap",
+          "over": 9,
+          "by": "self"
+        },
+        {
+          "tag": "div",
+          "cls": "pf-table-wrap",
+          "over": 457,
+          "by": "self"
+        },
+        {
+          "tag": "div",
+          "cls": "pf-table-wrap",
+          "over": 62,
+          "by": "self"
+        },
+        {
+          "tag": "div",
+          "cls": "pf-table-wrap",
+          "over": 154,
+          "by": "self"
+        },
+        {
+          "tag": "div",
+          "cls": "pf-chart",
+          "over": 956,
+          "by": "self"
+        }
+      ],
+      "segmented": [
+        {
+          "id": "pf-ntm-span",
+          "options": 10,
+          "groupRight": 358,
+          "viewport": 390,
+          "outside": 0
+        },
+        {
+          "id": "pf-band-span",
+          "options": 10,
+          "groupRight": 358,
+          "viewport": 390,
+          "outside": 0
+        }
+      ]
+    },
+    {
+      "width": 834,
+      "docOverflow": 0,
+      "innerWidth": 834,
+      "scrollWidth": 834,
+      "offenders": [],
+      "contained": [
+        {
+          "tag": "span",
+          "cls": "pf-stat-k",
+          "over": 6,
+          "by": "self"
+        },
+        {
+          "tag": "div",
+          "cls": "pf-table-wrap",
+          "over": 5,
+          "by": "self"
+        },
+        {
+          "tag": "div",
+          "cls": "pf-chart",
+          "over": 504,
+          "by": "self"
+        },
+        {
+          "tag": "div",
+          "cls": "pf-chart",
+          "over": 504,
+          "by": "self"
+        }
+      ],
+      "segmented": [
+        {
+          "id": "pf-ntm-span",
+          "options": 10,
+          "groupRight": 414,
+          "viewport": 834,
+          "outside": 0
+        },
+        {
+          "id": "pf-band-span",
+          "options": 10,
+          "groupRight": 446,
+          "viewport": 834,
+          "outside": 0
+        }
+      ]
+    },
+    {
+      "width": 1600,
+      "docOverflow": 0,
+      "innerWidth": 1600,
+      "scrollWidth": 1600,
+      "offenders": [],
+      "contained": [
+        {
+          "tag": "div",
+          "cls": "pf-table-wrap",
+          "over": 3,
+          "by": "self"
+        },
+        {
+          "tag": "div",
+          "cls": "pf-table-wrap",
+          "over": 87,
+          "by": "self"
+        },
+        {
+          "tag": "div",
+          "cls": "pf-chart",
+          "over": 2,
+          "by": "self"
+        },
+        {
+          "tag": "div",
+          "cls": "pf-chart",
+          "over": 2,
+          "by": "self"
+        }
+      ],
+      "segmented": [
+        {
+          "id": "pf-ntm-span",
+          "options": 10,
+          "groupRight": 678,
+          "viewport": 1600,
+          "outside": 0
+        },
+        {
+          "id": "pf-band-span",
+          "options": 10,
+          "groupRight": 710,
+          "viewport": 1600,
+          "outside": 0
+        }
+      ]
+    }
+  ],
+  "motion": {
+    "normal": {
+      ".pf-act-btn": 0.14,
+      ".pf-seg button": 0.14,
+      ".side-item": 0.14,
+      ".pf-section-toggle": 0.14,
+      ".pf-caret": 0.18
+    },
+    "reduced": {
+      ".pf-act-btn": 0,
+      ".pf-seg button": 0,
+      ".side-item": 0,
+      ".pf-section-toggle": 0,
+      ".pf-caret": 0
+    }
+  },
+  "sections": {
+    "zh-HK/sector": {
+      "present": true,
+      "text": "資訊科技"
+    },
+    "zh-HK/§C.1 header": {
+      "mode": "populated",
+      "missing": [],
+      "honestShown": []
+    },
+    "zh-HK/§C.1 actions": {
+      "mode": "populated",
+      "missing": [],
+      "honestShown": []
+    },
+    "zh-HK/§C.2 statements": {
+      "mode": "populated",
+      "missing": [],
+      "honestShown": []
+    },
+    "zh-HK/§C.3 actuals vs consensus": {
+      "mode": "populated",
+      "missing": [],
+      "honestShown": []
+    },
+    "zh-HK/§C.4 NTM": {
+      "mode": "populated",
+      "missing": [],
+      "honestShown": []
+    },
+    "zh-HK/§C.5 targets & ratings": {
+      "mode": "populated",
+      "missing": [],
+      "honestShown": []
+    },
+    "zh-HK": {
+      "rows": 107,
+      "titledMetricCells": 46,
+      "stmtPopulated": true
+    },
+    "en/sector": {
+      "present": true,
+      "text": "Technology"
+    },
+    "en/§C.1 header": {
+      "mode": "populated",
+      "missing": [],
+      "honestShown": []
+    },
+    "en/§C.1 actions": {
+      "mode": "populated",
+      "missing": [],
+      "honestShown": []
+    },
+    "en/§C.2 statements": {
+      "mode": "populated",
+      "missing": [],
+      "honestShown": []
+    },
+    "en/§C.3 actuals vs consensus": {
+      "mode": "populated",
+      "missing": [],
+      "honestShown": []
+    },
+    "en/§C.4 NTM": {
+      "mode": "populated",
+      "missing": [],
+      "honestShown": []
+    },
+    "en/§C.5 targets & ratings": {
+      "mode": "populated",
+      "missing": [],
+      "honestShown": []
+    },
+    "en": {
+      "rows": 107,
+      "titledMetricCells": 46,
+      "stmtPopulated": true
+    }
+  },
+  "locales": {
+    "en": true,
+    "zh": true
+  },
+  "consoleErrors": [],
+  "consoleWarnings": [],
+  "pageErrors": [],
+  "failedRequests": [],
+  "skipped": [],
+  "matrix": {
+    "api": [
+      {
+        "labelKey": "pf.matrix.revenue",
+        "kind": "money",
+        "actual": 114477000000,
+        "forecast": 156459329920,
+        "growth": 0.36673156983498867,
+        "noEstimateUpstream": false,
+        "basis": "quarter",
+        "asOf": "2026-09-30"
+      },
+      {
+        "labelKey": "pf.matrix.ebitda",
+        "kind": "money",
+        "actual": 39081000000,
+        "forecast": null,
+        "growth": null,
+        "noEstimateUpstream": true,
+        "basis": "quarter",
+        "asOf": "2026-09-30"
+      },
+      {
+        "labelKey": "pf.matrix.ebit",
+        "kind": "money",
+        "actual": 35631000000,
+        "forecast": null,
+        "growth": null,
+        "noEstimateUpstream": true,
+        "basis": "quarter",
+        "asOf": "2026-09-30"
+      },
+      {
+        "labelKey": "pf.matrix.eps",
+        "kind": "perShare",
+        "actual": null,
+        "forecast": 2.91805,
+        "growth": null,
+        "noEstimateUpstream": false,
+        "basis": "quarter",
+        "asOf": "2026-09-30"
+      }
+    ],
+    "domRows": [
+      {
+        "k": "收入",
+        "actual": 114480000000,
+        "forecast": 156460000000,
+        "growthText": "+36.67%",
+        "growth": 0.3667
+      },
+      {
+        "k": "EBITDA",
+        "actual": 39080000000,
+        "forecast": null,
+        "growthText": "—",
+        "growth": null
+      },
+      {
+        "k": "EBIT",
+        "actual": 35630000000,
+        "forecast": null,
+        "growthText": "—",
+        "growth": null
+      },
+      {
+        "k": "稀释後每股盈餘",
+        "actual": null,
+        "forecast": 2.92,
+        "growthText": "—",
+        "growth": null
+      }
+    ]
+  }
+}

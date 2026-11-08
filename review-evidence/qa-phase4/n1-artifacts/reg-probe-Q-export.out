@@ -1,0 +1,9 @@
+O        §C.5 rows=384 exDup=0 | §C.6 nextEx=2026-10-30 nextPay=2026-11-13 | §C.1 annualRate=3.26 USD lastDiv=0.272 USD
+COST     §C.5 rows=96 exDup=0 | §C.6 nextEx=2026-10-30 nextPay=2026-11-13 | §C.1 annualRate=5.88 USD lastDiv=1.47 USD
+AGNC     §C.5 rows=172 exDup=0 | §C.6 nextEx=2026-10-30 nextPay=2026-11-10 | §C.1 annualRate=1.44 USD lastDiv=0.12 USD
+0005.HK  §C.5 rows=93 exDup=0 | §C.6 nextEx=2026-11-05 nextPay=— | §C.1 annualRate=— lastDiv=—
+AAPL     §C.5 rows=93 exDup=0 | §C.6 nextEx=2026-11-12 nextPay=— | §C.1 annualRate=1.08 USD lastDiv=0.27 USD
+KO       §C.5 rows=240 exDup=0 | §C.6 nextEx=2026-12-01 nextPay=2026-12-15 | §C.1 annualRate=2.12 USD lastDiv=0.53 USD
+MSFT     §C.5 rows=92 exDup=0 | §C.6 nextEx=2026-11-19 nextPay=2026-12-10 | §C.1 annualRate=3.92 USD lastDiv=0.91 USD
+ULVR.L   §C.5 rows=104 exDup=0 | §C.6 nextEx=2026-11-12 nextPay=— | §C.1 annualRate=156.00 GBp lastDiv=39.07 GBp
+PROBE-Q: PASS — export §C.5/§C.6 obey §A.8 (no dup Ex-Date day, no PAY<EX)

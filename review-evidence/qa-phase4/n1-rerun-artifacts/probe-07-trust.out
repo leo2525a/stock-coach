@@ -1,0 +1,19 @@
+(a) LSE shape, dividendYield ABSENT:
+    annualRate = {"value":1.56,"source":"direct"}  <-- honesty depends on this being withheld, not 1.56
+    forwardYield = {"value":0.00031643002028397565,"source":"derived","note":"note.dividendForwardIsIndicated"}
+
+(b) live co-occurrence of dividendRate and dividendYield:
+  ULVR.L   ccy=GBp rate=1.56 yield=0.0311 price=4930 identity=153.323 
+  BP.L     ccy=GBp rate=0.25 yield=0.0442 price=559.4 identity=24.725 
+  VOD.L    ccy=GBp rate=0.04 yield=0.033299997 price=116.5 identity=3.879 
+  HSBA.L   ccy=GBp rate=0.3 yield=0.0227 price=1304.6 identity=29.614 
+  SHEL.L   ccy=GBp rate=1.16 yield=0.0306 price=3722.5 identity=113.908 
+  AZN.L    ccy=GBp rate=2.39 yield=0.017 price=13930 identity=236.810 
+  GSK.L    ccy=GBp rate=0.68 yield=0.036 price=1890 identity=68.040 
+  BATS.L   ccy=GBp rate=2.45 yield=0.0519 price=4567 identity=237.027 
+  LGEN.L   ccy=GBp rate=0.22 yield=0.0706 price=304.7 identity=21.512 
+  TSCO.L   ccy=GBp rate=0.15 yield=0.026300002 price=554 identity=14.570 
+  RDS.L    no result
+  BA.L     ccy=GBp rate=0.38 yield=0.0201 price=1846 identity=37.105 
+  RR.L     ccy=GBp rate=0.12 yield=0.0097 price=1261.2 identity=12.234 
+  IAG.L    ccy=GBp rate=0.09 yield=0.0199 price=433.7 identity=8.631 

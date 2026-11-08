@@ -1,0 +1,13 @@
+=== (1) is the day-merge branch live? ===
+O: lastChartEvent=2026-10-30T13:30:00.000Z factsNextEx=2026-10-30T00:00:00.000Z | rows with a payable=1 | rows on the next-ex day=1
+   -> MERGE branch executed: the payable was stamped onto the existing chart row 2026-10-30T13:30:00.000Z
+COST: lastChartEvent=2026-10-30T13:30:00.000Z factsNextEx=2026-10-30T00:00:00.000Z | rows with a payable=1 | rows on the next-ex day=1
+   -> MERGE branch executed: the payable was stamped onto the existing chart row 2026-10-30T13:30:00.000Z
+AGNC: lastChartEvent=2026-10-30T13:30:00.000Z factsNextEx=2026-10-30T00:00:00.000Z | rows with a payable=1 | rows on the next-ex day=1
+   -> MERGE branch executed: the payable was stamped onto the existing chart row 2026-10-30T13:30:00.000Z
+
+=== (2) trailing vs indicated yield, and unit consistency ===
+ULVR.L   ccy=GBp indicated=0.0311 trailing=0.00037480128 ratio(ind/trail)=82.98 annualRate=1.56
+BP.L     ccy=GBp indicated=0.0442 trailing=0.0005992245 ratio(ind/trail)=73.76 annualRate=0.25
+KO       ccy=USD indicated=0.0222 trailing=0.021936696 ratio(ind/trail)=1.01 annualRate=2.12
+O        ccy=USD indicated=0.0552 trailing=0.054470588 ratio(ind/trail)=1.01 annualRate=3.26

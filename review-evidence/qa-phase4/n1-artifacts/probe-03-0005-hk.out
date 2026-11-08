@@ -1,0 +1,14 @@
+currency          = HKD
+events last 8     = 2.791007, 0.783972, 0.777678, 0.777722, 3.522942, 0.783188, 0.784088, 0.78396004
+trailing-12m sum  = 6.65190004
+annualRate        = {"value":null,"source":"absent","note":"note.dividendAmountScaleUnreconciled"}
+lastDividendValue = {"value":null,"source":"absent","note":"note.dividendAmountScaleUnreconciled"}
+indicatedYield    = {"value":0.0228,"source":"direct"}
+forwardYield      = {"value":0.0228,"source":"derived","note":"note.dividendForwardIsIndicated"}
+frequency         = {"value":null,"source":"absent","note":"note.dividendFrequencyDisagree"} 
+
+reconcileScale(3.14, [ttm])        = null
+trailingAnnualTotal(events)        = [ 6.65190004 ]
+
+interpretation: if annualRate is withheld while the raw field was already the
+correct HKD annual figure, the N1 fix is OVER-withholding for HK fractional fields.

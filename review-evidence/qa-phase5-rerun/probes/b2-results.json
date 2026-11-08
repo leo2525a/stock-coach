@@ -1,0 +1,17 @@
+[
+  {
+    "name": "B2-1 a sidebar nav item is above the scrim (hit target is the nav button)",
+    "pass": true,
+    "detail": "BUTTON.side-item"
+  },
+  {
+    "name": "B2-2 tapping a nav item while the scrim is open navigates (not merely closes)",
+    "pass": true,
+    "detail": null
+  },
+  {
+    "name": "B2-3 no page errors",
+    "pass": true,
+    "detail": "none"
+  }
+]

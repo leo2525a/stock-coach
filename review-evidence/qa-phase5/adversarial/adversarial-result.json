@@ -1,0 +1,100 @@
+{
+  "results": [
+    {
+      "name": "no overflow at 320px (light, zh-HK)",
+      "pass": true,
+      "detail": "0px"
+    },
+    {
+      "name": "no overflow at 360px (light, zh-HK)",
+      "pass": true,
+      "detail": "0px"
+    },
+    {
+      "name": "no overflow at 390px (light, zh-HK)",
+      "pass": true,
+      "detail": "0px"
+    },
+    {
+      "name": "no overflow at 768px (light, zh-HK)",
+      "pass": true,
+      "detail": "0px"
+    },
+    {
+      "name": "zh-HK: no raw i18n key in the rendered DOM",
+      "pass": true,
+      "detail": "clean"
+    },
+    {
+      "name": "zh-HK: the page really is localised (contains CJK)",
+      "pass": true,
+      "detail": "CJK present"
+    },
+    {
+      "name": "en: no raw i18n key in the rendered DOM",
+      "pass": true,
+      "detail": "clean"
+    },
+    {
+      "name": "en: no CJK glyphs leaked into the English UI",
+      "pass": false,
+      "detail": "CJK present"
+    },
+    {
+      "name": "system + OS dark → dark",
+      "pass": true,
+      "detail": "dark"
+    },
+    {
+      "name": "system: a live OS flip to light repaints the page",
+      "pass": true,
+      "detail": "data-theme=light --bg=#f6f8fa"
+    },
+    {
+      "name": "after 7 rapid toggles, data-theme / --bg / toggle agree",
+      "pass": true,
+      "detail": "{\"theme\":\"light\",\"bg\":\"#f6f8fa\",\"toggle\":\"light\",\"meta\":\"#ffffff\"}"
+    },
+    {
+      "name": "after 7 rapid toggles, theme-color meta matches",
+      "pass": true,
+      "detail": "#ffffff"
+    },
+    {
+      "name": "analysts: canvas background changes dark→light",
+      "pass": true,
+      "detail": "dark rgb(22,27,34) vs light rgb(255,255,255)"
+    },
+    {
+      "name": "analysts: light canvas is the LIGHT background",
+      "pass": true,
+      "detail": "rgb(255,255,255)"
+    },
+    {
+      "name": "dividends: canvas background changes dark→light",
+      "pass": true,
+      "detail": "dark rgb(22,27,34) vs light rgb(255,255,255)"
+    },
+    {
+      "name": "dividends: light canvas is the LIGHT background",
+      "pass": true,
+      "detail": "rgb(255,255,255)"
+    },
+    {
+      "name": "light: the OHLC legend overlay exists and is painted",
+      "pass": true,
+      "detail": "{\"bg\":\"rgba(255, 255, 255, 0.85)\",\"color\":\"rgb(27, 35, 44)\",\"display\":\"flex\",\"text\":\"O 338.73H 345.79L 338.30C 342.37Δ +1.07%V 44.68M\"}"
+    },
+    {
+      "name": "light: the legend overlay is light (not a dark box on white)",
+      "pass": true,
+      "detail": "bg=rgba(255, 255, 255, 0.85) lum≈255"
+    },
+    {
+      "name": "zero console errors during the adversarial run",
+      "pass": true,
+      "detail": "none"
+    }
+  ],
+  "consoleErrors": []
+}

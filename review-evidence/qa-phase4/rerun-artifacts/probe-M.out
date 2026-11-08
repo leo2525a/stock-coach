@@ -1,0 +1,23 @@
+parseDividendFacts(ULVR.L-shape):
+  currency      = GBp
+  annualRate    = 1.56   <-- provider field is in GBP, label is GBp
+  lastDividend  = 0.3907   <-- provider field is in GBP
+  derived forward yield = 0.0311 (3.11%)
+
+§C.1 export table rows (figure | value | basis):
+  Currency               | GBp            | 
+  Indicated yield        | 3.11%          | As published
+  Trailing yield (LTM)   | 0.04%          | As published
+  Forward yield (indicated) | 3.11%          | Computed from the figures above
+  Payout ratio (LTM)     | —              | Unit-normalised
+  Five-year average yield | —              | Unit-normalised
+  Annual rate            | 1.56 GBp       | As published
+  Last dividend (per share) | 0.3907 GBp     | As published
+  Next ex-date           | 2026-11-12     | As published
+  Next payable date      | —              | As published
+  Payment frequency      | Quarterly      | Computed from the figures above
+
+DEFECT: the exported §C.1 "Annual rate" = "1.56 GBp"
+        while the same export's "Last Dividend" = "0.3907 GBp"
+        and the graph payments on the same screen average ~40 GBp; an annual rate of
+        ~156 GBp is the honest GBp figure (1.56 GBP == 156 GBp).

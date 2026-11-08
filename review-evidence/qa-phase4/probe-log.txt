@@ -1,0 +1,92 @@
+### probe-19 (corrected same-day duplicate detector, both routes)
+
+### O
+   MAIN  route: rows=385 same-day duplicates=2026-10-30x2
+      2026-10-30: exSeconds=1793367000 amt=0.272 USD pay=—
+      2026-10-30: exSeconds=1793318400 amt=0.272 USD pay=2026-11-13
+   HIST  route: 1y:dup(2026-10-30x2) | 3y:dup(2026-10-30x2) | 5y:dup(2026-10-30x2) | 10y:dup(2026-10-30x2) | 20y:dup(2026-10-30x2) | ALL:dup(2026-10-30x2)
+
+### COST
+   MAIN  route: rows=97 same-day duplicates=2026-10-30x2
+      2026-10-30: exSeconds=1793367000 amt=1.47 USD pay=—
+      2026-10-30: exSeconds=1793318400 amt=1.47 USD pay=2026-11-13
+   HIST  route: 1y:dup(2026-10-30x2) | 3y:dup(2026-10-30x2) | 5y:dup(2026-10-30x2) | 10y:dup(2026-10-30x2) | 20y:dup(2026-10-30x2) | ALL:dup(2026-10-30x2)
+
+### AGNC
+   MAIN  route: rows=173 same-day duplicates=2026-10-30x2
+      2026-10-30: exSeconds=1793367000 amt=0.12 USD pay=—
+      2026-10-30: exSeconds=1793318400 amt=0.12 USD pay=2026-11-10
+   HIST  route: 1y:dup(2026-10-30x2) | 3y:dup(2026-10-30x2) | 5y:dup(2026-10-30x2) | 10y:dup(2026-10-30x2) | 20y:dup(2026-10-30x2) | ALL:dup(2026-10-30x2)
+
+### 0005.HK
+   MAIN  route: rows=94 same-day duplicates=2026-11-05x2
+      2026-11-05: exSeconds=1793842200 amt=0.78396004 HKD pay=—
+      2026-11-05: exSeconds=1793836800 amt=0.1 HKD pay=—
+   HIST  route: 1y:dup(2026-11-05x2) | 3y:dup(2026-11-05x2) | 5y:dup(2026-11-05x2) | 10y:dup(2026-11-05x2) | 20y:dup(2026-11-05x2) | ALL:dup(2026-11-05x2)
+
+### AAPL
+   MAIN  route: rows=93 same-day duplicates=none
+   HIST  route: 1y:PAY<EX(2026-11-12/2026-08-13) | 3y:PAY<EX(2026-11-12/2026-08-13) | 5y:PAY<EX(2026-11-12/2026-08-13) | 10y:PAY<EX(2026-11-12/2026-08-13) | 20y:PAY<EX(2026-11-12/2026-08-13) | ALL:PAY<EX(2026-11-12/2026-08-13)
+
+### KO
+   MAIN  route: rows=240 same-day duplicates=none
+   HIST  route: clean on all six spans
+
+### MSFT
+   MAIN  route: rows=92 same-day duplicates=none
+   HIST  route: clean on all six spans
+
+### ULVR.L
+   MAIN  route: rows=104 same-day duplicates=none
+   HIST  route: clean on all six spans
+
+### probe-12 (debt-leg sign, KO growth recompute, history schedule)
+=== (1) debt-leg sign: cases the shipped fix does NOT pin ===
+  OK   net ISSUANCE (KO FY25 shape): |pay|-|iss|=-13000000 -> value=-0.013 (negative, want negative)
+       (forbidden naive abs(pay-iss)/mcap would be +9.947)
+  OK   net ISSUANCE larger (IBM shape): |pay|-|iss|=-2902000000 -> value=-2.902 (negative, want negative)
+       (forbidden naive abs(pay-iss)/mcap would be +13.88)
+  OK   gross PAYDOWN (payments > issuance): |pay|-|iss|=7000000000 -> value=7 (positive, want positive)
+       (forbidden naive abs(pay-iss)/mcap would be +13)
+  OK   exactly net zero: |pay|-|iss|=0 -> value=0 (zero, want zero)
+       (forbidden naive abs(pay-iss)/mcap would be +8)
+
+=== (2) KO growth: independent recompute from the captured chart ===
+KO chart events: 169 first 1962-06-11 last 2026-09-15
+last 8 annual totals: 1998=0.300 1999=0.320 2000=0.340 2001=0.540 2002=0.400 2003=0.440 2004=0.125 2026=0.530
+excluded (special) years: none
+full years counted: 43 span 1962 → 2004
+code growth: {"streak":0,"g1":-0.7159090909090908,"g3":-0.38599475022660223,"g5":-0.1713864956650033,"g10":-0.04349434900456439}
+  growth1y: independent=-0.7159090909090908 code=-0.7159090909090908 match=true
+  growth3y: independent=-0.38599475022660223 code=-0.38599475022660223 match=true
+  growth5y: independent=-0.1713864956650033 code=-0.1713864956650033 match=true
+  growth10y: independent=-0.04349434900456439 code=-0.04349434900456439 match=true
+  consecutiveIncreases independent= 0 code= 0
+
+=== (3) history route: does the duplicate "upcoming" row appear there too? ===
+  O span=1y rows=12 duplicateExDates=none
+  AAPL span=1y rows=5 duplicateExDates=none
+      !! payable 2026-08-13 precedes ex 2026-11-12 by 91d
+  COST span=1y rows=5 duplicateExDates=none
+
+### probe-14 (growth horizon with a hole)
+=== (a) growth horizon with a hole inside the trailing window ===
+payments in real life: 2015=1, gap 2016-2019, then 2/yr 2020-2025
+fullYears = [2015,2020,2021,2022,2023,2024,2025]
+growth1y = 0 (2025 vs 2024 -> 2 vs 2 = 0%)
+growth5y = 0
+consecutiveAnnualIncreases = 0
+
+series with 2024-2025 = 3.00 and a HOLE at 2021-2023:
+fullYears = [2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2024,2025]
+growth5y: baseYear = 2017 lastYear = 2025
+   -> the labelled "5Y" is actually 8 calendar years
+growth5y value = 0.2457309396155174
+growth3y: baseYear = 2019 lastYear = 2025 -> span 6 years
+growth3y value = 0.4422495703074083
+consecutiveAnnualIncreases = 0 (the 2021-2023 hole counts as an increase)
+
+=== (a2) the shipped AAPL case, live shape ===
+shape: 1987-1995 paid, 1996-2011 SUSPENDED, 2012-2025 paid
+consecutiveAnnualIncreases = 22 <- counts the 17-year suspension as an "increase"
+growth10y = 0.029186008964760646

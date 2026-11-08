@@ -1,0 +1,112 @@
+{
+  "pass": 21,
+  "fail": 0,
+  "checks": [
+    {
+      "name": "1a no logo/top bar exists",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "1b brand lives in the sidebar",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "1c global controls live in the sidebar",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "1d sidebar carries theme-toggle",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "1d sidebar carries lang-switch",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "1d sidebar carries refresh-btn",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "2a sidebar starts in-flow at desktop",
+      "ok": true,
+      "detail": "{\"left\":0,\"right\":264,\"width\":264,\"vis\":\"visible\"}"
+    },
+    {
+      "name": "2b the sidebar has a slide transition (owner: 加 slide animation)",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "2c one click puts the panel away",
+      "ok": true,
+      "detail": "{\"left\":-266,\"right\":-2,\"width\":264,\"vis\":\"hidden\"}"
+    },
+    {
+      "name": "2d the handle is reachable while hidden",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "2e the handle sits in a corner (not a full bar)",
+      "ok": true,
+      "detail": "30x40"
+    },
+    {
+      "name": "2f the handle brings it straight back",
+      "ok": true,
+      "detail": "{\"left\":0,\"right\":264,\"width\":264,\"vis\":\"visible\"}"
+    },
+    {
+      "name": "3a the toolbar is grouped into capsules",
+      "ok": true,
+      "detail": "5 groups"
+    },
+    {
+      "name": "3b each group is a rounded pill",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "3c the hairline separators are gone",
+      "ok": true,
+      "detail": "0 seps"
+    },
+    {
+      "name": "4a the headline row is not a sticky/fixed bar",
+      "ok": true,
+      "detail": "static"
+    },
+    {
+      "name": "5 no horizontal overflow @320",
+      "ok": true,
+      "detail": "0px"
+    },
+    {
+      "name": "5 no horizontal overflow @393",
+      "ok": true,
+      "detail": "0px"
+    },
+    {
+      "name": "5 no horizontal overflow @768",
+      "ok": true,
+      "detail": "0px"
+    },
+    {
+      "name": "5 no horizontal overflow @1280",
+      "ok": true,
+      "detail": "0px"
+    },
+    {
+      "name": "5 zero console errors",
+      "ok": true,
+      "detail": "none"
+    }
+  ],
+  "consoleErrors": []
+}

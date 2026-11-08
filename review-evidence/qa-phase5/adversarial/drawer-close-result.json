@@ -1,0 +1,37 @@
+{
+  "results": [
+    {
+      "name": "drawer starts open",
+      "pass": true
+    },
+    {
+      "name": "while the drawer is open the hamburger is still tap-to-close",
+      "pass": false,
+      "detail": "hit → STRONG.tiny sidebar-label sidebar-label-text"
+    },
+    {
+      "name": "the scrim is a live tap target while the drawer is open",
+      "pass": false,
+      "detail": "display:none 0×0"
+    },
+    {
+      "name": "Escape closes the drawer",
+      "pass": false
+    },
+    {
+      "name": "Escape from a focused child also closes the drawer",
+      "pass": false
+    }
+  ],
+  "facts": {
+    "hamburgerCenter": {
+      "cx": 32,
+      "cy": 30
+    },
+    "hitAtHamburger": "STRONG.tiny sidebar-label sidebar-label-text",
+    "hamburgerReachable": false,
+    "scrimDisplay": "none",
+    "scrimW": 0,
+    "scrimH": 0
+  }
+}

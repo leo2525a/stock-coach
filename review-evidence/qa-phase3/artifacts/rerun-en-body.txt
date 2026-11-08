@@ -1,0 +1,396 @@
+StockCoach
+Dashboard
+Chart
+Signals
+Watchlist
+Analysts
+Help
+AAPL
+Apple Inc.
+344.17 USD
+-4.30
+-1.53%
+Vol 74.17M
+中
+EN
+⟳ Refresh
+Primary
+«
+MARKETS
+◧
+Dashboard
+▲
+Chart
+ANALYSIS
+◎
+Signals
+MY STUFF
+★
+Watchlist
+?
+Help
+RESEARCH
+⊞
+Analysts
+Watchlist
+⟳
+Group by
+All
+Sector
+Type
+Exchange
+AAPL
+Apple Inc.
+344.17
+-1.53%
+MSFT
+Microsoft Corporation
+535.93
+-3.58%
+NVDA
+NVIDIA Corporation
+181.60
+-9.26%
+SPY
+SPDR S&P 500 ETF Trust
+733.00
+-4.41%
+Analysts
+
+Consensus estimates, financial statements and analyst ratings for AAPL.
+
+CONSENSUS RATING
+2.23
+MEAN PRICE TARGET
+333.28 USD
+UPSIDE TO TARGET
+-3.16%
+EPS, NEXT QUARTER
+2.9
+REVENUE, NEXT QUARTER
+155.57B
+FORWARD P/E
+32.32
+NEXT EARNINGS
+2027-01-28
+CSV
+JSON
+Apple Inc.
+Technology
+Consumer Electronics
+NasdaqGS
+Pre-market
+344.17 USD
+-5.34
+-0.02%
+PREVIOUS CLOSE
+349.51
+DAY HIGH
+355.38
+DAY LOW
+342.06
+52-WEEK RANGE
+243.42 – 355.38
+VOLUME
+74.17M
+MARKET CAP
+5.00T
+P/E (TRAILING)
+38.33
+P/E (FORWARD)
+32.32
+NEXT EARNINGS
+2027-01-28*
+PRE-MARKET
+339.87
+AFTER HOURS
+343.32
+
+Pre-market and after-hours rows appear only when the provider publishes them.
+
+★
+On watchlist
+CSV
+JSON
+MY ALERTS
+Save reminder
+Clear
+
+No reminders yet. · Reminders are stored in this browser only — they are a note to yourself, not a notification.
+
+MY NOTES
+Save note
+Notes never leave this browser.
+Display currency
+USD
+HKD
+CNY
+EUR
+GBP
+JPY
+Reported in USD
+Conversion is for display only; the statements remain in the currency the company reports in.
+›
+Statements
+LTM
+Q
+Y
+LTM (computed) · 4 periods
+Latest reported period: 2026-09-30
+Figures in USD
+
+LTM figures are computed from the last four reported quarters; the provider does not report a twelve-month column itself.
+
+FINANCIAL STATEMENTS	2025-12-31	2026-03-31	2026-06-30	2026-09-30
+Total revenue	246.22B USD	357.41B USD	466.82B USD	478.83B USD
+Cost of revenue	128.65B USD	185.05B USD	239.70B USD	245.23B USD
+Gross profit	117.57B USD	172.35B USD	227.12B USD	233.60B USD
+Research & development	19.75B USD	31.17B USD	42.90B USD	45.77B USD
+Selling, general & admin	14.54B USD	22.02B USD	29.36B USD	29.77B USD
+Operating income	83.28B USD	119.16B USD	154.86B USD	158.06B USD
+EBITDA	89.62B USD	128.94B USD	167.96B USD	171.49B USD
+EBIT	83.28B USD	119.16B USD	154.86B USD	158.06B USD
+Interest expense	—	—	—	—
+Pretax income	83.81B USD	119.64B USD	155.91B USD	159.24B USD
+Tax provision	14.24B USD	20.50B USD	26.98B USD	27.06B USD
+Net income	69.56B USD	99.14B USD	128.93B USD	132.18B USD
+Basic EPS	2.09 USD	2.07 USD	2.19 USD	—
+Diluted EPS	2.09 USD	2.07 USD	2.18 USD	—
+FINANCIAL STATEMENTS	2025-12-31	2026-03-31	2026-06-30	2026-09-30
+Total assets	379.30B USD	371.08B USD	383.27B USD	404.55B USD
+Current assets	158.10B USD	144.11B USD	149.82B USD	173.86B USD
+Cash & equivalents	45.32B USD	45.57B USD	39.54B USD	36.30B USD
+Inventory	5.88B USD	6.75B USD	11.09B USD	14.54B USD
+Goodwill	—	—	—	—
+Other intangibles	—	—	—	—
+Current liabilities	162.37B USD	134.64B USD	149.33B USD	169.91B USD
+Total liabilities	291.11B USD	264.59B USD	275.75B USD	292.45B USD
+Long-term debt	76.69B USD	74.40B USD	71.34B USD	68.21B USD
+Current debt	13.82B USD	10.31B USD	13.00B USD	11.90B USD
+Total debt	90.51B USD	84.71B USD	84.34B USD	80.11B USD
+Net debt	45.19B USD	39.14B USD	44.80B USD	43.81B USD
+Shareholders’ equity	88.19B USD	106.49B USD	107.52B USD	112.09B USD
+Minority interest	—	—	—	—
+Shares outstanding	14.70B	14.67B	14.69B	14.53B
+Total capitalisation	164.88B USD	180.90B USD	178.86B USD	180.30B USD
+FINANCIAL STATEMENTS	2025-12-31	2026-03-31	2026-06-30	2026-09-30
+Operating cash flow	83.65B USD	112.36B USD	146.72B USD	145.10B USD
+Capital expenditure	-5.62B USD	-7.59B USD	-10.04B USD	-9.04B USD
+Free cash flow	78.04B USD	104.77B USD	136.68B USD	136.06B USD
+Investing cash flow	-7.47B USD	-13.64B USD	-21.40B USD	-17.28B USD
+Financing cash flow	-67.13B USD	-89.41B USD	-122.05B USD	-127.45B USD
+Depreciation & amortisation	6.34B USD	9.78B USD	13.10B USD	13.42B USD
+Reconciled depreciation	6.34B USD	9.78B USD	13.10B USD	13.42B USD
+Stock-based compensation	6.78B USD	10.30B USD	13.71B USD	13.79B USD
+Dividends paid	-7.78B USD	-11.61B USD	-15.64B USD	-15.72B USD
+Share repurchases	-44.83B USD	-57.12B USD	-82.23B USD	-86.39B USD
+
+A dash means the provider published nothing for that line — it is not a zero.
+
+MARKET CAP USED5.00T USD
+ENTERPRISE VALUE5.05T USD
+NET DEBT43.81B USD
+MULTIPLES & ENTERPRISE VALUE
+PERIOD	MULTIPLES & ENTERPRISE VALUE
+P/E	—
+P/B	44.62x
+P/S	10.45x
+EV/Revenue	10.54x
+EV/EBITDA	29.42x
+EV/EBIT	31.92x
+PROFITABILITY & RETURNS
+PERIOD	MULTIPLES & ENTERPRISE VALUE
+Gross margin	48.79%
+Operating margin	33.01%
+Net margin	27.6%
+EBITDA margin	35.81%
+Return on equity	117.92%
+Return on assets	32.67%
+ROIC	84.16%
+DEBT & COVERAGE
+PERIOD	MULTIPLES & ENTERPRISE VALUE
+Total debt / equity	0.71
+Long-term debt / equity	0.61
+Total debt / capital	41.68%
+Liabilities / assets	72.29%
+Current ratio	1.02
+EBIT / interest	—
+EBITDA / interest	—
+Total debt / EBITDA	0.47x
+Net debt / EBITDA	0.26x
+Debt / (EBITDA − capex)	0.49x
+
+Every ratio here is computed from the statement lines above; hover a value to see its formula.
+
+›
+Estimates
+ESTIMATE BREAKDOWN
+PERIOD	ENDS	EPS	LOW → HIGH	REVENUE	ANALYSTS	YOY GROWTH	PRICE MULTIPLE	EV MULTIPLE
+This quarter	2026-09-30	2.9	
+2.87
+2.94
+2.87 – 2.94
+	155.57B USD	26	+56.95%	118.53x	—
+Next quarter	2027-03-31	2.15	
+1.87
+2.49
+1.87 – 2.49
+	124.94B USD	16	+7.09%	159.9x	—
+This fiscal year	2027-09-30	9.45	
+8.87
+9.94
+8.87 – 9.94
+	477.71B USD	38	+26.66%	36.43x	—
+Next fiscal year	2027-09-30	10.57	
+8.57
+11.61
+8.57 – 11.61
+	570.06B USD	28	+19.61%	32.56x	—
+FY+2	—	—	—	—	—	—	—	—
+FY+3	—	—	—	—	—	—	—	—
+
+Not carried upstream: Yahoo publishes estimates for four periods only (this quarter, next quarter, this year, next year). The further years are shown as dashes because no data exists for them — nothing here is interpolated.
+
+NEXT EARNINGS DATE
+NEXT EARNINGS DATE
+2027-01-28Expected (provider estimate)
+CONSENSUS EPS
+2.9 · 2.87 – 2.94
+CONSENSUS REVENUE
+155.57B
+REPORTED QUARTERS VS CONSENSUS
+QUARTER	ACTUAL EPS	CONSENSUS EPS	DIFFERENCE	SURPRISE
+2025-09-30	1.85	1.77	+0.08	+4.45%
+2025-12-31	2.84	2.67	+0.17	+6.34%
+2026-03-31	2.01	1.94	+0.07	+3.46%
+2026-06-30	2.02	1.89	+0.13	+6.74%
+2026-09-30	2.1	1.99	+0.11	+5.75%
+NEXT QUARTER FORECAST VS LAST REPORTED QUARTER
+
+Latest reported quarter: 2026-09-30 · Both columns use the same period basis (one quarter).
+
+METRIC	LAST REPORTED	FORECAST	CHANGE
+Revenue	114.48B USD	155.57B USD	+35.90%
+EBITDA	39.08B USD	No consensus is published for this line upstream.	—
+EBIT	35.63B USD	No consensus is published for this line upstream.	—
+Diluted EPS	—	2.9	—
+ESTIMATE LEVEL VS PRICE
+MTD
+1M
+QTD
+3M
+6M
+YTD
+1Y
+3Y
+5Y
+10Y
+	
+	
+
+	
+	
+CURRENT FORWARD ESTIMATE
+5.06 USD · This quarter + Next quarter
+PRICE NOW
+344.17 USD
+REVENUE
+280.51B USD
+
+The estimate overlay is a single current point (the forward estimate level). The provider publishes no historical estimate series, so there is no past line to draw — the price line is real history.
+
+›
+Ratings
+PRICE TARGET VS PRICE
+Span
+MTD
+1M
+QTD
+3M
+6M
+YTD
+1Y
+3Y
+5Y
+10Y
+	
+	
+
+	
+	
+Price
+Target band (current)
+
+The band is the current analyst target range; the line is the real price history. The provider keeps no historical target series, so the band is drawn once, as today’s range — it is not a past series.
+
+LOW TARGET
+250.00 USD
+MEAN TARGET
+333.28 USD
+MEDIAN TARGET
+340.00 USD
+HIGH TARGET
+405.00 USD
+PRICE NOW
+344.17 USD
+RETURN POTENTIAL
+-3.16%
+TRAILING 1-YEAR RETURN
++27.58%
+ANALYST OPINIONS
+38
+COMPOSITE SCORE
+2.23
+DISPLAY CURRENCY
+USD
+
+inside the target range
+
+RATING DISTRIBUTION
+Strong buy
+6
+Buy
+18
+Hold
+13
+Sell
+3
+Strong sell
+3
+COMPOSITE SCORE
+2.23buy
+ANALYST OPINIONS
+38
+RATINGS OVER TIME
+MONTH	STRONG BUY	BUY	HOLD	SELL	STRONG SELL
+Month	6	18	13	3	3
+Month -1	6	18	13	3	3
+Month -2	6	19	13	3	3
+Month -3	6	19	14	3	2
+RECENT UPGRADES & DOWNGRADES
+DATE	FIRM	FROM	TO	ACTION	NEW TARGET
+2026-11-04	Bernstein	Buy	Buy	main	380.00
+2026-11-03	JP Morgan	Overweight	Overweight	main	355.00
+2026-11-03	UBS	Neutral	Neutral	main	340.00
+2026-11-03	Argus Research	Buy	Buy	main	400.00
+2026-11-03	Barclays	Underweight	Underweight	main	261.00
+2026-11-03	TD Cowen	Buy	Buy	main	390.00
+2026-11-03	DA Davidson	Neutral	Neutral	main	295.00
+2026-11-03	Keybanc	Underweight	Underweight	reit	250.00
+2026-11-03	Rosenblatt	Neutral	Neutral	main	303.00
+2026-11-03	Baird	Outperform	Outperform	main	340.00
+2026-11-03	Morgan Stanley	Overweight	Overweight	main	350.00
+2026-10-20	MoffettNathanson	Neutral	Neutral	main	283.00
+2026-10-20	Loop Capital	Buy	Hold	down	330.00
+2026-10-12	JP Morgan	Overweight	Overweight	main	360.00
+2026-10-01	Morgan Stanley	Overweight	Overweight	main	355.00
+2026-10-01	Needham	Hold	Hold	reit	0.00
+2026-09-29	Morgan Stanley	Overweight	Overweight	reit	360.00
+2026-09-23	B of A Securities	Buy	Buy	reit	370.00
+2026-09-18	Evercore ISI Group	Outperform	Outperform	main	380.00
+2026-09-17	B of A Securities	Buy	Buy	reit	370.00
+2026-09-10	TD Cowen	Buy	Buy	reit	400.00
+2026-09-10	Rosenblatt	Neutral	Neutral	main	303.00
+2026-09-10	B of A Securities	Buy	Buy	main	370.00
+2026-09-08	HSBC	Buy	Buy	reit	366.00
+2026-09-08	Needham	Hold	Hold	reit	0.00

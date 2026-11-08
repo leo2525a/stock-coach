@@ -1,0 +1,21 @@
+import { readFileSync } from 'node:fs';
+import { openDb } from '../../server/db';
+import { loadEstimates } from '../../server/phase3-service';
+import { analystSummaryPath } from '../../server/provider';
+const F='tests/fixtures';
+const qs=JSON.parse(readFileSync(`${F}/quotesummary-AAPL.json`,'utf8'));
+const q=JSON.parse(readFileSync(`${F}/timeseries-AAPL-quarterly.json`,'utf8'));
+console.log('analystSummaryPath:', analystSummaryPath('AAPL'));
+const fetchImpl=(async (input:any)=>{
+  const url=typeof input==='string'?input:input.toString();
+  console.log('FETCH', url.slice(0,120));
+  if(url.includes('/v1/test/getcrumb')) return new Response('abc123.Crumb',{status:200,headers:{'set-cookie':'A3=c; Path=/'}});
+  if(url.includes('fc.yahoo.com')) return new Response('',{status:200,headers:{'set-cookie':'A1=p; Path=/'}});
+  if(url.includes('fundamentals-timeseries')) return new Response(JSON.stringify(q),{status:200});
+  if(url.includes('quoteSummary')) return new Response(JSON.stringify(qs),{status:200});
+  if(url.includes('/v8/finance/chart/')) return new Response(JSON.stringify({chart:{result:[{meta:{symbol:'AAPL',currency:'USD',regularMarketPrice:200}}]}}),{status:200});
+  return new Response('nf',{status:404});
+}) as unknown as typeof fetch;
+const db=openDb(':memory:');
+const est=await loadEstimates(db,'AAPL',{fetchImpl,now:1800000000});
+console.log('source:',est.source,'periods:',est.periods.length,'matrix:',JSON.stringify(est.matrix.map(r=>({k:r.labelKey,a:r.actual,f:r.forecast,g:r.growth,asOf:r.asOf}))));

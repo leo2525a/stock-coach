@@ -1,0 +1,48 @@
+########## m2_schedule_always_append (probe-B-coherence.mts) — defect 1: duplicate row
+  probe exit=1
+  PROBE-B: FAIL (21)
+  shipped-tests exit=1
+  ⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+        Tests  2 failed | 61 passed (63)
+
+########## m4_no_nextpay_guard (probe-C-nextpay.mts) — defect 2: facts PAY<=EX
+  probe exit=1
+  PROBE-C: FAIL (1)
+  shipped-tests exit=1
+  ⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+        Tests  3 failed | 60 passed (63)
+
+########## m6_no_upcoming_scale (probe-E-units.mts) — defect 3: upcoming amount off-scale
+  probe exit=0
+  PROBE-E: PASS — §C.5 upcoming amount and §C.1 last-dividend are in their series unit
+  shipped-tests exit=1
+  ⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+        Tests  2 failed | 61 passed (63)
+
+########## m3_no_scale_reconcile (probe-E-units.mts) — defect 3b: §C.1 last-dividend off-scale
+  probe exit=1
+  PROBE-E: FAIL (2)
+  shipped-tests exit=0
+        Tests  63 passed (63)
+
+########## m5_no_upcoming_monotonicity (probe-B-coherence.mts) — schedule monotonicity
+  probe exit=0
+  PROBE-B: PASS — no duplicate Ex-Date day, no PAY<EX, one unit, both routes, six spans
+  shipped-tests exit=0
+        Tests  63 passed (63)
+
+########## m1_streak_no_contiguity (probe-F-growth.mts) — defect 4: positional streak
+  probe exit=1
+  PROBE-F: FAIL (2)
+  shipped-tests exit=1
+  ⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+        Tests  1 failed | 62 passed (63)
+
+########## m7_growth_positional (probe-F-growth.mts) — latent: positional growth horizon
+  probe exit=1
+  PROBE-F: FAIL (2)
+  shipped-tests exit=1
+  ⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+        Tests  1 failed | 62 passed (63)
+
+ALL2-DONE

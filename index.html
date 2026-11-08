@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=5.0"
+    />
+    <!-- Kept in sync with the active theme by src/theme.ts (applyTheme). Dark is
+         the pre-set default so the bar is correct even before that runs. -->
+    <meta name="theme-color" content="#0d1117" />
+    <meta name="description" content="Stock Coach — beginner-first stock analysis with multi-timeframe candlestick charts and plain-language, rule-based indicator signals." />
+    <!-- iOS standalone / PWA integration -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Stock Coach" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <title>Stock Coach — beginner stock analysis</title>
+    <!--
+      Theme boot — runs before the bundle so the first painted frame is already
+      the right colour (no dark flash on a light setup). It is intentionally
+      tiny and total: any failure falls back to the dark default, which is what
+      the stylesheet's `:root` already declares.
+    -->
+    <script>
+      (function () {
+        try {
+          var stored = localStorage.getItem('stockcoach.theme-resolved');
+          var theme =
+            stored === 'light' || stored === 'dark'
+              ? stored
+              : window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches
+                ? 'light'
+                : 'dark';
+          var root = document.documentElement;
+          root.setAttribute('data-theme', theme);
+          root.style.colorScheme = theme;
+          var meta = document.querySelector('meta[name="theme-color"]');
+          if (meta) meta.setAttribute('content', theme === 'light' ? '#ffffff' : '#0d1117');
+        } catch (e) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <noscript>Stock Coach needs JavaScript enabled to draw the charts.</noscript>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

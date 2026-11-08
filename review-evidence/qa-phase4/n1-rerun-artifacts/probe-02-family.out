@@ -1,0 +1,72 @@
+
+=== ULVR.L  label ccy=GBp  chart meta ccy=GBp ===
+  chart per-payment median(6)=40.5200  trailing-12m sum=159.870  last4=40.52,40.46,39.82,39.07
+  indicatedYield     = 0.0311 GBp
+  trailingYield      = 0.00037480128 GBp
+  forwardYield       = 0.0311 GBp
+  annualRate         = 156 GBp   <-- per-year amount
+  lastDividendValue  = 39.07 GBp   <-- per-payment amount
+  payoutRatioLtm     = 0.4617 GBp
+  fiveYearAvgYield   = 0.0355 GBp
+  → annualRate: consistent with series (0.976x ref)
+  → lastDividendValue: consistent with series (0.964x ref)
+
+=== BP.L  label ccy=GBp  chart meta ccy=GBp ===
+  chart per-payment median(6)=6.2394  trailing-12m sum=33.716  last4=6.226,6.1844,6.4058995,8.66
+  indicatedYield     = 0.0442 GBp
+  trailingYield      = 0.0005992245 GBp
+  forwardYield       = 0.0442 GBp
+  annualRate         = 25 GBp   <-- per-year amount
+  lastDividendValue  = 8.66 GBp   <-- per-payment amount
+  payoutRatioLtm     = — (absent, note.dividendNoDividend)
+  fiveYearAvgYield   = 0.046799999999999994 GBp
+  → annualRate: consistent with series (0.741x ref)
+  → lastDividendValue: consistent with series (1.388x ref)
+
+=== VOD.L  label ccy=GBp  chart meta ccy=GBp ===
+  chart per-payment median(6)=1.9720  trailing-12m sum=5.877  last4=1.8860999,1.9541999,1.9512,1.9719787
+  indicatedYield     = 0.033299997 GBp
+  trailingYield      = 0.00038525963 GBp
+  forwardYield       = 0.033299997 GBp
+  annualRate         = 4 GBp   <-- per-year amount
+  lastDividendValue  = 2.3625 GBp   <-- per-payment amount
+  payoutRatioLtm     = 1.0171 GBp
+  fiveYearAvgYield   = 0.062 GBp
+  → annualRate: consistent with series (0.681x ref)
+  → lastDividendValue: consistent with series (1.198x ref)
+
+=== HSBA.L  label ccy=GBp  chart meta ccy=GBp ===
+  chart per-payment median(6)=7.4874  trailing-12m sum=63.159  last4=33.3016,7.4488997,7.4134,7.4874
+  indicatedYield     = 0.0227 GBp
+  trailingYield      = 0.0005736576 GBp
+  forwardYield       = 0.0227 GBp
+  annualRate         = 30 GBp   <-- per-year amount
+  lastDividendValue  = 10 GBp   <-- per-payment amount
+  payoutRatioLtm     = 0.5334 GBp
+  fiveYearAvgYield   = 0.047599999999999996 GBp
+  → annualRate: consistent with series (0.475x ref)
+  → lastDividendValue: consistent with series (1.336x ref)
+
+=== KO  label ccy=USD  chart meta ccy=USD ===
+  chart per-payment median(6)=0.5300  trailing-12m sum=2.630  last4=0.53,0.53,0.53,0.53
+  indicatedYield     = 0.0222 USD
+  trailingYield      = 0.021936696 USD
+  forwardYield       = 0.0222 USD
+  annualRate         = 2.12 USD   <-- per-year amount
+  lastDividendValue  = 0.53 USD   <-- per-payment amount
+  payoutRatioLtm     = 0.6195 USD
+  fiveYearAvgYield   = 0.028300000000000002 USD
+  → annualRate: consistent with series (0.806x ref)
+  → lastDividendValue: consistent with series (1.000x ref)
+
+=== O  label ccy=USD  chart meta ccy=USD ===
+  chart per-payment median(6)=0.2710  trailing-12m sum=3.520  last4=0.271,0.271,0.272,0.272
+  indicatedYield     = 0.0552 USD
+  trailingYield      = 0.054470588 USD
+  forwardYield       = 0.0552 USD
+  annualRate         = 3.26 USD   <-- per-year amount
+  lastDividendValue  = 0.272 USD   <-- per-payment amount
+  payoutRatioLtm     = 2.2226 USD
+  fiveYearAvgYield   = 0.0507 USD
+  → annualRate: consistent with series (0.926x ref)
+  → lastDividendValue: consistent with series (1.004x ref)

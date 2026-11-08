@@ -1,0 +1,18 @@
+
+### 0005.HK — §C.5 rows as the UI sorts them (newest first) at the top
+   Announced | Ex-Date | Record | Payable | Ccy | Amount | Adj | Frequency | Type
+   — | 2026-11-05 | — | — | HKD | 0.78396004 | 0.78396004 | — | —
+   — | 2026-08-13 | — | — | HKD | 0.784088 | 0.784088 | — | —
+   — | 2026-05-14 | — | — | HKD | 0.783188 | 0.783188 | — | —
+   — | 2026-03-12 | — | — | HKD | 3.522942 | 3.522942 | — | —
+   facts: annualRate=3.14 lastDividendValue=null currency=HKD
+   §C.1 "Last Dividend" cell would read: null HKD
+
+### ULVR.L — §C.5 rows as the UI sorts them (newest first) at the top
+   Announced | Ex-Date | Record | Payable | Ccy | Amount | Adj | Frequency | Type
+   — | 2026-11-12 | — | — | GBp | 39.07 | 39.07 | quarterly | —
+   — | 2026-08-06 | — | — | GBp | 39.82 | 39.82 | quarterly | —
+   — | 2026-05-14 | — | — | GBp | 40.46 | 40.46 | quarterly | —
+   — | 2026-02-26 | — | — | GBp | 40.52 | 40.52 | quarterly | —
+   facts: annualRate=1.56 lastDividendValue=39.07 currency=GBp
+   §C.1 "Last Dividend" cell would read: 39.07 GBp

@@ -1,0 +1,230 @@
+{
+  "320": [
+    {
+      "cls": "icon-btn drawer-toggle",
+      "testid": "",
+      "aria": "分區導覽",
+      "w": 44,
+      "h": 44,
+      "min": 44
+    },
+    {
+      "cls": "icon-btn theme-toggle",
+      "testid": "theme-toggle",
+      "aria": "日間模式",
+      "w": 44,
+      "h": 44,
+      "min": 44
+    },
+    {
+      "cls": "active",
+      "testid": "",
+      "aria": "",
+      "w": 40,
+      "h": 44,
+      "min": 40
+    },
+    {
+      "cls": "",
+      "testid": "",
+      "aria": "",
+      "w": 40,
+      "h": 44,
+      "min": 40
+    },
+    {
+      "cls": "",
+      "testid": "",
+      "aria": "",
+      "w": 63.9,
+      "h": 44,
+      "min": 44
+    }
+  ],
+  "390": [
+    {
+      "cls": "icon-btn drawer-toggle",
+      "testid": "",
+      "aria": "分區導覽",
+      "w": 44,
+      "h": 44,
+      "min": 44
+    },
+    {
+      "cls": "icon-btn theme-toggle",
+      "testid": "theme-toggle",
+      "aria": "日間模式",
+      "w": 44,
+      "h": 44,
+      "min": 44
+    },
+    {
+      "cls": "active",
+      "testid": "",
+      "aria": "",
+      "w": 40,
+      "h": 44,
+      "min": 40
+    },
+    {
+      "cls": "",
+      "testid": "",
+      "aria": "",
+      "w": 40,
+      "h": 44,
+      "min": 40
+    },
+    {
+      "cls": "",
+      "testid": "",
+      "aria": "",
+      "w": 63.9,
+      "h": 44,
+      "min": 44
+    }
+  ],
+  "720": [
+    {
+      "cls": "icon-btn drawer-toggle",
+      "testid": "",
+      "aria": "分區導覽",
+      "w": 44,
+      "h": 44,
+      "min": 44
+    },
+    {
+      "cls": "icon-btn theme-toggle",
+      "testid": "theme-toggle",
+      "aria": "日間模式",
+      "w": 44,
+      "h": 44,
+      "min": 44
+    },
+    {
+      "cls": "active",
+      "testid": "",
+      "aria": "",
+      "w": 40,
+      "h": 44,
+      "min": 40
+    },
+    {
+      "cls": "",
+      "testid": "",
+      "aria": "",
+      "w": 40,
+      "h": 44,
+      "min": 40
+    },
+    {
+      "cls": "",
+      "testid": "",
+      "aria": "",
+      "w": 63.9,
+      "h": 44,
+      "min": 44
+    }
+  ],
+  "768": [
+    {
+      "cls": "icon-btn theme-toggle",
+      "testid": "theme-toggle",
+      "aria": "日間模式",
+      "w": 35.9,
+      "h": 25,
+      "min": 25
+    },
+    {
+      "cls": "active",
+      "testid": "",
+      "aria": "",
+      "w": 29.8,
+      "h": 19.5,
+      "min": 19.5
+    },
+    {
+      "cls": "",
+      "testid": "",
+      "aria": "",
+      "w": 33.5,
+      "h": 19.5,
+      "min": 19.5
+    },
+    {
+      "cls": "",
+      "testid": "",
+      "aria": "",
+      "w": 63.9,
+      "h": 34,
+      "min": 34
+    }
+  ],
+  "1024": [
+    {
+      "cls": "icon-btn theme-toggle",
+      "testid": "theme-toggle",
+      "aria": "日間模式",
+      "w": 35.9,
+      "h": 25,
+      "min": 25
+    },
+    {
+      "cls": "active",
+      "testid": "",
+      "aria": "",
+      "w": 29.8,
+      "h": 19.5,
+      "min": 19.5
+    },
+    {
+      "cls": "",
+      "testid": "",
+      "aria": "",
+      "w": 33.5,
+      "h": 19.5,
+      "min": 19.5
+    },
+    {
+      "cls": "",
+      "testid": "",
+      "aria": "",
+      "w": 63.9,
+      "h": 34,
+      "min": 34
+    }
+  ],
+  "1600": [
+    {
+      "cls": "icon-btn theme-toggle",
+      "testid": "theme-toggle",
+      "aria": "日間模式",
+      "w": 35.9,
+      "h": 25,
+      "min": 25
+    },
+    {
+      "cls": "active",
+      "testid": "",
+      "aria": "",
+      "w": 29.8,
+      "h": 19.5,
+      "min": 19.5
+    },
+    {
+      "cls": "",
+      "testid": "",
+      "aria": "",
+      "w": 33.5,
+      "h": 19.5,
+      "min": 19.5
+    },
+    {
+      "cls": "",
+      "testid": "",
+      "aria": "",
+      "w": 63.9,
+      "h": 34,
+      "min": 34
+    }
+  ]
+}

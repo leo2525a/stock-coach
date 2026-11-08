@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Stock Coach">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#4c8dff" />
+      <stop offset="1" stop-color="#26a69a" />
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="#0d1117" />
+  <rect x="4" y="4" width="56" height="56" rx="11" fill="none" stroke="url(#g)" stroke-width="2" opacity="0.55" />
+  <!-- candlesticks: up, up, down, up -->
+  <g stroke-linecap="round">
+    <line x1="17" y1="22" x2="17" y2="46" stroke="#26a69a" stroke-width="2.5" />
+    <rect x="13" y="28" width="8" height="13" rx="1.5" fill="#26a69a" />
+    <line x1="28" y1="16" x2="28" y2="40" stroke="#26a69a" stroke-width="2.5" />
+    <rect x="24" y="21" width="8" height="14" rx="1.5" fill="#26a69a" />
+    <line x1="39" y1="24" x2="39" y2="44" stroke="#ef5350" stroke-width="2.5" />
+    <rect x="35" y="27" width="8" height="12" rx="1.5" fill="#ef5350" />
+    <line x1="50" y1="14" x2="50" y2="38" stroke="#26a69a" stroke-width="2.5" />
+    <rect x="46" y="17" width="8" height="15" rx="1.5" fill="#26a69a" />
+  </g>
+</svg>

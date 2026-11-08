@@ -1,0 +1,17 @@
+--- ULVR.L live quoteSummary ---
+  price.currency            = GBp
+  price.regularMarketPrice  = 4930
+  summaryDetail.currency    = GBp
+  summaryDetail.dividendRate    = 1.56
+  summaryDetail.dividendYield   = 0.0311
+  summaryDetail.trailingAnnualDividendRate = 1.886
+  summaryDetail.trailingAnnualDividendYield= 0.00037480128
+  defaultKeyStatistics.lastDividendValue   = 0.3907
+--- ULVR.L live chart (crumb-free) ---
+  meta.currency = GBp
+  meta.regularMarketPrice = 4930
+  last 8 per-payment amounts = 41.2088, 42.4688, 43.728798, 44.055, 44.190002, 40.52, 40.46, 39.82
+  sum of last 4 payments = 164.990002  (a year of the series' own unit)
+  provider dividendRate  = 1.56
+  -> ratio (dividendRate x100) / last-4-sum = 0.9455
+  -> ratio dividendRate / (last-4-sum/100)  = 0.9455

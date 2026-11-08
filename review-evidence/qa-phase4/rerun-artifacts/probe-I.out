@@ -1,0 +1,14 @@
+
+### ULVR.L
+  export §C.1 row "Annual rate" would be: 1.56 GBp
+  export §C.1 row "Last Dividend" would be: 39.07 GBp
+  chart's own annual total (last 4 payments, GBp) = 120.8000
+  ratio served/server  = 0.0129  <= 1 means same unit
+  ratio x100           = 1.2914  <= 1 means the served figure is 100x too small
+
+### BP.L
+  export §C.1 row "Annual rate" would be: 0.25 GBp
+  export §C.1 row "Last Dividend" would be: 8.66 GBp
+  chart's own annual total (last 4 payments, GBp) = 25.0557
+  ratio served/server  = 0.0100  <= 1 means same unit
+  ratio x100           = 0.9978  <= 1 means the served figure is 100x too small

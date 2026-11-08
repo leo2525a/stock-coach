@@ -1,0 +1,44 @@
+[
+  {
+    "mode": "b1",
+    "buildCode": 0,
+    "evCode": 1,
+    "passed": null,
+    "fails": [
+      "  ✗ the scrim is rendered while the drawer is open — {\"present\":true,\"display\":\"none\",\"box\":[0,0]}",
+      "  ✗ tapping outside (the scrim) closes the drawer — false",
+      "✗ phase 5 browser evidence FAILED — 47 passed, 3 failed"
+    ]
+  },
+  {
+    "mode": "b1b",
+    "buildCode": 0,
+    "evCode": 1,
+    "passed": null,
+    "fails": [
+      "  ✗ Escape closes the drawer — false",
+      "✗ phase 5 browser evidence FAILED — 57 passed, 1 failed"
+    ]
+  },
+  {
+    "mode": "b3",
+    "buildCode": 0,
+    "evCode": 1,
+    "passed": null,
+    "fails": [
+      "  ✗ light paints a light background — #0d1117 (≠ #f6f8fa)",
+      "✗ phase 5 browser evidence FAILED — 57 passed, 1 failed"
+    ]
+  },
+  {
+    "mode": "n4",
+    "buildCode": 0,
+    "evCode": 1,
+    "passed": null,
+    "fails": [
+      "  ✗ touch controls stay tappable on a 768px tablet (≥40px) — 19.5px",
+      "  ✗ touch controls stay tappable on a 1024px tablet (≥40px) — 19.5px",
+      "✗ phase 5 browser evidence FAILED — 56 passed, 2 failed"
+    ]
+  }
+]

@@ -1,0 +1,22 @@
+
+=== 0005.HK ===
+ summaryDetail.currency = HKD | price.currency = HKD | price = 137.5
+ dividendRate      = 3.14
+ dividendYield     = 0.0228
+ trailingAnnualDividendRate  = 0.75
+ trailingAnnualDividendYield = 0.005315379
+ fiveYearAvgDividendYield    = 4.81
+ payoutRatio       = 0.53540003
+ dks.lastDividendValue = 0.1 | dks.trailingEps = 11.96
+ ratio dividendRate/price = 0.022836363636363637
+
+=== ULVR.L ===
+ summaryDetail.currency = GBp | price.currency = GBp | price = 4930
+ dividendRate      = 1.56
+ dividendYield     = 0.0311
+ trailingAnnualDividendRate  = 1.886
+ trailingAnnualDividendYield = 0.00037480128
+ fiveYearAvgDividendYield    = 3.55
+ payoutRatio       = 0.4617
+ dks.lastDividendValue = 0.3907 | dks.trailingEps = 3.69
+ ratio dividendRate/price = 0.00031643002028397565

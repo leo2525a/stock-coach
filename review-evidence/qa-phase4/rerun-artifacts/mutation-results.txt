@@ -1,0 +1,123 @@
+########## m2_schedule_always_append — defect 1 equivalent: upcoming row always appended
+applied m2_schedule_always_append
+exit=1
+PROBE-B: FAIL (21)
+   • O MAIN: duplicate Ex-Date day
+   • O 1y: duplicate Ex-Date day
+   • O 3y: duplicate Ex-Date day
+   • O 5y: duplicate Ex-Date day
+   • O 10y: duplicate Ex-Date day
+   • O 20y: duplicate Ex-Date day
+   • O ALL: duplicate Ex-Date day
+   • COST MAIN: duplicate Ex-Date day
+   • COST 1y: duplicate Ex-Date day
+   • COST 3y: duplicate Ex-Date day
+   • COST 5y: duplicate Ex-Date day
+   • COST 10y: duplicate Ex-Date day
+   • COST 20y: duplicate Ex-Date day
+   • COST ALL: duplicate Ex-Date day
+   • AGNC MAIN: duplicate Ex-Date day
+   • AGNC 1y: duplicate Ex-Date day
+   • AGNC 3y: duplicate Ex-Date day
+   • AGNC 5y: duplicate Ex-Date day
+   • AGNC 10y: duplicate Ex-Date day
+   • AGNC 20y: duplicate Ex-Date day
+   • AGNC ALL: duplicate Ex-Date day
+restored
+
+########## m4_no_nextpay_guard — defect 2 equivalent: facts next-payable monotonicity guard removed
+applied m4_no_nextpay_guard
+exit=1
+PROBE-C: FAIL (1)
+   • AAPL: facts nextPay 1786579200 <= nextEx 1794441600
+restored
+
+########## m6_no_upcoming_scale — defect 3 equivalent: upcoming amount not scale-reconciled
+applied m6_no_upcoming_scale
+exit=0
+  lastDiv / recent-median    = 1.0000
+
+### COST
+  label currency (facts.currency) = "USD"
+  chart currency (history)       = "USD"
+  recent per-payment amounts     = [1.3, 1.47, 1.47, 1.47]  median=1.47
+  §C.1 indicated  = 0.0056
+  §C.1 trailing   = 0.005198998
+  §C.1 annualRate = 5.88   <-- printed with the label currency
+  §C.1 lastDiv    = 1.47 (note=-)
+  annualRate / recent-median = 4.0000  (per-payment scale)
+  annualRate / (4*median)    = 1.0000  (quarterly annualiser)
+  lastDiv / recent-median    = 1.0000
+
+### AGNC
+  label currency (facts.currency) = "USD"
+  chart currency (history)       = "USD"
+  recent per-payment amounts     = [0.12, 0.12, 0.12, 0.12, 0.12, 0.12, 0.12, 0.12]  median=0.12
+  §C.1 indicated  = 0.16379999
+  §C.1 trailing   = 0.16326532
+  §C.1 annualRate = 1.44   <-- printed with the label currency
+  §C.1 lastDiv    = 0.12 (note=-)
+  annualRate / recent-median = 12.0000  (per-payment scale)
+  annualRate / (4*median)    = 3.0000  (quarterly annualiser)
+  lastDiv / recent-median    = 1.0000
+restored
+
+########## m3_no_scale_reconcile — defect 3b: §C.1 last-dividend not scale-reconciled
+applied m3_no_scale_reconcile
+exit=0
+  lastDiv / recent-median    = 1.0000
+
+### COST
+  label currency (facts.currency) = "USD"
+  chart currency (history)       = "USD"
+  recent per-payment amounts     = [1.3, 1.47, 1.47, 1.47]  median=1.47
+  §C.1 indicated  = 0.0056
+  §C.1 trailing   = 0.005198998
+  §C.1 annualRate = 5.88   <-- printed with the label currency
+  §C.1 lastDiv    = 1.47 (note=-)
+  annualRate / recent-median = 4.0000  (per-payment scale)
+  annualRate / (4*median)    = 1.0000  (quarterly annualiser)
+  lastDiv / recent-median    = 1.0000
+
+### AGNC
+  label currency (facts.currency) = "USD"
+  chart currency (history)       = "USD"
+  recent per-payment amounts     = [0.12, 0.12, 0.12, 0.12, 0.12, 0.12, 0.12, 0.12]  median=0.12
+  §C.1 indicated  = 0.16379999
+  §C.1 trailing   = 0.16326532
+  §C.1 annualRate = 1.44   <-- printed with the label currency
+  §C.1 lastDiv    = 0.12 (note=-)
+  annualRate / recent-median = 12.0000  (per-payment scale)
+  annualRate / (4*median)    = 3.0000  (quarterly annualiser)
+  lastDiv / recent-median    = 1.0000
+restored
+
+########## m1_streak_no_contiguity — defect 4 equivalent: streak contiguity guard removed
+applied m1_streak_no_contiguity
+exit=0
+AAPL: code streak=14 honest contiguous streak=13 (fullYears 23, last 2025)
+   HOLE 1995 -> 2012: totals 0.004284 -> 0.189286 (up=true)
+KO: code streak=23 honest contiguous streak=23 (fullYears 59, last 2025)
+MSFT: code streak=20 honest contiguous streak=20 (fullYears 23, last 2025)
+COST: code streak=21 honest contiguous streak=21 (fullYears 22, last 2025)
+O: code streak=1 honest contiguous streak=1 (fullYears 32, last 2025)
+restored
+
+########## m5_no_upcoming_monotonicity — schedule-level monotonicity guard removed
+applied m5_no_upcoming_monotonicity
+exit=0
+PROBE-B: PASS — no duplicate Ex-Date day, no PAY<EX, one unit, both routes, six spans
+restored
+
+########## m7_growth_positional — growth horizon positional (latent twin)
+applied m7_growth_positional
+exit=0
+AAPL: code streak=13 honest contiguous streak=13 (fullYears 23, last 2025)
+   HOLE 1995 -> 2012: totals 0.004284 -> 0.189286 (up=true)
+KO: code streak=23 honest contiguous streak=23 (fullYears 59, last 2025)
+MSFT: code streak=20 honest contiguous streak=20 (fullYears 23, last 2025)
+COST: code streak=21 honest contiguous streak=21 (fullYears 22, last 2025)
+O: code streak=1 honest contiguous streak=1 (fullYears 32, last 2025)
+restored
+
+ALL-MUTATIONS-DONE

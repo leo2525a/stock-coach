@@ -1,0 +1,24 @@
+{
+  "results": [
+    {
+      "name": "ratings band (pf-band-chart): REF_COLORS.targetLow #7d8590 is painted on WHITE — contrast 3.73:1",
+      "pass": true,
+      "detail": "1984px · ok"
+    },
+    {
+      "name": "ratings band (pf-band-chart): REF_COLORS.targetMean #26a69a is painted on WHITE — contrast 3.00:1",
+      "pass": false,
+      "detail": "1430px · FAILS the 3:1 non-text minimum"
+    },
+    {
+      "name": "ratings band (pf-band-chart): REF_COLORS.targetHigh #7d8590 is painted on WHITE — contrast 3.73:1",
+      "pass": true,
+      "detail": "1984px · ok"
+    },
+    {
+      "name": "estimates NTM (pf-ntm-chart): REF_COLORS.price #4c8dff is painted on WHITE — contrast 3.20:1",
+      "pass": true,
+      "detail": "1186px · ok"
+    }
+  ]
+}

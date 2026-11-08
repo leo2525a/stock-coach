@@ -1,0 +1,314 @@
+{
+  "generatedAt": "2026-11-08T06:58:49.321Z",
+  "payer": "KO",
+  "nonPayer": "TSLA",
+  "widths": [
+    390,
+    834,
+    1600
+  ],
+  "screenshots": [
+    "01-dividends-en.png",
+    "02-non-payer-dashes.png",
+    "03-responsive-phone-390.png",
+    "03-responsive-tablet-834.png",
+    "03-responsive-desktop-1600.png",
+    "04-locale-en.png",
+    "04-locale-zh-HK.png"
+  ],
+  "sections": {
+    "openCount": 6,
+    "mounted": [
+      "c1",
+      "c2",
+      "c3",
+      "c4",
+      "c5",
+      "c6"
+    ]
+  },
+  "honesty": {
+    "levelsColoured": [],
+    "announced": [
+      "—",
+      "—",
+      "—",
+      "—",
+      "—",
+      "—",
+      "—",
+      "—",
+      "—",
+      "—",
+      "—",
+      "—",
+      "—",
+      "—",
+      "—",
+      "—",
+      "—",
+      "—",
+      "—",
+      "—"
+    ],
+    "record": [
+      "—",
+      "—",
+      "—",
+      "—",
+      "—",
+      "—",
+      "—",
+      "—",
+      "—",
+      "—",
+      "—",
+      "—",
+      "—",
+      "—",
+      "—",
+      "—",
+      "—",
+      "—",
+      "—",
+      "—"
+    ],
+    "type": [
+      "—",
+      "—",
+      "—",
+      "—",
+      "—",
+      "—",
+      "—",
+      "—",
+      "—",
+      "—",
+      "—",
+      "—",
+      "—",
+      "—",
+      "—",
+      "—",
+      "—",
+      "—",
+      "—",
+      "—"
+    ],
+    "rows": 20,
+    "forbidden": [],
+    "chartEmpty": false,
+    "scheduleEmpty": true,
+    "recapCells": 9
+  },
+  "overflow": [
+    {
+      "width": 390,
+      "scrollWidth": 390,
+      "innerWidth": 390,
+      "docOverflow": 0,
+      "offenders": [],
+      "contained": []
+    },
+    {
+      "width": 834,
+      "scrollWidth": 834,
+      "innerWidth": 834,
+      "docOverflow": 0,
+      "offenders": [],
+      "contained": []
+    },
+    {
+      "width": 1600,
+      "scrollWidth": 1600,
+      "innerWidth": 1600,
+      "docOverflow": 0,
+      "offenders": [],
+      "contained": []
+    }
+  ],
+  "motion": {
+    "normal": {
+      ".div-screen .pf-section-toggle": 0.14,
+      ".div-screen .pf-caret": 0.18,
+      ".div-screen .pf-seg button": 0.14,
+      ".div-screen .pf-act-btn": 0.14,
+      ".div-screen .pf-recap": 0.24,
+      ".div-screen .div-chart-wrap": 0,
+      ".side-nav .side-item[data-screen=\"dividends\"]": 0.14
+    },
+    "reduced": {
+      ".div-screen .pf-section-toggle": 0,
+      ".div-screen .pf-caret": 0,
+      ".div-screen .pf-seg button": 0,
+      ".div-screen .pf-act-btn": 0,
+      ".div-screen .pf-recap": 0,
+      ".div-screen .div-chart-wrap": 0,
+      ".side-nav .side-item[data-screen=\"dividends\"]": 0
+    }
+  },
+  "locales": {
+    "en": {
+      "titles": [
+        "Dividend yield & frequency",
+        "Dividend growth",
+        "Shareholder yield",
+        "Dividend yield & payments",
+        "Dividend payout schedule",
+        "Consistency & export"
+      ],
+      "heading": "Dividends",
+      "recapLen": 184
+    },
+    "zh-HK": {
+      "titles": [
+        "派息率同頻率",
+        "派息增長",
+        "股東回報率",
+        "派息同息率圖表",
+        "派息時間表",
+        "一致性同彙出"
+      ],
+      "heading": "派息",
+      "recapLen": 104
+    }
+  },
+  "consoleErrors": [],
+  "consoleWarnings": [],
+  "pageErrors": [],
+  "failedRequests": [],
+  "skipped": [],
+  "honestyNonPayer": {
+    "indicated": "—",
+    "trailing": "—",
+    "payout": "—",
+    "zeroFigures": []
+  },
+  "coherence": [
+    {
+      "symbol": "O",
+      "span": "1y",
+      "rows": 11,
+      "dupes": [],
+      "badPay": 0
+    },
+    {
+      "symbol": "O",
+      "span": "5y",
+      "rows": 59,
+      "dupes": [],
+      "badPay": 0
+    },
+    {
+      "symbol": "AAPL",
+      "span": "1y",
+      "rows": 5,
+      "dupes": [],
+      "badPay": 0
+    },
+    {
+      "symbol": "AAPL",
+      "span": "5y",
+      "rows": 20,
+      "dupes": [],
+      "badPay": 0
+    },
+    {
+      "symbol": "0005.HK",
+      "span": "1y",
+      "rows": 4,
+      "dupes": [],
+      "badPay": 0
+    },
+    {
+      "symbol": "0005.HK",
+      "span": "5y",
+      "rows": 18,
+      "dupes": [],
+      "badPay": 0
+    },
+    {
+      "symbol": "ULVR.L",
+      "span": "1y",
+      "rows": 4,
+      "dupes": [],
+      "badPay": 0
+    },
+    {
+      "symbol": "ULVR.L",
+      "span": "5y",
+      "rows": 20,
+      "dupes": [],
+      "badPay": 0
+    }
+  ],
+  "units": [
+    {
+      "symbol": "O",
+      "rate": "3.26 USD",
+      "colMedian": 0.263
+    },
+    {
+      "symbol": "AAPL",
+      "rate": "1.08 USD",
+      "colMedian": 0.25
+    },
+    {
+      "symbol": "0005.HK",
+      "rate": "3.14 HKD",
+      "colMedian": 0.784
+    },
+    {
+      "symbol": "ULVR.L",
+      "rate": "156.00 GBp",
+      "colMedian": 41.58
+    }
+  ],
+  "nextPayable": [
+    {
+      "symbol": "O",
+      "ex": "2026-10-30 HKT",
+      "pay": "2026-11-13 HKT",
+      "recapEx": "下次除息日2026-10-30 HKT"
+    },
+    {
+      "symbol": "AAPL",
+      "ex": "2026-11-12 HKT",
+      "pay": "—",
+      "recapEx": "下次除息日2026-11-12 HKT"
+    },
+    {
+      "symbol": "0005.HK",
+      "ex": "2026-11-05 HKT",
+      "pay": "—",
+      "recapEx": "下次除息日2026-11-05 HKT"
+    },
+    {
+      "symbol": "ULVR.L",
+      "ex": "2026-11-12 HKT",
+      "pay": "—",
+      "recapEx": "下次除息日2026-11-12 HKT"
+    }
+  ],
+  "spans": {
+    "c4": [
+      "1y",
+      "3y",
+      "5y",
+      "10y",
+      "20y",
+      "ALL"
+    ],
+    "c5": [
+      "1y",
+      "3y",
+      "5y",
+      "10y",
+      "20y",
+      "ALL"
+    ],
+    "c4Count": 1
+  },
+  "passed": 88,
+  "failed": []
+}

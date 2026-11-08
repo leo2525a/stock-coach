@@ -1,0 +1,164 @@
+{
+  "base": "http://127.0.0.1:8841",
+  "passed": 71,
+  "failed": 4,
+  "fails": [
+    "invalid fundamentals symbol rejected (4xx, no invented numbers) — HTTP 200",
+    "valid-but-unpublished fundamentals returns honest empty envelope (no numbers) — source=cache keyStats={\"marketCap\":null,\"trailingPE\":23.319904",
+    "zero console errors — 1 — Failed to load resource: the server responded with a status of 400 (Bad Request)",
+    "zero failed requests — 7 — GET http://127.0.0.1:8841/api/watchlist/quotes net::ERR_ABORTED | GET http://127.0.0.1:8841/api/market/AAPL?range=1y&interval=1d net::ERR_ABORTED | GET http://127.0.0.1:8841/api/market/AAPL?range=1y&interval=1d net::ERR_ABORTED"
+  ],
+  "notes": [
+    "mobile: Escape closes drawer? open-after-escape=1"
+  ],
+  "evidence": {
+    "defaultLang": {
+      "htmlLang": "zh-HK",
+      "title": "選股教練 — 寫給新手嘅市場解讀",
+      "navZh": "市場\n◧總覽\n▲圖表\n分析\n◎訊號\n我的\n★自選股\n?說明"
+    },
+    "toggle": {
+      "navZh": "市場\n◧總覽\n▲圖表\n分析\n◎訊號\n我的\n★自選股\n?說明",
+      "navEn": "MARKETS\n◧Dashboard\n▲Chart\nANALYSIS\n◎Signals\nMY STUFF\n★Watchlist\n?Help",
+      "navBack": "市場\n◧總覽\n▲圖表\n分析\n◎訊號\n我的\n★自選股\n?說明",
+      "titleEn": "Stock Coach — beginner-first market reading"
+    },
+    "zhLeaks": {
+      "dashboard": [],
+      "chart": [],
+      "signals": [],
+      "watchlist": [],
+      "help": []
+    },
+    "sourceBadgeZh": "快取 · 1 分鐘前",
+    "newsAgeZh": "MP Materials Corp (MP) (Q3 2026) Earnings Call Highlights: Rare Earth Output Surges 41% as ... | GuruFocus.com | · 2 個鐘前更新 | 提及 AAPL | 開啟原文 ↗",
+    "overflow": {
+      "390": {
+        "dashboard": 0,
+        "chart": 0,
+        "signals": 0,
+        "watchlist": 0,
+        "help": 0
+      },
+      "834": {
+        "dashboard": 0,
+        "chart": 0,
+        "signals": 0,
+        "watchlist": 0,
+        "help": 0
+      },
+      "1600": {
+        "dashboard": 0,
+        "chart": 0,
+        "signals": 0,
+        "watchlist": 0,
+        "help": 0
+      }
+    },
+    "focusChain": [
+      "button:總覽[auto 1px]",
+      "button:圖表[auto 1px]",
+      "button:訊號[auto 1px]",
+      "button:自選股[auto 1px]",
+      "button:說明[auto 1px]",
+      "button:中[auto 1px]",
+      "button:EN[auto 1px]",
+      "button:⟳ 更新[auto 1px]",
+      "button:收起側邊欄[auto 1px]",
+      "button:◧總覽[auto 1px]"
+    ],
+    "drawerAfterEscape": 1,
+    "sectorGroups": [
+      "資訊科技",
+      "未分類",
+      "全部",
+      "行業板塊",
+      "類型",
+      "交易所"
+    ],
+    "typeGroups": [
+      "股票",
+      "交易所買賣基金 (ETF)",
+      "全部",
+      "行業板塊",
+      "類型",
+      "交易所"
+    ],
+    "dashboard": {
+      "statsText": "開市價\n353.89 USD\n當日最高\n355.38 USD\n當日最低\n342.06 USD\n上日收市\n352.46 USD\n52週最高\n355.38 USD\n52週最低\n243.42 USD\n成交量\n74.17M\n市值\n5.00T\n市盈率（往績）\n38.33\n市盈率（預測）\n32.32\n股息率\n0.31%\n貝他值\n1.09\n市帳率\n44.62\n每股盈利（往績）\n8.98\n平均成交量（3個月）\n42.26M",
+      "healthText": "淨利率\n27.60%\n營業利潤率\n31.13%\n股本回報率 (ROE)\n142.26%\n資產回報率 (ROA)\n25.87%\n收入增長（按年）\n11.70%\n分析師評級\n買入\n平均目標價\n333.28 USD\n目標價區間\n250.00 – 405.00\n覆蓋分析師數目\n38",
+      "rangeFill": "left: 89.9875%;",
+      "catRows": "類型\n股票\n行業板塊\n資訊科技\n細分行業\n消費電子\n交易所\n納斯達克\n國家／地區\n美國"
+    },
+    "news": {
+      "count": 6,
+      "hrefs": [
+        "https://finance.yahoo.com/markets/stocks/articles/mp-materials-corp-mp-q3-052120355.html",
+        "https://finance.yahoo.com/markets/stocks/articles/bank-america-doubles-down-apple-040700681.html",
+        "https://finance.yahoo.com/m/0cd2227b-7753-3d54-a8c5-286efe82ac39/dow-jones-futures-fall%2C-techs.html",
+        "https://finance.yahoo.com/markets/stocks/articles/why-did-apple-stock-hit-015026411.html",
+        "https://finance.yahoo.com/markets/stocks/articles/p-500-nasdaq-dow-futures-010030629.html",
+        "https://finance.yahoo.com/markets/stocks/articles/apple-alphabet-meta-3-big-230000891.html"
+      ],
+      "metaSample": "GuruFocus.com\n· 2 個鐘前更新\n提及 AAPL\n開啟原文 ↗"
+    },
+    "spyFundamentals": {
+      "ok": true,
+      "data": {
+        "symbol": "SPY",
+        "profile": {
+          "sector": null,
+          "industry": null,
+          "country": null,
+          "website": null,
+          "fullTimeEmployees": null,
+          "summary": "The trust seeks to achieve its investment objective by holding a portfolio of the common stocks that are included in the index (the “Portfolio”), with the weight of each stock in the Portfolio substantially corresponding to the weight of such stock in the index."
+        },
+        "keyStats": {
+          "marketCap": null,
+          "trailingPE": 23.319904,
+          "forwardPE": null,
+          "dividendYield": 0.0073838374,
+          "beta": null,
+          "priceToBook": null,
+          "trailingEps": null,
+          "forwardEps": null,
+          "dayHigh": 765.97,
+          "dayLow": 732.71,
+          "previousClose": 766.81,
+          "fiftyTwoWeekHigh": 781.62,
+          "fiftyTwoWeekLow": 629.28,
+          "volume": 120886017,
+          "averageVolume": 41026920
+        },
+        "health": null,
+        "quoteType": "ETF",
+        "currency": "USD",
+        "source": "cache",
+        "lastUpdated": 1793950043,
+        "note": null
+      }
+    },
+    "leakProbe": {
+      "setCookie": null,
+      "hasCrumb": false,
+      "hasCookie": false,
+      "len": 1160
+    },
+    "console": {
+      "console": [
+        "Failed to load resource: the server responded with a status of 400 (Bad Request)"
+      ],
+      "page": [],
+      "requests": [
+        "GET http://127.0.0.1:8841/api/watchlist/quotes net::ERR_ABORTED",
+        "GET http://127.0.0.1:8841/api/market/AAPL?range=1y&interval=1d net::ERR_ABORTED",
+        "GET http://127.0.0.1:8841/api/market/AAPL?range=1y&interval=1d net::ERR_ABORTED",
+        "GET http://127.0.0.1:8841/api/market/AAPL?range=1y&interval=1d net::ERR_ABORTED",
+        "GET http://127.0.0.1:8841/api/signals/AAPL net::ERR_ABORTED",
+        "GET http://127.0.0.1:8841/api/news/AAPL net::ERR_ABORTED",
+        "GET http://127.0.0.1:8841/api/fundamentals/AAPL net::ERR_ABORTED"
+      ]
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "generatedAt": "2026-11-08T07:05:19.443Z",
+  "baseUrl": "http://127.0.0.1:52902",
+  "chrome": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+  "symbol": "AAPL",
+  "barCount": 250,
+  "screens": [
+    "dashboard",
+    "chart",
+    "signals",
+    "watchlist",
+    "help"
+  ],
+  "consoleErrors": [],
+  "consoleWarnings": [],
+  "pageErrors": [],
+  "failedRequests": [],
+  "passed": 82,
+  "failed": [],
+  "ok": true
+}

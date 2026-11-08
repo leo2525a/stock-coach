@@ -1,0 +1,73 @@
+{
+  "port": 8901,
+  "results": [
+    {
+      "name": "desktop: page rendered non-trivial text",
+      "ok": true,
+      "detail": "6247 chars"
+    },
+    {
+      "name": "desktop: ratings section present",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "desktop: estimates section present",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "desktop: statements section present",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "no horizontal overflow @phone-390",
+      "ok": true,
+      "detail": "scrollW=390 clientW=390 spill=0 "
+    },
+    {
+      "name": "no horizontal overflow @tablet-834",
+      "ok": true,
+      "detail": "scrollW=834 clientW=834 spill=0 "
+    },
+    {
+      "name": "no horizontal overflow @desktop-1600",
+      "ok": true,
+      "detail": "scrollW=1600 clientW=1600 spill=0 "
+    },
+    {
+      "name": "reduced-motion: every transition/animation computes to 0s",
+      "ok": true,
+      "detail": "2892 durations, 0 non-zero"
+    },
+    {
+      "name": "control: motion exists when allowed (harness is not vacuous)",
+      "ok": true,
+      "detail": "324 non-zero durations"
+    },
+    {
+      "name": "second locale renders content",
+      "ok": true,
+      "detail": "9033 chars"
+    },
+    {
+      "name": "zero console errors",
+      "ok": true,
+      "detail": "0"
+    },
+    {
+      "name": "zero uncaught page errors",
+      "ok": true,
+      "detail": "0"
+    },
+    {
+      "name": "zero failed requests",
+      "ok": true,
+      "detail": "0"
+    }
+  ],
+  "consoleErrors": [],
+  "pageErrors": [],
+  "failedReq": []
+}

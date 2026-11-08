@@ -1,0 +1,7 @@
+ULVR.L   freq={"value":"quarterly","source":"derived","note":"note.dividendFrequencyDerived"} annualRate=156
+BP.L     freq={"value":null,"source":"absent","note":"note.dividendFrequencyDisagree"} annualRate=25
+VOD.L    freq={"value":"semi-annual","source":"derived","note":"note.dividendFrequencyDerived"} annualRate=4
+HSBA.L   freq={"value":null,"source":"absent","note":"note.dividendFrequencyDisagree"} annualRate=null
+0005.HK  freq={"value":null,"source":"absent","note":"note.dividendFrequencyDisagree"} annualRate=null
+KO       freq={"value":"quarterly","source":"derived","note":"note.dividendFrequencyDerived"} annualRate=2.12
+O        freq={"value":"monthly","source":"derived","note":"note.dividendFrequencyDerived"} annualRate=3.26

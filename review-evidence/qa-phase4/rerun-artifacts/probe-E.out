@@ -1,0 +1,5 @@
+PROBE-E: FAIL (4)
+   • ULVR.L: §C.1 annualRate 1.56 is 0.0129x the chart trailing annual total 120.8000
+   • BP.L: §C.1 annualRate 0.25 is 0.0100x the chart trailing annual total 25.0557
+   • HSBA.L: §C.1 annualRate 0.3 is 0.0054x the chart trailing annual total 55.6513
+   • VOD.L: §C.1 annualRate 0.04 is 0.0102x the chart trailing annual total 3.9232

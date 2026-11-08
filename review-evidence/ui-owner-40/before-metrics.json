@@ -1,0 +1,29 @@
+{
+  "capturedAt": "2026-11-08T13:44+08:00",
+  "capturedBy": "debug-debug_lead (coordinator, independent)",
+  "method": "playwright-core + real Chrome, production build at http://127.0.0.1:8787, viewport 393x852 (deviceScaleFactor 2) and 1280x800",
+  "ownerScore": 40,
+  "points": {
+    "1_collapse_no_animation": {
+      "measured": "desktop .sidebar computed transition = 'all' (0s default); width 264px -> 62px in one frame (jumps)",
+      "assert": "collapsed/expanded width transition-duration >= 0.15s"
+    },
+    "2_collapsed_symbol_ui": {
+      "measured": "phone collapsed in @media(max-width:720px): .wl-name/.wl-quote/.side-text set to display:revert -> reappear in the 62px rail. rail w=62, content ~49, .wl-sym AAPL w=31 -> collision/overflow",
+      "assert": "at 393px AND 1280px, .collapsed computed display of .wl-name/.wl-quote/.side-text = none; rail horizontal overflow = 0"
+    },
+    "3_topbar_blank_space": {
+      "measured": ".topbar height at 393px = 175px, wraps to 5 rows; .topbar-spacer (163x0, flex:1,min-width:8px) forces its own row",
+      "assert": ".topbar height at 393px <= 100px; no horizontal overflow"
+    },
+    "4_scrim_mask": {
+      "measured": "DrawerScrim() returns null when closed -> scrim pops in with no transition and vanishes instantly; --scrim rgba(0,0,0,.55) rendered rgb(238,241,244) (blur+blend); z30",
+      "assert": ".scrim has non-zero opacity transition; computed opacity ~1 when open, 0 when closed; pointer-events none when hidden"
+    },
+    "5_general_polish": {
+      "measured": "sweep needed on all screens at 320/393/768/1280",
+      "assert": "no clipped text, no unexpected wrap, no horizontal overflow on any screen"
+    }
+  },
+  "gatesBaseline": { "tsc": 0, "lint": 0, "tests": "469 passed / 23 files", "build": 0 }
+}

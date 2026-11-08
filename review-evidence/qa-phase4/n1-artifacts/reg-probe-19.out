@@ -1,0 +1,32 @@
+
+### O
+   MAIN  route: rows=384 same-day duplicates=none
+   HIST  route: clean on all six spans
+
+### COST
+   MAIN  route: rows=96 same-day duplicates=none
+   HIST  route: clean on all six spans
+
+### AGNC
+   MAIN  route: rows=172 same-day duplicates=none
+   HIST  route: clean on all six spans
+
+### 0005.HK
+   MAIN  route: rows=93 same-day duplicates=none
+   HIST  route: clean on all six spans
+
+### AAPL
+   MAIN  route: rows=93 same-day duplicates=none
+   HIST  route: clean on all six spans
+
+### KO
+   MAIN  route: rows=240 same-day duplicates=none
+   HIST  route: clean on all six spans
+
+### MSFT
+   MAIN  route: rows=92 same-day duplicates=none
+   HIST  route: clean on all six spans
+
+### ULVR.L
+   MAIN  route: rows=104 same-day duplicates=none
+   HIST  route: clean on all six spans

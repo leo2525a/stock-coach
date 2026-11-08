@@ -1,0 +1,232 @@
+{
+  "generatedAt": "2026-11-08T07:00:06.463Z",
+  "colour": {
+    "up": "rgb(38, 166, 154)",
+    "down": "rgb(239, 83, 80)",
+    "dim": "rgb(154, 167, 180)"
+  },
+  "checks": {
+    "dashboard": {
+      "sidebar": {
+        "up": [
+          {
+            "text": "189.42",
+            "cls": "wl-price chg-up",
+            "colour": "rgb(38, 166, 154)",
+            "motion": 0,
+            "testid": null
+          },
+          {
+            "text": "+2.50%",
+            "cls": "wl-chg chg-up",
+            "colour": "rgb(38, 166, 154)",
+            "motion": 0,
+            "testid": null
+          }
+        ],
+        "down": [
+          {
+            "text": "412.10",
+            "cls": "wl-price chg-down",
+            "colour": "rgb(239, 83, 80)",
+            "motion": 0,
+            "testid": null
+          },
+          {
+            "text": "-1.75%",
+            "cls": "wl-chg chg-down",
+            "colour": "rgb(239, 83, 80)",
+            "motion": 0,
+            "testid": null
+          }
+        ],
+        "flat": [
+          {
+            "text": "50.00",
+            "cls": "wl-price chg-flat",
+            "colour": "rgb(154, 167, 180)",
+            "motion": 0,
+            "testid": null
+          },
+          {
+            "text": "—",
+            "cls": "wl-chg chg-flat",
+            "colour": "rgb(154, 167, 180)",
+            "motion": 0,
+            "testid": null
+          }
+        ],
+        "uncoloured": []
+      },
+      "movers": {
+        "up": [
+          {
+            "text": "+2.50%",
+            "cls": "chg-up",
+            "colour": "rgb(38, 166, 154)",
+            "motion": 0,
+            "testid": null
+          }
+        ],
+        "down": [
+          {
+            "text": "-1.75%",
+            "cls": "chg-down",
+            "colour": "rgb(239, 83, 80)",
+            "motion": 0,
+            "testid": null
+          }
+        ],
+        "flat": [],
+        "uncoloured": []
+      }
+    },
+    "statements": {
+      "up": [
+        {
+          "text": "+20.00%",
+          "cls": "chg-up",
+          "colour": "rgb(38, 166, 154)",
+          "motion": 0,
+          "testid": null
+        },
+        {
+          "text": "+18.18%",
+          "cls": "chg-up",
+          "colour": "rgb(38, 166, 154)",
+          "motion": 0,
+          "testid": null
+        }
+      ],
+      "down": [
+        {
+          "text": "-20.00%",
+          "cls": "chg-down",
+          "colour": "rgb(239, 83, 80)",
+          "motion": 0,
+          "testid": null
+        },
+        {
+          "text": "-8.33%",
+          "cls": "chg-down",
+          "colour": "rgb(239, 83, 80)",
+          "motion": 0,
+          "testid": null
+        }
+      ],
+      "dashes": [
+        {
+          "text": "—",
+          "colour": "rgb(110, 125, 140)",
+          "hasDir": false
+        }
+      ]
+    },
+    "estimates": {
+      "up": [
+        {
+          "text": "+12.30%",
+          "cls": "chg-up",
+          "colour": "rgb(38, 166, 154)",
+          "motion": 0,
+          "testid": null
+        },
+        {
+          "text": "+0.2",
+          "cls": "chg-up",
+          "colour": "rgb(38, 166, 154)",
+          "motion": 0,
+          "testid": null
+        },
+        {
+          "text": "+20.00%",
+          "cls": "chg-up",
+          "colour": "rgb(38, 166, 154)",
+          "motion": 0,
+          "testid": null
+        },
+        {
+          "text": "+10.00%",
+          "cls": "chg-up",
+          "colour": "rgb(38, 166, 154)",
+          "motion": 0,
+          "testid": null
+        }
+      ],
+      "down": [
+        {
+          "text": "-7.00%",
+          "cls": "chg-down",
+          "colour": "rgb(239, 83, 80)",
+          "motion": 0,
+          "testid": null
+        },
+        {
+          "text": "-0.2",
+          "cls": "chg-down",
+          "colour": "rgb(239, 83, 80)",
+          "motion": 0,
+          "testid": null
+        },
+        {
+          "text": "-20.00%",
+          "cls": "chg-down",
+          "colour": "rgb(239, 83, 80)",
+          "motion": 0,
+          "testid": null
+        },
+        {
+          "text": "-10.00%",
+          "cls": "chg-down",
+          "colour": "rgb(239, 83, 80)",
+          "motion": 0,
+          "testid": null
+        }
+      ]
+    },
+    "ratings": {
+      "up": [
+        {
+          "text": "+25.00%",
+          "cls": "chg-up",
+          "colour": "rgb(38, 166, 154)",
+          "motion": 0,
+          "testid": null
+        }
+      ],
+      "down": [
+        {
+          "text": "-10.00%",
+          "cls": "chg-down",
+          "colour": "rgb(239, 83, 80)",
+          "motion": 0,
+          "testid": null
+        }
+      ],
+      "levels": {
+        "count": 10,
+        "offenders": []
+      }
+    },
+    "locales": {
+      "en": {
+        "up": 12,
+        "down": 9
+      },
+      "zh": {
+        "up": 12,
+        "down": 9
+      }
+    },
+    "motion": {
+      "normal": 23,
+      "reduced": 23
+    }
+  },
+  "screenshots": [
+    "01-dashboard-zh-HK.png",
+    "02-analysts-zh-HK.png"
+  ],
+  "consoleErrors": [],
+  "pageErrors": []
+}

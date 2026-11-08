@@ -1,0 +1,4 @@
+currency   = GBp
+indicated  = {"value":null,"source":"absent","note":"note.dividendNoDividend"}
+forwardYld = 0.00031643002028397565 (0.0316%)  note=note.dividendForwardIsIndicated
+honest forward (1.56 GBP = 156 GBp / 4930 GBp) = 3.164%

@@ -1,0 +1,24 @@
+
+### ULVR.L  ccy=GBp price=4930
+  summaryDetail.dividendYield              = 0.0311  (3.110%)
+  summaryDetail.dividendRate               = 1.56
+  summaryDetail.trailingAnnualDividendRate = 1.886
+  summaryDetail.trailingAnnualDividendYield= 0.00037480128  (0.0375%)
+  rate/price = 0.0316%   trailingRate/price = 0.0383%
+  timeseries trailingDividendYield last = 0.0339 (2026-10-30)
+
+### KO  ccy=USD price=95.67
+  summaryDetail.dividendYield              = 0.0222  (2.220%)
+  summaryDetail.dividendRate               = 2.12
+  summaryDetail.trailingAnnualDividendRate = 2.1
+  summaryDetail.trailingAnnualDividendYield= 0.021936696  (2.1937%)
+  rate/price = 2.2160%   trailingRate/price = 2.1950%
+  timeseries trailingDividendYield last = 0.0223 (2026-10-30)
+
+### O  ccy=USD price=59.04
+  summaryDetail.dividendYield              = 0.0552  (5.520%)
+  summaryDetail.dividendRate               = 3.26
+  summaryDetail.trailingAnnualDividendRate = 3.241
+  summaryDetail.trailingAnnualDividendYield= 0.054470588  (5.4471%)
+  rate/price = 5.5217%   trailingRate/price = 5.4895%
+  timeseries trailingDividendYield last = 0.057 (2026-10-30)

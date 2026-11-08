@@ -1,0 +1,29 @@
+auditDictionaries = {
+  "reference": "en",
+  "missing": {
+    "zh-HK": []
+  },
+  "extra": {
+    "zh-HK": []
+  },
+  "placeholderMismatches": [],
+  "doubleSuffix": []
+}
+en keys= 841 zh keys= 841
+identical values = 14 [
+  'app.backendDown.server',
+  'app.backendDown.dev',
+  'common.noData',
+  'chart.rsi',
+  'chart.macd',
+  'pf.act.export.csv',
+  'pf.act.export.json',
+  'pf.period.ltm',
+  'pf.currency.rate',
+  'pf.income.ebitda',
+  'pf.income.ebit',
+  'pf.est.period.fyPlus',
+  'pf.matrix.ebitda',
+  'pf.matrix.ebit'
+]
+has note.dividendPayableBeforeEx in en = true | in zh = true

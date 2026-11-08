@@ -1,0 +1,8 @@
+server up at http://127.0.0.1:8791
+ULVR.L   ccy=GBp | rate=156.00 GBp last=39.07 GBp ratio=3.993 | ind=3.11% trail=0.04% fwd=3.11%計算值 | apiRate={"value":156,"source":"direct","note":"note.dividendAmountScaleUnreconciled"} ttm=159.870
+BP.L     ccy=GBp | rate=25.00 GBp last=8.66 GBp ratio=2.887 | ind=4.42% trail=0.06% fwd=4.42%計算值 | apiRate={"value":25,"source":"direct","note":"note.dividendAmountScaleUnreconciled"} ttm=33.716
+VOD.L    ccy=GBp | rate=4.00 GBp last=2.3625 GBp ratio=1.693 | ind=3.33% trail=0.04% fwd=3.33%計算值 | apiRate={"value":4,"source":"direct","note":"note.dividendAmountScaleUnreconciled"} ttm=5.877
+HSBA.L   ccy=GBp | rate=— last=10.00 GBp ratio=withheld | ind=2.27% trail=0.06% fwd=2.27%計算值 | apiRate={"value":null,"source":"absent","note":"note.dividendAmountScaleUnreconciled"} ttm=63.159
+KO       ccy=USD | rate=2.12 USD last=0.53 USD ratio=4.000 | ind=2.22% trail=2.19% fwd=2.22%計算值 | apiRate={"value":2.12,"source":"direct"} ttm=2.630
+
+N1-DOM: PASS — no Annual-rate cell ~100x below a single payment

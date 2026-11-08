@@ -1,0 +1,7 @@
+ULVR.L   ccy=GBp   ind=0.0311 | sd.trailingYield=0.00037480128 (0.0375%) | timeseries=0.0339 (3.3900%) | ratio ts/sd=90.4
+BP.L     ccy=GBp   ind=0.0442 | sd.trailingYield=0.0005992245 (0.0599%) | timeseries=0.0399 (3.9900%) | ratio ts/sd=66.6
+HSBA.L   ccy=GBp   ind=0.0227 | sd.trailingYield=0.0005736576 (0.0574%) | timeseries=0.0436 (4.3600%) | ratio ts/sd=76.0
+VOD.L    ccy=GBp   ind=0.033299997 | sd.trailingYield=0.00038525963 (0.0385%) | timeseries=0.0334 (3.3400%) | ratio ts/sd=86.7
+KO       ccy=USD   ind=0.0222 | sd.trailingYield=0.021936696 (2.1937%) | timeseries=0.0223 (2.2300%) | ratio ts/sd=1.0
+O        ccy=USD   ind=0.0552 | sd.trailingYield=0.054470588 (5.4471%) | timeseries=0.057 (5.7000%) | ratio ts/sd=1.0
+AAPL     ccy=USD   ind=0.0032 | sd.trailingYield=0.003079873 (0.3080%) | timeseries=0.0031 (0.3100%) | ratio ts/sd=1.0

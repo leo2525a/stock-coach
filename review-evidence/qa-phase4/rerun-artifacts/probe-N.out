@@ -1,0 +1,17 @@
+=== A: ex-date ABSENT but a payable exists ===
+  nextEx: {"value":null,"source":"absent"} 
+  nextPay: {"value":null,"source":"absent","note":"note.dividendPayableBeforeEx"}
+=== B: non-payer (real modules, no dividend fields): direct(null) ===
+  nextEx: {"value":null,"source":"absent"} 
+  nextPay: {"value":null,"source":"absent"}
+=== C: empty envelope: absent ===
+  nextEx: {"value":null,"source":"absent","note":"note.dividendFactsUnavailable"} 
+  nextPay: {"value":null,"source":"absent","note":"note.dividendFactsUnavailable"}
+=== D: reconciledNextPayDate with ex==pay (same day) ===
+  nextPay: {"value":null,"source":"absent","note":"note.dividendPayableBeforeEx"}
+=== E: upcomingPayment with ex==pay must null the pay ===
+  upcomingPayment: {"exDate":1794441600,"amount":0.27,"payDate":null}
+=== F: buildSchedule given upcoming on a fresh day appends exactly one ===
+  rows: 2 [ [ '2026-08-11', '—' ], [ '2026-11-12', '2026-11-20' ] ]
+=== G: reconcileLastDividend on an already-absent field is a no-op ===
+  -> {"value":null,"source":"absent","note":"note.dividendFactsUnavailable"}

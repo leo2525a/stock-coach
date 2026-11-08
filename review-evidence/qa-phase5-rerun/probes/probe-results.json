@@ -1,0 +1,75 @@
+{
+  "results": [
+    {
+      "name": "A1 scrim renders with a non-zero box at 320px",
+      "pass": true,
+      "detail": "{\"w\":320,\"h\":640,\"right\":320,\"z\":\"30\",\"display\":\"block\",\"pe\":\"auto\"}"
+    },
+    {
+      "name": "B1 scrim z-index is below the sidebar z-index (still dismiss-able on tap)",
+      "pass": true,
+      "detail": "scrim z=30 sidebar z=40"
+    },
+    {
+      "name": "B2 the point right of the sidebar hits the scrim (live tap target)",
+      "pass": true,
+      "detail": "BUTTON.scrim"
+    },
+    {
+      "name": "A2 tapping outside closes the drawer",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "A3 Escape closes the drawer",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "A4 Escape when already closed is a no-op (no double-close)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "A5 six open/Escape cycles leave the app usable",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "C1 light --ref-mean differs from dark (themed, not a dark-only constant)",
+      "pass": true,
+      "detail": "#26a69a vs #0f7d72"
+    },
+    {
+      "name": "C2 light target-mean clears 3:1 on the light chart background",
+      "pass": true,
+      "detail": "5.004:1"
+    },
+    {
+      "name": "C3 a theme flip re-reads the ref tokens live (no reload)",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "C4 the themed light ref-mean (#0f7d72) is actually painted on the band chart",
+      "pass": true,
+      "detail": "{\"theme\":\"light\",\"hits\":1433}"
+    },
+    {
+      "name": "D1 768px with touch gets ≥40px controls",
+      "pass": true,
+      "detail": "44px"
+    },
+    {
+      "name": "D2 1600px with a fine pointer is NOT forced to 44px (coarse block inert)",
+      "pass": true,
+      "detail": "19.5px"
+    },
+    {
+      "name": "E1 zero console/page errors across all probes",
+      "pass": true,
+      "detail": "none"
+    }
+  ],
+  "consoleErrors": []
+}

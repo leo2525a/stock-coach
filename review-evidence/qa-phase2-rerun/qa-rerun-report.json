@@ -1,0 +1,192 @@
+{
+  "base": "http://127.0.0.1:8799",
+  "gate": "B1 re-run",
+  "passed": 70,
+  "failed": 0,
+  "fails": [],
+  "evidence": {
+    "badgeZh": {
+      "dashboard": {
+        "text": "快取 · 啱啱",
+        "title": "呢個數字對上一次由數據商拿取嘅時間。"
+      },
+      "chart": {
+        "text": "快取 · 啱啱",
+        "title": "呢個數字對上一次由數據商拿取嘅時間。"
+      },
+      "signals": {
+        "text": "即時 · 啱啱",
+        "title": "呢個數字對上一次由數據商拿取嘅時間。"
+      }
+    },
+    "newsMetaZh": [
+      "GuruFocus.com\n· 2 個鐘前更新\n提及 AAPL\n開啟原文 ↗",
+      "TheStreet\n· 4 個鐘前更新\n提及 AAPL\n開啟原文 ↗",
+      "Investor's Business Daily\n· 4 個鐘前更新\n提及 AAPL\n開啟原文 ↗",
+      "BeInCrypto\n· 6 個鐘前更新\n提及 AAPL\n開啟原文 ↗",
+      "Stocktwits\n· 7 個鐘前更新\n提及 AAPL\n開啟原文 ↗",
+      "Zacks\n· 9 個鐘前更新\n提及 AAPL\n開啟原文 ↗"
+    ],
+    "timeLeaks": {
+      "dashboard": [],
+      "chart": [],
+      "signals": [],
+      "watchlist": [],
+      "help": []
+    },
+    "newsMetaEn": "GuruFocus.com\n· Updated 2 h ago\nMentions AAPL\nOpen the story ↗ || TheStreet\n· Updated 4 h ago\nMentions AAPL\nOpen the story ↗ || Investor's Business Daily\n· Updated 4 h ago\nMentions AAPL\nOpen the story ↗ || BeInCrypto\n· Updated 6 h ago\nMentions AAPL\nOpen the story ↗ || Stocktwits\n· Updated 7 h ago\nMentions AAPL\nOpen the story ↗ || Zacks\n· Updated 9 h ago\nMentions AAPL\nOpen the story ↗",
+    "badgeEn": "Cached · just now",
+    "doubleSuffix": [],
+    "sentinelLeaks": [],
+    "countryAAPL": {
+      "catCountry": "美國",
+      "profCountry": "美國",
+      "catRows": [
+        {
+          "k": "類型",
+          "v": "股票"
+        },
+        {
+          "k": "行業板塊",
+          "v": "資訊科技"
+        },
+        {
+          "k": "細分行業",
+          "v": "消費電子"
+        },
+        {
+          "k": "交易所",
+          "v": "納斯達克"
+        },
+        {
+          "k": "國家／地區",
+          "v": "美國"
+        }
+      ],
+      "profRows": [
+        {
+          "k": "行業板塊",
+          "v": "資訊科技"
+        },
+        {
+          "k": "細分行業",
+          "v": "消費電子"
+        },
+        {
+          "k": "國家／地區",
+          "v": "美國"
+        },
+        {
+          "k": "員工人數",
+          "v": "167,000"
+        },
+        {
+          "k": "官方網站",
+          "v": "開啟公司網站 ↗"
+        }
+      ]
+    },
+    "countryApi": {
+      "AAPL": {
+        "country": "United States",
+        "fromProfile": true,
+        "sector": "Technology",
+        "exchange": "NASDAQ"
+      },
+      "SPY": {
+        "country": null,
+        "fromProfile": null,
+        "sector": null,
+        "exchange": "NYSE Arca"
+      },
+      "0700.HK": {
+        "country": null,
+        "fromProfile": null,
+        "sector": "Communication Services",
+        "exchange": "HKEX"
+      }
+    },
+    "country0700": {
+      "catCountry": "中國",
+      "profCountry": "中國",
+      "rows": [
+        {
+          "k": "類型",
+          "v": "股票"
+        },
+        {
+          "k": "行業板塊",
+          "v": "通訊服務"
+        },
+        {
+          "k": "細分行業",
+          "v": "互聯網內容與資訊"
+        },
+        {
+          "k": "交易所",
+          "v": "香港交易所"
+        },
+        {
+          "k": "國家／地區",
+          "v": "中國"
+        }
+      ],
+      "prof": [
+        {
+          "k": "行業板塊",
+          "v": "通訊服務"
+        },
+        {
+          "k": "細分行業",
+          "v": "互聯網內容與資訊"
+        },
+        {
+          "k": "國家／地區",
+          "v": "中國"
+        },
+        {
+          "k": "員工人數",
+          "v": "115,927"
+        },
+        {
+          "k": "官方網站",
+          "v": "開啟公司網站 ↗"
+        }
+      ]
+    },
+    "badgeTitle": {
+      "text": "快取 · 啱啱",
+      "title": "呢個數字對上一次由數據商拿取嘅時間。"
+    },
+    "glossaryAbsent": true,
+    "overflow": {
+      "390": {
+        "dashboard": 0,
+        "chart": 0,
+        "signals": 0,
+        "watchlist": 0,
+        "help": 0
+      },
+      "834": {
+        "dashboard": 0,
+        "chart": 0,
+        "signals": 0,
+        "watchlist": 0,
+        "help": 0
+      },
+      "1600": {
+        "dashboard": 0,
+        "chart": 0,
+        "signals": 0,
+        "watchlist": 0,
+        "help": 0
+      }
+    },
+    "console": {
+      "console": [],
+      "page": [],
+      "requests": [],
+      "badResponses": []
+    }
+  }
+}
