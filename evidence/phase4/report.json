@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-08T06:58:49.321Z",
+  "generatedAt": "2026-11-08T07:14:33.973Z",
   "payer": "KO",
   "nonPayer": "TSLA",
   "widths": [
@@ -48,11 +48,9 @@
       "—",
       "—",
       "—",
-      "—",
       "—"
     ],
     "record": [
-      "—",
       "—",
       "—",
       "—",
@@ -92,10 +90,9 @@
       "—",
       "—",
       "—",
-      "—",
       "—"
     ],
-    "rows": 20,
+    "rows": 19,
     "forbidden": [],
     "chartEmpty": false,
     "scheduleEmpty": true,
@@ -209,7 +206,7 @@
     {
       "symbol": "AAPL",
       "span": "5y",
-      "rows": 20,
+      "rows": 19,
       "dupes": [],
       "badPay": 0
     },

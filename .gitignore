@@ -26,6 +26,7 @@ review-evidence/**/scratch/
 
 # Native (Capacitor) build output
 dist-ios/
+build/
 ios/App/App/public/
 ios/App/Pods/
 ios/App/App.xcodeproj/xcuserdata/

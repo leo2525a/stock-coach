@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-08T06:53:26.757Z",
+  "generatedAt": "2026-11-08T07:16:34.065Z",
   "widths": [
     320,
     390,
@@ -148,7 +148,7 @@
     },
     "serviceWorker": {
       "supported": true,
-      "scope": "http://127.0.0.1:52539/",
+      "scope": "http://127.0.0.1:53274/",
       "active": true
     }
   },

@@ -9,6 +9,8 @@ export default tseslint.config(
       'dist/**',
       'node_modules/**',
       'coverage/**',
+      // Xcode derived data written by `npm run ios:build`.
+      'build/**',
       // Native (Capacitor) project. `ios/App/App/public` is a copy of the built
       // web app; the SPM/Pods scaffolding is generated. Neither is our source.
       'ios/**',

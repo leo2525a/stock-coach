@@ -58,3 +58,27 @@ the pass is non-vacuous.
 
 Screenshots: `review-evidence/coordinator-ui/round2/` (desktop shown/hidden,
 chart toolbar, four widths). Raw results: `round2/verify-report.json`.
+
+## Round-2 hashes (sha256)
+
+```
+src/styles.css                  11e1dd64d316aa082f1f46eaa52b3693e7db539ec061eea7d4c5540b87797b0d
+src/App.tsx                     e1d515847323ba20ef9a30b9d48d055e21b4b862a1bed50dccbe803cf2a21b1c
+src/components/Sidebar.tsx      8f4e1f43f580b5f3869ae32f208aaadfd8c8d9be21d7914d4f29d1fc7db15dad
+src/components/TopBar.tsx       d3d1de0c02b89a933fef6c549b4f6f318d4ab2ef9aea6cd0d3cda8a4d4c73210
+src/components/Controls.tsx     feeed028d31338b5cc2b763881620120759f1f74f8f4b2a5c4768e79553c4d2d
+src/components/ChartToolbar.tsx 261132a56c7fedeeb4d8d31acf9d5cd67672d7a31bef332293a8989bfb0c2dc2
+src/store.ts                    b556f3ca20afafaabb314e397dda8e7ed241f779f5c8ef3e88b3a28c197da729
+```
+
+## iOS
+
+The native shell was re-synced and rebuilt against the round-2 build
+(`VITE_API_BASE=http://127.0.0.1:8787/api npm run native:sync && npm run ios:build`
+→ BUILD SUCCEEDED). `dist/` was then rebuilt back to relative URLs for the web.
+
+## Follow-up
+
+The `build/**` Xcode derived-data output was added to the eslint ignore list and
+`.gitignore`: `eslint .` was picking up the copied web bundle inside
+`build/ios/.../App.app/public` and reporting ~2.6k false errors.
