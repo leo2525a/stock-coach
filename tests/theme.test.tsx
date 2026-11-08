@@ -18,6 +18,7 @@
  */
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
+import { readStylesheet } from './css-source';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { act } from 'react';
 import { createRoot, type Root } from 'react-dom/client';
@@ -38,7 +39,9 @@ import { ThemeToggle } from '../src/components/Controls';
 (globalThis as unknown as { IS_REACT_ACT_ENVIRONMENT: boolean }).IS_REACT_ACT_ENVIRONMENT = true;
 
 const ROOT = resolve(__dirname, '..');
-const CSS = readFileSync(resolve(ROOT, 'src/styles.css'), 'utf8');
+// `src/styles.css` is an entry point that imports the modules in `src/styles/`,
+// so read the resolved graph: the assertions below are about the rules.
+const CSS = readStylesheet(resolve(ROOT, 'src/styles.css'));
 const HTML = readFileSync(resolve(ROOT, 'index.html'), 'utf8');
 
 /** Pull the custom-property names declared inside a selector block. */

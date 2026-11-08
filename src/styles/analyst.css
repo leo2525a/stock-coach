@@ -1,0 +1,646 @@
+/* Analyst screen: recap, overview header, facts, sections, tables, bars, currency, statements
+   (split out of src/styles.css — keep one concern per file) */
+
+/* ---------- Recap strip (the one-line summary) ---------- */
+
+.pf-recap {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(118px, 1fr));
+  gap: 1px;
+  background: var(--border-soft);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  /* The strip fades in once when data first arrives (§B.2). */
+  opacity: 0.001;
+  transition: opacity 0.24s ease-out;
+}
+.pf-recap.on {
+  opacity: 1;
+}
+.pf-recap-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 9px 11px;
+  background: var(--bg-elev);
+  min-width: 0;
+}
+/*
+  A stat box is a grid item inside `.pf-facts`. Without `min-width: 0` the
+  `white-space: nowrap` value below forces its track wider than the strip, and
+  the excess overflows with nothing to scroll to — the exact §D.2 defect the
+  browser evidence catches. `.pf-fact` already carried this; the stat box did
+  not.
+*/
+.pf-stat {
+  min-width: 0;
+}
+/*
+  `Stat` renders its label and value as `<span>`s. `overflow`/`text-overflow`
+  only apply to block containers, so an inline span ignores the ellipsis and
+  its nowrap text overflows the stat box — and every ancestor up to
+  `.pf-section-body`. Making them blocks is what makes the ellipsis real.
+*/
+.pf-stat-k,
+.pf-stat-v {
+  display: block;
+}
+.pf-stat-k {
+  font-size: 10.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  color: var(--text-faint);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.pf-stat-v {
+  font-size: 14px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.pf-recap-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 11px;
+  background: var(--bg-elev);
+  justify-content: flex-end;
+}
+
+/* ---------- Overview header (§C.1) ---------- */
+
+.pf-overview {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 12px 18px;
+  align-items: start;
+  padding: 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-elev);
+}
+.pf-overview-empty {
+  display: block;
+}
+.pf-company {
+  margin: 0 0 6px;
+  font-size: 17px;
+  font-weight: 700;
+}
+.pf-overview-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.pf-tag {
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  border: 1px solid var(--accent-ring);
+  background: var(--accent-soft);
+  color: var(--accent-text);
+  white-space: nowrap;
+}
+.pf-tag.soft {
+  border-color: var(--border);
+  background: var(--bg-elev-2);
+  color: var(--text-dim);
+}
+.pf-tag.state {
+  border-color: var(--neutral-border);
+  background: var(--neutral-soft);
+  color: var(--neutral-text-soft);
+}
+.pf-overview-price {
+  display: flex;
+  align-items: baseline;
+  gap: 9px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  font-variant-numeric: tabular-nums;
+}
+.pf-price {
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.4px;
+}
+.pf-sector {
+  font-size: 11.5px;
+  color: var(--text-dim);
+}
+
+/* ---------- Facts grid (label → value, the workhorse) ---------- */
+
+.pf-facts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 8px 14px;
+  margin: 0;
+}
+.pf-fact {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+.pf-fact dt {
+  font-size: 10.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.35px;
+  color: var(--text-faint);
+}
+.pf-fact dd {
+  margin: 0;
+  font-size: 13.5px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  overflow-wrap: anywhere;
+}
+.pf-inline {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  flex-wrap: wrap;
+}
+.pf-meta-row {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+
+/* ---------- Sections (§B.3: collapsible, one idea each) ---------- */
+
+.pf-sections {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.pf-section {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-elev);
+  overflow: hidden;
+  /* Never inherit a child's min-content width: a wide table or segmented
+     control must wrap or scroll inside, not widen the card and clip. */
+  min-width: 0;
+}
+.pf-section-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0;
+}
+.pf-section-toggle {
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  padding: 11px 13px;
+  font-size: 13.5px;
+  font-weight: 600;
+  text-align: left;
+}
+.pf-section-toggle:hover {
+  background: var(--shade-2);
+  border-color: transparent;
+  transform: none;
+}
+.pf-section-title {
+  flex: 1 1 auto;
+}
+/* The caret rotates rather than swapping glyphs, so opening a section is a
+   single continuous motion (§B.2) instead of a two-frame swap. The selector
+   matches the markup's `pf-caret open` / `pf-section open` classes. */
+.pf-caret {
+  display: inline-block;
+  color: var(--text-faint);
+  font-size: 11px;
+  transition: transform 0.18s ease, color 0.18s ease;
+}
+.pf-caret.open,
+.pf-section.open .pf-caret {
+  transform: rotate(90deg);
+  color: var(--accent);
+}
+.pf-section-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 10px;
+}
+.pf-section-sub {
+  margin: 0;
+  padding: 0 13px 8px;
+  font-size: 11.5px;
+  color: var(--text-faint);
+}
+.pf-section-body {
+  padding: 2px 13px 14px;
+  border-top: 1px solid var(--border-soft);
+}
+
+/* ---------- Tables ---------- */
+
+.pf-table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-sm);
+  background: var(--bg);
+}
+.pf-table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 12.5px;
+  font-variant-numeric: tabular-nums;
+}
+.pf-table-caption {
+  caption-side: top;
+  text-align: left;
+  padding: 7px 10px;
+  font-size: 11.5px;
+  color: var(--text-faint);
+}
+.pf-table th,
+.pf-table td {
+  padding: 7px 10px;
+  text-align: left;
+  border-bottom: 1px solid var(--border-soft);
+  white-space: nowrap;
+}
+.pf-table-dense th,
+.pf-table-dense td {
+  padding: 5px 9px;
+  font-size: 12px;
+}
+.pf-table th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: var(--bg-elev-2);
+  font-size: 10.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.35px;
+  color: var(--text-dim);
+}
+.pf-table th.right,
+.pf-table td.right {
+  text-align: right;
+}
+.pf-table tbody tr:hover td {
+  background: var(--shade-1);
+}
+.pf-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+.pf-table-empty {
+  padding: 12px 10px;
+  color: var(--text-faint);
+  font-size: 12.5px;
+}
+
+/* ---------- Range bar (low → high, §C.6) ---------- */
+
+.pf-rangebar,
+.pf-range-cell {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 130px;
+  width: 100%;
+}
+.pf-rangebar-track {
+  display: block;
+  height: 4px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--down-soft), var(--accent-soft));
+}
+.pf-rangebar {
+  position: relative;
+  padding-right: 0;
+}
+.pf-rangebar-mark {
+  position: absolute;
+  top: 0;
+  width: 2px;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--text);
+  transition: left 0.2s ease-out;
+}
+.pf-rangebar-ends,
+.pf-range-nums {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 11px;
+  color: var(--text-faint);
+}
+.pf-rangebar-empty {
+  color: var(--text-faint);
+}
+
+/* ---------- Count bar (rating distribution, §C.5) ---------- */
+
+.pf-dist-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.pf-dist-list li {
+  display: grid;
+  grid-template-columns: 88px minmax(0, 1fr);
+  align-items: center;
+  gap: 10px;
+}
+.pf-dist-label {
+  font-size: 12px;
+  color: var(--text-dim);
+}
+.pf-countbar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+.pf-countbar-track {
+  flex: 1 1 auto;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--bg-elev-2);
+  overflow: hidden;
+}
+.pf-countbar-fill {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+  background: var(--accent);
+  /* The width is set inline from the real count, so the grow-in here is a
+     reveal of a real proportion, never a fabricated animation. */
+  transition: width 0.3s ease-out;
+}
+.pf-countbar-text {
+  flex: 0 0 auto;
+  font-size: 11.5px;
+  font-variant-numeric: tabular-nums;
+  color: var(--text-dim);
+  min-width: 18px;
+  text-align: right;
+}
+
+/* ---------- Band / NTM chart blocks (§C.5, §C.4) ---------- */
+
+.pf-band,
+.pf-ntm,
+.pf-actions-list,
+.pf-dist {
+  margin-top: 12px;
+}
+.pf-band:first-child,
+.pf-ntm:first-child,
+.pf-dist:first-child {
+  margin-top: 0;
+}
+.pf-chart {
+  display: block;
+  width: 100%;
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-sm);
+  background: var(--well);
+  /* A canvas sized to a fractional CSS width rounds to a 1-2px scrollWidth
+     difference; clip it so a sub-pixel spill is never reported as overflow. */
+  overflow: hidden;
+}
+.pf-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 6px 0;
+  font-size: 11px;
+  color: var(--text-faint);
+}
+.pf-legend span::before {
+  content: '';
+  display: inline-block;
+  width: 9px;
+  height: 3px;
+  margin-right: 5px;
+  vertical-align: middle;
+  border-radius: 2px;
+  background: var(--accent);
+}
+.pf-legend span:nth-child(2)::before {
+  background: var(--neutral);
+}
+.pf-line {
+  stroke-width: 1.4;
+}
+
+/* ---------- Quick actions & fields (§C.1) ---------- */
+
+.pf-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border-soft);
+}
+.pf-action-row {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  flex-wrap: wrap;
+}
+.pf-action-row.cols {
+  align-items: flex-start;
+}
+.pf-action-btns {
+  display: inline-flex;
+  gap: 6px;
+}
+.pf-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+.pf-field.grow {
+  flex: 1 1 240px;
+}
+.pf-field > span:first-child {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.35px;
+  color: var(--text-faint);
+}
+.pf-screen textarea,
+.pf-screen input[type='text'] {
+  background: var(--well);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 7px 9px;
+  color: var(--text);
+  font-size: 12.5px;
+  outline: none;
+  width: 100%;
+  transition: border-color 0.14s ease, box-shadow 0.14s ease;
+}
+.pf-screen textarea:focus,
+.pf-screen input[type='text']:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+/* ---------- Currency switch (thumb slides between options) ---------- */
+
+.pf-currency {
+  position: relative;
+  display: inline-flex;
+  gap: 0;
+  padding: 2px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--bg-elev-2);
+  isolation: isolate;
+}
+.pf-currency-thumb {
+  position: absolute;
+  top: 2px;
+  bottom: 2px;
+  left: 2px;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  box-shadow: inset 0 0 0 1px var(--accent-ring);
+  transition: transform 0.2s cubic-bezier(0.22, 0.61, 0.36, 1);
+  z-index: 0;
+}
+.pf-currency button {
+  position: relative;
+  z-index: 1;
+  border: 0;
+  background: transparent;
+  border-radius: 999px;
+  padding: 4px 11px;
+  font-size: 11.5px;
+  color: var(--text-faint);
+  min-width: 48px;
+}
+.pf-currency button:hover:not(:disabled) {
+  transform: none;
+  border-color: transparent;
+  background: transparent;
+}
+.pf-currency button.active {
+  color: var(--accent-text);
+  background: transparent;
+}
+
+/* ---------- Statement period / metric groups (§C.2) ---------- */
+
+.pf-stmt-period,
+.pf-period {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.pf-metrics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 10px;
+  margin-top: 12px;
+}
+.pf-metric-group {
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-sm);
+  padding: 10px 11px;
+  background: var(--bg);
+}
+.pf-metric-head {
+  font-size: 11.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.35px;
+  color: var(--text-dim);
+  margin-bottom: 8px;
+}
+.pf-metric-summary {
+  grid-column: 1 / -1;
+  font-size: 11.5px;
+  color: var(--text-faint);
+}
+.pf-metric-v {
+  font-variant-numeric: tabular-nums;
+  cursor: help;
+}
+.pf-computed-note {
+  font-size: 11px;
+  color: var(--text-faint);
+  font-style: italic;
+}
+
+/* ---------- Small inline states ---------- */
+
+.pf-est-none,
+.pf-history-none,
+.pf-calendar-none,
+.pf-rat-none,
+.pf-rat-actions-none,
+.pf-band-nohistory,
+.pf-ntm-note,
+.pf-band-note,
+.pf-currency-note,
+.pf-currency-fallback,
+.pf-stmt-error {
+  font-size: 11.5px;
+  color: var(--text-faint);
+}
+.pf-stmt-error {
+  color: var(--down);
+}
+.pf-est-extra-years {
+  font-size: 11.5px;
+  color: var(--text-faint);
+}
+.pf-metrics-title {
+  margin-top: 12px;
+}
+
+/* ---------- Motion keyframes (§B.2) ---------- */
+
+@keyframes pf-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes pf-rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+/* A section body rises into place when it opens — 180 ms, no layout shift
+   once settled. */
+.pf-section-body:not([hidden]) {
+  animation: pf-rise-in 0.18s ease-out both;
+}

@@ -1,0 +1,207 @@
+/* Help / coach marks, watchlist manager, misc utilities
+   (split out of src/styles.css — keep one concern per file) */
+
+/* ---------- Help / coach marks ---------- */
+
+.help {
+  background: linear-gradient(180deg, var(--accent-grad), transparent);
+  border: 1px solid var(--accent-border-soft);
+  border-radius: var(--radius);
+  padding: 12px 14px;
+}
+.help h3 {
+  margin: 0 0 6px;
+  font-size: 14px;
+}
+.help ul {
+  margin: 6px 0 0;
+  padding-left: 18px;
+}
+.help li {
+  font-size: 13px;
+  color: var(--text-dim);
+  margin-bottom: 4px;
+}
+.help li b {
+  color: var(--text);
+}
+
+.help-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+/* ---------- Watchlist manager ---------- */
+
+.wl-manage {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-width: 720px;
+}
+.wl-manage-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--bg-elev-2);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-sm);
+  padding: 8px 10px;
+}
+.wl-manage-row .grow {
+  flex: 1;
+  min-width: 0;
+}
+.icon-btn {
+  padding: 4px 8px;
+  font-size: 13px;
+  line-height: 1;
+}
+.btn-danger {
+  border-color: var(--down-border);
+  color: var(--down-text);
+}
+.btn-danger:hover:not(:disabled) {
+  background: var(--down-soft);
+}
+.btn-primary {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+  color: var(--accent-text);
+}
+
+.search-results {
+  list-style: none;
+  margin: 8px 0 0;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  max-height: 260px;
+  overflow-y: auto;
+}
+.search-results li button {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  width: 100%;
+  border: 0;
+  border-radius: 0;
+  background: var(--bg-elev-2);
+  padding: 9px 11px;
+  text-align: left;
+}
+.search-results li + li button {
+  border-top: 1px solid var(--border-soft);
+}
+.search-results .sr-meta {
+  color: var(--text-faint);
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.glossary {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+.glossary-row {
+  display: grid;
+  grid-template-columns: minmax(150px, 220px) 1fr;
+  gap: 10px;
+  border-bottom: 1px solid var(--border-soft);
+  padding-bottom: 7px;
+}
+.glossary-row:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+.glossary dt {
+  font-weight: 650;
+  font-size: 13px;
+  color: var(--text);
+}
+.glossary dd {
+  margin: 0;
+  font-size: 13px;
+  color: var(--text-dim);
+}
+.help-list li {
+  font-size: 13px;
+  color: var(--text-dim);
+  margin-bottom: 5px;
+}
+.help-list code,
+.panel code {
+  background: var(--well);
+  border: 1px solid var(--border-soft);
+  border-radius: 4px;
+  padding: 1px 5px;
+  font-family: var(--mono);
+  font-size: 12px;
+}
+
+@media (max-width: 640px) {
+  .glossary-row {
+    grid-template-columns: 1fr;
+    gap: 2px;
+  }
+}
+
+/* ---------- Misc ---------- */
+
+.error-box {
+  background: var(--down-soft);
+  border: 1px solid var(--down-border);
+  border-radius: var(--radius);
+  padding: 10px 12px;
+  color: var(--down-text-soft);
+  font-size: 13px;
+}
+.warn-box {
+  background: var(--neutral-soft);
+  border: 1px solid var(--neutral-border);
+  border-radius: var(--radius);
+  padding: 9px 12px;
+  color: var(--neutral-text);
+  font-size: 12.5px;
+}
+.empty {
+  color: var(--text-faint);
+  font-size: 13px;
+  padding: 14px;
+  text-align: center;
+}
+.row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.spread {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.muted {
+  color: var(--text-dim);
+}
+.tiny {
+  font-size: 12px;
+}
+.mono {
+  font-family: var(--mono);
+}
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.hidden-mobile {
+  display: initial;
+}

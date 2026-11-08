@@ -1,0 +1,138 @@
+/* Responsive breakpoints for the shell
+   (split out of src/styles.css — keep one concern per file) */
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 900px) {
+  .sidebar {
+    width: 220px;
+    flex: 0 0 220px;
+  }
+}
+
+/* Below 1181px the sidebar is an overlay drawer: an overlay over the content
+   that is shown/hidden with `display` (a plain toggle — it does NOT slide). The
+   app itself is never translated. */
+@media (max-width: 1180px) {
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 50;
+    width: min(300px, 84vw);
+    max-width: 84vw;
+    flex: 0 0 auto;
+    max-height: none;
+    display: none;
+    flex-direction: column;
+    min-height: 0;
+    padding-top: env(safe-area-inset-top);
+  }
+  /* The safe area already pushes the panel down; the brand row does not need its
+     full desktop top padding on top of that (that is what left the owner
+     '空白位' at the top of the drawer). Trim it so the brand sits just below the
+     status bar. */
+  .sidebar .brand-head {
+    padding-top: 4px;
+  }
+  .sidebar.open {
+    display: flex;
+  }
+  .drawer-toggle {
+    display: inline-flex;
+  }
+  /* While the drawer is open, the corner brand would sit on top of the drawer's
+     own brand row (same mark). Hide it there — the drawer's brand and its 「«」
+     close, the scrim, and Escape all remain. */
+  .app:has(.sidebar.open) .drawer-toggle {
+    display: none;
+  }
+  .scrim {
+    display: block;
+    position: absolute;
+    inset: 0;
+    z-index: 40;
+    border: 0;
+    padding: 0;
+    background: var(--scrim);
+    -webkit-backdrop-filter: blur(1px);
+    backdrop-filter: blur(1px);
+    /* Fade in/out in step with the drawer open/close (owner 40/100: it used to pop
+       in and leave a mask). Hidden = non-interactive so it never eats taps. */
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.18s ease;
+  }
+  .scrim.open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .scrim:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: -2px;
+  }
+}
+
+@media (max-width: 720px) {
+  .two-col {
+    grid-template-columns: 1fr;
+  }
+  .kv-row {
+    grid-template-columns: 1fr;
+    gap: 2px;
+  }
+  .news-open {
+    margin-left: 0;
+  }
+  .lang-switch button {
+    padding: 4px 7px;
+  }
+  .main-col {
+    padding: 16px;
+    padding-top: 56px;
+    gap: 16px;
+  }
+  /* Owner (40/100) sweep: the watchlist "manage" row could not fit its delete
+     button at 393px (row scrollWidth 375 vs 329) and pushed the button off the
+     right edge. Let it wrap so the action drops to its own line instead. */
+  .wl-manage-row {
+    flex-wrap: wrap;
+  }
+  .wl-manage-row .btn-danger {
+    margin-left: auto;
+  }
+  .chart-wrap {
+    min-height: 400px;
+  }
+  .signal-grid {
+    grid-template-columns: 1fr;
+  }
+  .symbol-head .sym-name {
+    max-width: 180px;
+  }
+  .hidden-mobile {
+    display: none;
+  }
+}
+
+/* Touch comfort (Phase-5 QA N4 + owner 38/100): a coarse pointer gets ≥44px
+   targets wherever the controls now live — the sidebar's global controls and
+   the floating handle/hamburger. A finger stays a finger on a tablet, so this
+   is scoped to `pointer: coarse`, not a width. */
+@media (pointer: coarse) {
+  .sidebar-controls .icon-btn,
+  .sidebar-controls .lang-switch button,
+  .collapse-btn,
+  .drawer-toggle {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}

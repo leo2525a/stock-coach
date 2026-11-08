@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-08T09:34:12.385Z",
+  "generatedAt": "2026-11-08T10:09:37.662Z",
   "symbol": "AAPL",
   "widths": [
     390,
@@ -48,7 +48,7 @@
         {
           "tag": "div",
           "cls": "pf-table-wrap",
-          "over": 459,
+          "over": 457,
           "by": "self"
         },
         {
@@ -103,7 +103,7 @@
         {
           "tag": "div",
           "cls": "pf-table-wrap",
-          "over": 7,
+          "over": 5,
           "by": "self"
         },
         {

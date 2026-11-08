@@ -1,0 +1,256 @@
+/* Design tokens: :root variables, light theme, base resets
+   (split out of src/styles.css — keep one concern per file) */
+
+/* ------------------------------------------------------------------
+   Stock Coach — global styles
+   Dark, TradingView-flavoured theme. Mobile-first and responsive.
+   ------------------------------------------------------------------ */
+
+:root {
+  --bg: #0d1117;
+  --bg-elev: #161b22;
+  --bg-elev-2: #1c2230;
+  --border: #2a313c;
+  --border-soft: #232a34;
+  --text: #e6edf3;
+  --text-dim: #9aa7b4;
+  --text-faint: #6e7d8c;
+
+  --up: #26a69a;
+  --up-soft: rgba(38, 166, 154, 0.15);
+  --down: #ef5350;
+  --down-soft: rgba(239, 83, 80, 0.15);
+  --neutral: #d29922;
+  --neutral-soft: rgba(210, 153, 34, 0.15);
+  --accent: #4c8dff;
+  --accent-soft: rgba(76, 141, 255, 0.15);
+
+  /* Phase 5 (owner: 「日夜mode」): surfaces, states and readable "tone" text.
+     The dark values reproduce the original look exactly — every value below
+     replaces a hard-coded colour that used to live further down this file — so
+     a light theme only has to override tokens, never components. */
+  --well: #0b0f14; /* recessed: text inputs, chart wells */
+  --hover: #232b38; /* button/row hover background */
+  --hover-border: #3a4553;
+  --row-hover: #1b2330;
+  --chip-bg: #202733;
+  --elev-3: #232a34;
+  --accent-text: #cfe0ff; /* text sitting on an accent-tinted surface */
+  --up-text: #6ee7db;
+  --down-text: #ff9a97;
+  --neutral-text: #ffd479;
+  --up-text-soft: #9fe3da;
+  --down-text-soft: #ffb9b7;
+  --neutral-text-soft: #e8c877;
+  --overlay: rgba(13, 17, 23, 0.82);
+  --overlay-soft: rgba(13, 17, 23, 0.72);
+  --scrim: rgba(0, 0, 0, 0.55);
+  --shade-1: rgba(255, 255, 255, 0.02);
+  --shade-2: rgba(255, 255, 255, 0.03);
+  --shade-3: rgba(255, 255, 255, 0.04);
+  --shade-4: rgba(255, 255, 255, 0.045);
+  --inset-shadow: rgba(0, 0, 0, 0.35);
+
+  /* Tinted borders/fills around the four semantic colours. Dev time: these were
+     literal `rgba()` values scattered through the file, which meant a light
+     theme could not reach them. */
+  --accent-border: rgba(76, 141, 255, 0.5);
+  --accent-border-soft: rgba(76, 141, 255, 0.35);
+  --accent-grad: rgba(76, 141, 255, 0.09);
+  --accent-fill: rgba(76, 141, 255, 0.24);
+  --accent-ring: rgba(76, 141, 255, 0.45);
+  --accent-strong: rgba(76, 141, 255, 0.65);
+  --up-border: rgba(38, 166, 154, 0.5);
+  --down-border: rgba(239, 83, 80, 0.45);
+  --neutral-border: rgba(210, 153, 34, 0.5);
+
+  --sma20: #f5c542;
+  --sma50: #4c8dff;
+  --sma200: #b06bff;
+  --ema12: #26c6da;
+  --ema26: #ff8a65;
+  --bb: #7d8590;
+  --bb-middle: #5c6672;
+  --rsi: #c792ea;
+  --macd: #4c8dff;
+  --macd-signal: #ff8a65;
+  --chart-grid: #222833;
+  --chart-bg: #161b22;
+  --chart-text: #9aa7b4;
+  --chart-axis: #2a313c;
+
+  /* Analyst reference-line palette (target low/mean/high, price, estimate).
+     Phase 5: these were hard-coded in the component; they now theme like the
+     rest of the chart so the light values can clear contrast on white. */
+  --ref-price: #4c8dff;
+  --ref-low: #7d8590;
+  --ref-mean: #26a69a;
+  --ref-high: #7d8590;
+  --ref-estimate: #f5c542;
+
+  --radius: 10px;
+  --radius-sm: 6px;
+  --gap: 12px;
+  --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+    'Noto Sans', 'PingFang HK', 'Microsoft YaHei', sans-serif;
+  --mono: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace;
+}
+
+/*
+ * Light theme (Phase 5). Keyed off `<html data-theme="light">`, which
+ * `src/theme.ts` (and the boot script in index.html) set to the *resolved*
+ * theme. Only tokens change here — no component knows a theme exists.
+ *
+ * The up/down/neutral values are deliberately darker than the dark-theme ones:
+ * #26a69a on white is only ~2.4:1, so the same green would fail WCAG AA for
+ * text. These are chosen to clear 4.5:1 on --bg/--bg-elev while staying
+ * recognisably "green up / red down".
+ */
+[data-theme='light'] {
+  --bg: #f6f8fa;
+  --bg-elev: #ffffff;
+  --bg-elev-2: #eef1f4;
+  --border: #d6dde5;
+  --border-soft: #e4e9ef;
+  --text: #1b232c;
+  --text-dim: #57606a;
+  --text-faint: #6b757e;
+
+  --up: #0f7d72;
+  --up-soft: rgba(15, 125, 114, 0.12);
+  --down: #cf222e;
+  --down-soft: rgba(207, 34, 46, 0.1);
+  --neutral: #8a5a00;
+  --neutral-soft: rgba(138, 90, 0, 0.12);
+  --accent: #1f6feb;
+  --accent-soft: rgba(31, 111, 235, 0.1);
+
+  --well: #ffffff;
+  --hover: #eef1f4;
+  --hover-border: #c2ccd6;
+  --row-hover: #eef1f4;
+  --chip-bg: #eef1f4;
+  --elev-3: #eef1f4;
+  --accent-text: #1f6feb;
+  --up-text: #0f7d72;
+  --down-text: #cf222e;
+  --neutral-text: #8a5a00;
+  --up-text-soft: #0f7d72;
+  --down-text-soft: #cf222e;
+  --neutral-text-soft: #8a5a00;
+  --overlay: rgba(255, 255, 255, 0.85);
+  --overlay-soft: rgba(255, 255, 255, 0.8);
+  --scrim: rgba(0, 0, 0, 0.35);
+  --shade-1: rgba(0, 0, 0, 0.02);
+  --shade-2: rgba(0, 0, 0, 0.03);
+  --shade-3: rgba(0, 0, 0, 0.04);
+  --shade-4: rgba(0, 0, 0, 0.05);
+  --inset-shadow: rgba(0, 0, 0, 0.12);
+
+  --accent-border: rgba(31, 111, 235, 0.5);
+  --accent-border-soft: rgba(31, 111, 235, 0.35);
+  --accent-grad: rgba(31, 111, 235, 0.08);
+  --accent-fill: rgba(31, 111, 235, 0.16);
+  --accent-ring: rgba(31, 111, 235, 0.45);
+  --accent-strong: rgba(31, 111, 235, 0.6);
+  --up-border: rgba(15, 125, 114, 0.5);
+  --down-border: rgba(207, 34, 46, 0.45);
+  --neutral-border: rgba(138, 90, 0, 0.45);
+
+  /* Chart palette: darker lines so they stay legible on white. */
+  --sma20: #b8860b;
+  --sma50: #1f6feb;
+  --sma200: #8250df;
+  --ema12: #0f7d8a;
+  --ema26: #c2410c;
+  --bb: #6b757e;
+  --bb-middle: #57606a;
+  --rsi: #8b5cf6;
+  --macd: #1f6feb;
+  --macd-signal: #c2410c;
+  --chart-grid: #e4e9ef;
+  --chart-bg: #ffffff;
+  --chart-text: #57606a;
+  --chart-axis: #d6dde5;
+
+  /* Light reference lines: darker so each clears 3:1 on white (the dark-theme
+     #26a69a target-mean line was only 2.9985:1). */
+  --ref-price: #1f6feb;
+  --ref-low: #6b757e;
+  --ref-mean: #0f7d72;
+  --ref-high: #6b757e;
+  --ref-estimate: #b8860b;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 14px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  overscroll-behavior-y: none;
+}
+
+button,
+input,
+select {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  background: var(--bg-elev-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 6px 10px;
+  transition: background 0.12s ease, border-color 0.12s ease;
+}
+button:hover:not(:disabled) {
+  background: var(--hover);
+  border-color: var(--hover-border);
+}
+button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+button[aria-pressed='true'],
+button.active {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+  color: var(--accent-text);
+}
+
+input[type='text'],
+input[type='search'] {
+  background: var(--well);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 7px 10px;
+  width: 100%;
+  outline: none;
+}
+input[type='text']:focus,
+input[type='search']:focus {
+  border-color: var(--accent);
+}
+
+a {
+  color: var(--accent);
+}
+a:hover {
+  text-decoration: underline;
+}

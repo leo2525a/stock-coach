@@ -15,8 +15,9 @@
  *  - a collapsed section that still renders its body → fails (§B.3, "簡潔");
  *  - a null figure printed as `0` instead of `—` → fails (§A.3 honesty).
  */
-import { existsSync, readFileSync } from 'node:fs';
+import { existsSync } from 'node:fs';
 import { resolve } from 'node:path';
+import { readStylesheet } from './css-source';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { act } from 'react';
 import { createRoot, type Root } from 'react-dom/client';
@@ -34,7 +35,9 @@ if (!('ResizeObserver' in globalThis)) {
 (globalThis as unknown as { IS_REACT_ACT_ENVIRONMENT: boolean }).IS_REACT_ACT_ENVIRONMENT = true;
 
 const ROOT = resolve(__dirname, '..');
-const CSS = readFileSync(resolve(ROOT, 'src/styles.css'), 'utf8');
+// `src/styles.css` is an entry point that imports the modules in `src/styles/`,
+// so read the resolved graph: the assertions below are about the rules.
+const CSS = readStylesheet(resolve(ROOT, 'src/styles.css'));
 
 let container: HTMLDivElement;
 let root: Root | null = null;

@@ -1,0 +1,200 @@
+/* Button system, chip rows, screen scaffold
+   (split out of src/styles.css — keep one concern per file) */
+
+/* ==================================================================
+   Phase 3 — analyst workspace: design system + panel chrome (§B).
+
+   §B.1 unifies buttons/nav; §B.2 adds subtle motion; §B.3 keeps the
+   screen 簡潔. Every `transition` here is *redundantly* safe: the
+   global `@media (prefers-reduced-motion: reduce)` block above sets
+   `transition: none !important` on `*`, so a reduced-motion user gets
+   no motion even if a rule below forgets to opt out. The component
+   layer also gates the deliberate animations on `usePrefersReducedMotion`.
+   ================================================================== */
+
+/* ---------- Button system (§B.1) ----------
+   One scale for every control: shared radius, padding, focus ring,
+   disabled state and icon/label alignment. Variants hang off a single
+   base so no two buttons can disagree about their geometry. */
+
+.pf-act-btn,
+.pf-screen button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  line-height: 1.2;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: var(--bg-elev-2);
+  color: var(--text);
+  padding: 6px 11px;
+  font-size: 12.5px;
+  font-weight: 500;
+  cursor: pointer;
+  /* The press feedback is a transform, not a colour flash, so it reads the
+     same on the dark theme at any size and never changes layout. */
+  transition:
+    background 0.14s ease,
+    border-color 0.14s ease,
+    color 0.14s ease,
+    transform 0.1s ease,
+    box-shadow 0.14s ease;
+}
+
+/* A single, consistent focus ring — keyboard users get the same affordance
+   on every control in the screen. */
+.pf-screen button:focus-visible,
+.pf-screen input:focus-visible,
+.pf-screen textarea:focus-visible,
+.side-item:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.pf-screen button:hover:not(:disabled) {
+  background: var(--hover);
+  border-color: var(--hover-border);
+  transform: translateY(-1px);
+}
+.pf-screen button:active:not(:disabled) {
+  /* ≤150 ms press feedback (§B.2), and it returns the button to the plane. */
+  transform: translateY(0.5px);
+  box-shadow: inset 0 1px 2px var(--inset-shadow);
+}
+.pf-screen button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Primary: the one affirmative action in a panel. */
+.pf-act-btn.primary,
+.pf-screen button.primary {
+  background: var(--accent-soft);
+  border-color: var(--accent-border);
+  color: var(--accent-text);
+}
+.pf-act-btn.primary:hover:not(:disabled) {
+  background: var(--accent-fill);
+  border-color: var(--accent);
+}
+
+/* On/off toggle (e.g. "on watchlist") — a filled state, not a second click. */
+.pf-act-btn.on {
+  background: var(--up-soft);
+  border-color: var(--up-border);
+  color: var(--up-text-soft);
+}
+
+/* ---------- Segmented chip row (§B.1) ---------- */
+
+.pf-seg {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 2px;
+  padding: 2px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--bg-elev-2);
+  min-width: 0;
+  max-width: 100%;
+}
+.pf-seg button {
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--text-faint);
+  padding: 5px 11px;
+  font-size: 12px;
+  font-weight: 500;
+  min-height: 26px;
+}
+.pf-seg-sm button {
+  padding: 3px 9px;
+  font-size: 11px;
+  min-height: 22px;
+}
+.pf-seg button:hover:not(:disabled) {
+  background: var(--shade-3);
+  border-color: transparent;
+  transform: none;
+}
+.pf-seg button.active {
+  background: var(--accent-soft);
+  color: var(--accent-text);
+  box-shadow: inset 0 0 0 1px var(--accent-ring);
+}
+
+/* ---------- Screen scaffold ---------- */
+
+.pf-screen {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 2px 2px 28px;
+  min-width: 0;
+}
+.pf-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.pf-head-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 20px;
+}
+.pf-title {
+  margin: 0;
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+}
+.pf-subtitle {
+  margin: 14px 0 6px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+.pf-hint {
+  margin: 0;
+  font-size: 11.5px;
+  line-height: 1.5;
+  color: var(--text-faint);
+}
+.pf-muted {
+  color: var(--text-faint);
+}
+.pf-ok {
+  font-size: 11.5px;
+  color: var(--up-text-soft);
+  /* A short fade-in on the courtesy message; no movement, so it cannot
+     push layout around. */
+  animation: pf-fade-in 0.2s ease-out both;
+}
+.pf-empty {
+  margin: 0;
+  padding: 12px 2px;
+  font-size: 12.5px;
+  color: var(--text-faint);
+}
+.pf-load {
+  font-size: 11.5px;
+  color: var(--text-faint);
+}
+.pf-load-error {
+  color: var(--down);
+}
+
+/* The dash: an explicit, muted placeholder so "no data" never reads as "0". */
+.pf-nodata {
+  color: var(--text-faint);
+  font-variant-numeric: tabular-nums;
+  cursor: help;
+}

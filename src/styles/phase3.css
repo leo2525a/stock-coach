@@ -1,0 +1,259 @@
+/* Phase-3 layout refinements and final responsive passes
+   (split out of src/styles.css — keep one concern per file) */
+
+/* ==================================================================
+   §B.1 / §B.2 — sidebar nav & top nav: unified states + the sliding
+   active rail. Applies to Phase 1/2 navigation; additive only.
+   ================================================================== */
+
+.side-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  width: 100%;
+  text-align: left;
+  padding: 7px 10px;
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--text-dim);
+  font-size: 12.5px;
+  /* Hover is a background tint, never a size change: no layout shift. */
+  transition:
+    background 0.14s ease,
+    color 0.14s ease,
+    border-color 0.14s ease,
+    transform 0.1s ease;
+}
+.side-item:hover {
+  background: var(--shade-4);
+  color: var(--text);
+  border-color: transparent;
+}
+.side-item:active {
+  transform: translateY(0.5px);
+}
+.side-item.active {
+  background: var(--accent-soft);
+  border-color: var(--accent-ring);
+  color: var(--accent-text);
+  font-weight: 600;
+}
+.side-item .side-icon {
+  transition: color 0.14s ease, transform 0.14s ease;
+}
+.side-item:hover .side-icon {
+  transform: translateX(1px);
+}
+.side-item.active .side-icon {
+  color: var(--accent);
+}
+/* The active rail: a real element that scales in, so the active state is
+   unmistakable (§B.1) without a box-shadow that could not animate. */
+.side-rail {
+  position: absolute;
+  left: 2px;
+  top: 50%;
+  width: 3px;
+  height: 0;
+  border-radius: 2px;
+  background: var(--accent);
+  transform: translateY(-50%);
+  transition: height 0.18s ease-out, opacity 0.18s ease-out;
+  opacity: 0;
+}
+.side-item.active .side-rail {
+  height: 18px;
+  opacity: 1;
+}
+
+/* ---------- Phase 3 responsive (§B.3, §D.2: no overflow at 390/834/1600) ---------- */
+
+@media (max-width: 900px) {
+  .pf-overview {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .pf-overview-price {
+    justify-content: flex-start;
+  }
+  .pf-recap {
+    grid-template-columns: repeat(auto-fit, minmax(104px, 1fr));
+  }
+  .pf-metrics {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .pf-recap {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .pf-recap-actions {
+    grid-column: 1 / -1;
+  }
+  /* A ten-option span control cannot fit a phone width on one line; let it
+     wrap and square off the pill so the two rows read as one control. */
+  .pf-seg {
+    border-radius: var(--radius-sm);
+    justify-content: center;
+  }
+  .pf-seg button {
+    border-radius: var(--radius-sm);
+  }
+  .pf-facts {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .pf-dist-list li {
+    grid-template-columns: 74px minmax(0, 1fr);
+  }
+  .pf-section-actions {
+    display: none;
+  }
+  .pf-title {
+    font-size: 17px;
+  }
+  .pf-overview {
+    padding: 11px;
+  }
+}
+
+/* ==================================================================
+   Phase 4 — dividend workspace (§C). Extends the Phase 3 design
+   system rather than forking it: every control, table and stat below
+   is the *same* component with the same tokens, so the two screens
+   cannot drift apart. Only the pieces that are genuinely new to
+   dividends — the payments/yield plot and the "computed" tag — are
+   defined here, and both stay inside the 400 ms motion budget.
+   ================================================================== */
+
+/* A yield, a payout ratio and a price are *levels*: they have no direction, so
+   they are never coloured. This class is the quiet tone for a missing one. */
+.div-val-absent {
+  color: var(--text-faint);
+  cursor: help;
+}
+
+/* The "computed" marker — our arithmetic, said out loud (§A.3, §D.5). */
+.div-tag {
+  display: inline-block;
+  margin-left: 5px;
+  padding: 0 5px;
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-sm);
+  background: var(--shade-2);
+  color: var(--text-faint);
+  font-size: 9.5px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.div-figure {
+  cursor: help;
+}
+.div-basis {
+  color: var(--text-faint);
+  font-size: 11px;
+  white-space: nowrap;
+}
+.div-val {
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.div-val-absent {
+  color: var(--text-faint);
+  font-variant-numeric: tabular-nums;
+  cursor: help;
+}
+
+/* The §C.4 plot: bars for payments, a line for yield, one shared price scale
+   so the two magnitudes cannot be visually conflated. */
+.div-chart-wrap {
+  margin-top: 10px;
+}
+.div-chart-empty {
+  display: none;
+}
+.div-legend-bar::before {
+  background: var(--accent-strong);
+}
+.div-legend-line::before {
+  background: var(--accent);
+  height: 2px;
+}
+
+/* The nine-column schedule is wider than a phone by nature; it scrolls inside
+   its own wrapper so the *page* never gains a horizontal scrollbar (§D.2). */
+.div-screen .pf-table-wrap {
+  overflow-x: auto;
+}
+.div-screen .pf-table th,
+.div-screen .pf-table td {
+  white-space: nowrap;
+}
+
+@media (max-width: 900px) {
+  .div-screen .pf-table td,
+  .div-screen .pf-table th {
+    font-size: 11px;
+  }
+}
+
+/* ==================================================================
+   Phase 5 — responsive comfort + theme (owner: 「唔好咁迫」/「日夜 mode」)
+
+   The rules below are additive: nothing here changes the desktop layout,
+   and every colour is a token so both themes stay in step.
+   ================================================================== */
+
+/* Theme toggle button: sits with the other top-bar controls, quiet by default. */
+.theme-toggle {
+  font-size: 15px;
+  padding: 4px 10px;
+}
+.theme-toggle:hover:not(:disabled) {
+  color: var(--accent);
+}
+
+/* Comfortable content rhythm on phones (≤720px). The base .main-col padding
+   is raised in the existing 720px block; here we make sure long panels can
+   breathe and nothing is glued to the viewport edge. */
+@media (max-width: 720px) {
+  .main-col > * {
+    scroll-margin-top: 8px;
+  }
+  .panel {
+    padding: 14px;
+  }
+  .two-col {
+    gap: 14px;
+  }
+}
+
+/* 320px guard: the smallest phone we support (§D.2). Tighter but never
+   overflowing — verified by scripts/evidence-phase5.mjs. */
+@media (max-width: 380px) {
+  .main-col {
+    padding: 12px;
+    gap: 12px;
+  }
+  .panel {
+    padding: 12px;
+  }
+  .symbol-head .sym {
+    font-size: 18px;
+  }
+}
+
+/* Theme transition: when the mode flips, the surface colours ease rather than
+   snap — but only for users who have not asked for reduced motion. */
+@media (prefers-reduced-motion: no-preference) {
+  body {
+    transition:
+      background 0.2s ease,
+      color 0.2s ease;
+  }
+}

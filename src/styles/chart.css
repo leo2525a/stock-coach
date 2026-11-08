@@ -1,0 +1,376 @@
+/* Chart block, signal cards, summary banner, stats grid
+   (split out of src/styles.css — keep one concern per file) */
+
+/* ---------- Chart ---------- */
+
+.chart-shell {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-height: 0;
+}
+/* Owner (50/100): 「上面埋 button 堆埋一堆 … 可以用 scroll 既方法」. The groups
+   are now one horizontally-scrollable row instead of wrapping onto four rows on
+   a phone. Related controls still read as one capsule each (range / interval /
+   overlays / panes), and the row snaps group-to-group so a swipe lands on a
+   boundary. A hairline fade on the trailing edge hints there is more to scroll. */
+.chart-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x proximity;
+  padding-bottom: 4px;
+  scrollbar-width: none;
+  -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 26px), transparent);
+  mask-image: linear-gradient(to right, #000 calc(100% - 26px), transparent);
+}
+.chart-toolbar::-webkit-scrollbar {
+  display: none;
+}
+/* Desktop has the width to show everything, so the row wraps instead of hiding
+   controls behind a fade. (The owner's complaint was a phone showing four rows;
+   a two-row desktop toolbar is not the same problem.) */
+@media (min-width: 1181px) {
+  .chart-toolbar {
+    flex-wrap: wrap;
+    overflow-x: visible;
+    scroll-snap-type: none;
+    -webkit-mask-image: none;
+    mask-image: none;
+    padding-bottom: 0;
+  }
+}
+.toolbar-group {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding: 3px;
+  background: var(--bg-elev);
+  border: 1px solid var(--border-soft);
+  border-radius: 999px;
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+}
+.toolbar-group .lbl {
+  color: var(--text-faint);
+  font-size: 10.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 0 8px 0 11px;
+  white-space: nowrap;
+}
+.toolbar-group button {
+  border: 0;
+  background: transparent;
+  border-radius: 999px;
+  padding: 5px 9px;
+  font-size: 12.5px;
+  transition: background 0.16s ease, color 0.16s ease, transform 0.12s ease;
+}
+.toolbar-group button:hover:not(:disabled) {
+  background: var(--hover);
+  border-color: transparent;
+}
+.toolbar-group button:active:not(:disabled) {
+  transform: scale(0.96);
+}
+.toolbar-group button.active {
+  background: var(--accent-soft);
+  border-color: transparent;
+}
+.toolbar-sep {
+  display: none;
+}
+.tf-btn {
+  min-width: 34px;
+  text-align: center;
+}
+
+.chart-wrap {
+  position: relative;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--bg-elev);
+  flex: 1;
+  min-height: 460px;
+}
+.chart-canvas {
+  position: absolute;
+  inset: 0;
+}
+
+.ohlc-legend {
+  position: absolute;
+  top: 8px;
+  left: 10px;
+  z-index: 5;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  font-family: var(--mono);
+  font-size: 11.5px;
+  background: var(--overlay);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-sm);
+  padding: 5px 8px;
+  pointer-events: none;
+  max-width: calc(100% - 20px);
+}
+.ohlc-legend b {
+  font-weight: 600;
+}
+.ohlc-legend .k {
+  color: var(--text-faint);
+}
+
+.chart-attr {
+  position: absolute;
+  right: 8px;
+  bottom: 6px;
+  z-index: 5;
+  font-family: var(--mono);
+  font-size: 10.5px;
+  color: var(--text-faint);
+  pointer-events: none;
+}
+
+.chart-loading {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: var(--overlay-soft);
+  z-index: 8;
+  color: var(--text-dim);
+  font-size: 13px;
+}
+
+/* ---------- Signal cards ---------- */
+
+.signal-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: var(--gap);
+}
+.signal-card {
+  background: var(--bg-elev);
+  border: 1px solid var(--border);
+  border-left-width: 4px;
+  border-radius: var(--radius);
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.signal-card.bullish {
+  border-left-color: var(--up);
+}
+.signal-card.bearish {
+  border-left-color: var(--down);
+}
+.signal-card.neutral {
+  border-left-color: var(--neutral);
+}
+.signal-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+}
+.signal-label {
+  font-weight: 650;
+  font-size: 14.5px;
+}
+.state-pill {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 3px 8px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+.state-pill.bullish {
+  background: var(--up-soft);
+  color: var(--up-text);
+}
+.state-pill.bearish {
+  background: var(--down-soft);
+  color: var(--down-text);
+}
+.state-pill.neutral {
+  background: var(--neutral-soft);
+  color: var(--neutral-text);
+}
+
+.signal-what,
+.signal-meaning,
+.signal-watch {
+  font-size: 13px;
+  margin: 0;
+}
+.signal-what {
+  color: var(--text-dim);
+}
+.signal-meaning {
+  color: var(--text);
+}
+.signal-watch {
+  color: var(--text-faint);
+  font-size: 12.5px;
+  border-left: 2px solid var(--border);
+  padding-left: 8px;
+}
+.field-label {
+  font-size: 10.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: var(--text-faint);
+  display: block;
+  margin-bottom: 2px;
+}
+
+.strength {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.strength-bar {
+  flex: 1;
+  height: 6px;
+  background: var(--elev-3);
+  border-radius: 999px;
+  overflow: hidden;
+}
+.strength-fill {
+  height: 100%;
+  border-radius: 999px;
+}
+.strength-fill.bullish {
+  background: var(--up);
+}
+.strength-fill.bearish {
+  background: var(--down);
+}
+.strength-fill.neutral {
+  background: var(--neutral);
+}
+.strength-num {
+  font-variant-numeric: tabular-nums;
+  font-size: 12px;
+  color: var(--text-dim);
+  min-width: 62px;
+}
+
+.evidence {
+  background: var(--well);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-sm);
+  padding: 8px 10px;
+  margin: 0;
+  list-style: none;
+}
+.evidence li {
+  font-family: var(--mono);
+  font-size: 11.5px;
+  color: var(--text-dim);
+  padding: 1px 0;
+  word-break: break-word;
+}
+.evidence li::before {
+  content: '› ';
+  color: var(--text-faint);
+}
+
+details.evidence-toggle > summary {
+  cursor: pointer;
+  font-size: 12px;
+  color: var(--text-faint);
+  user-select: none;
+  padding: 2px 0;
+}
+details.evidence-toggle > summary:hover {
+  color: var(--text-dim);
+}
+
+/* ---------- Summary banner ---------- */
+
+.summary-banner {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  padding: 12px 14px;
+  background: var(--bg-elev);
+  border: 1px solid var(--border);
+  border-left-width: 4px;
+  border-radius: var(--radius);
+}
+.summary-banner.bullish {
+  border-left-color: var(--up);
+}
+.summary-banner.bearish {
+  border-left-color: var(--down);
+}
+.summary-banner.neutral {
+  border-left-color: var(--neutral);
+}
+.summary-verdict {
+  font-size: 16px;
+  font-weight: 700;
+}
+.summary-tally {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  font-size: 12.5px;
+  color: var(--text-dim);
+}
+.tally-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+.tally-dot.bullish {
+  background: var(--up);
+}
+.tally-dot.bearish {
+  background: var(--down);
+}
+.tally-dot.neutral {
+  background: var(--neutral);
+}
+
+/* ---------- Stats grid ---------- */
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+}
+.stat {
+  background: var(--bg-elev-2);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-sm);
+  padding: 9px 11px;
+}
+.stat .k {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-faint);
+  display: block;
+}
+.stat .v {
+  font-size: 15.5px;
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+}
