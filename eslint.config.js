@@ -7,6 +7,8 @@ export default tseslint.config(
   {
     ignores: [
       'dist/**',
+      // Native build output (absolute API base + relative asset paths).
+      'dist-native/**',
       'node_modules/**',
       'coverage/**',
       // Xcode derived data written by `npm run ios:build`.

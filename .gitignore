@@ -47,3 +47,4 @@ tmp/
 
 # TypeScript incremental build info
 *.tsbuildinfo
+dist-native/
